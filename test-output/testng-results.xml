@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="3" total="4" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="48007" started-at="2022-01-16T18:34:43 IST" finished-at="2022-01-16T18:35:31 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="48007" started-at="2022-01-16T18:34:43 IST" finished-at="2022-01-16T18:35:31 IST">
+      <class name="com.jobget.testcases.SignUpPageTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.SignUpPageTest@58ea606c]" name="setUp" is-config="true" duration-ms="13221" started-at="2022-01-16T18:34:44 IST" finished-at="2022-01-16T18:34:57 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testSignUpButtonDisabled(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.jobget.testcases.SignUpPageTest@58ea606c]" name="testSignUpButtonDisabled" duration-ms="33929" started-at="2022-01-16T18:34:57 IST" data-provider="getData" finished-at="2022-01-16T18:35:31 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[test123]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[test456]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[akshata@yyy]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[EXCH]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSignUpButtonDisabled -->
+      </class> <!-- com.jobget.testcases.SignUpPageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
