@@ -1,7 +1,6 @@
 package com.jobget.pages;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -42,7 +41,7 @@ public class LoginPage extends TestBase {
 	@FindBy(id = "com.jobget:id/tv_forgot_password")
 	MobileElement forgotPaswordLinkPageTitle;
 	
-	@FindBy(id = "com.jobget:id/et_email_address")
+	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.EditText")
 	MobileElement forgotPaswordEmailAddress;
 	
 	@FindBy(id = "com.jobget:id/tv_send")
@@ -50,6 +49,27 @@ public class LoginPage extends TestBase {
 	
 	@FindBy(id = "com.jobget:id/label_varified_email")
 	MobileElement emailSendVerificationText;
+	
+	@FindBy(id = "com.jobget:id/et_email_address")
+	MobileElement otpField;
+	
+	@FindBy(id = "com.jobget:id/tv_send")
+	MobileElement submitButtonOnEmailVerifiicationPage;
+	
+	@FindBy(id = "com.jobget:id/et_new_password")
+	MobileElement newPassword;
+	
+	@FindBy(id = "com.jobget:id/et_confirm_password")
+	MobileElement confirmPassword;
+	
+	@FindBy(id = "com.jobget:id/btn_reset_password")
+	MobileElement resetButton;
+	
+	@FindBy(id = "com.jobget:id/tvTitle")
+	MobileElement resetPasswordSuccessContent;
+	
+	@FindBy(id = "com.jobget:id/tv_login")
+	MobileElement loginButtonPassreset;
 	
 	@FindBy(id = "com.jobget:id/tv_resend")
 	MobileElement resendVerificationCodeButton;
@@ -83,6 +103,7 @@ public class LoginPage extends TestBase {
 	
 	
 	public LoginPage() {
+		super(null);
 		PageFactory.initElements(new AppiumFieldDecorator(driver),this);
 	}
 
@@ -125,6 +146,14 @@ public class LoginPage extends TestBase {
 		emailAddressField.click();
 		passwordField.click();
 		return emailAddressErrorMessage.getText();
+	}
+	
+	public String validateEmailOnForgotPasswordPage(String emailAddress) {
+		forgotPaswordEmailAddress.click();
+		if (emailAddressErrorMessage.isDisplayed()){
+			return emailAddressErrorMessage.getText();
+		}
+		return null;
 	}
 
 	
@@ -173,6 +202,28 @@ public class LoginPage extends TestBase {
 		return msg;
 	}
 	
+	
+	public void inputOTP(String OTP) {
+		otpField.sendKeys(OTP);
+		submitButtonOnEmailVerifiicationPage.click();
+	}
+	
+	public void resetPassword(String newPasswordValue, String confirmPasswordValue) {
+		newPassword.sendKeys(newPasswordValue);
+		confirmPassword.sendKeys(confirmPasswordValue);
+		resetButton.click();
+	}
+	
+	public String getResetPasswordSuccessContentText() {
+		return resetPasswordSuccessContent.getText();
+	}
+	
+	public void clickOnLoginButtonAfterPassReset() {
+		loginButtonPassreset.click();
+	}
+	
+	
+	
 	public void clickResendVerificationCodeButton() {
 		resendVerificationCodeButton.click();
 	}
@@ -217,9 +268,6 @@ public class LoginPage extends TestBase {
 		return signUpLinkOnLoginPage.isDisplayed();
 	}
 	
-	public void logOut() {
-		
-	}
 	
 	
 	
