@@ -43,55 +43,11 @@ public class Util {
 		ArrayList<String[]> bodyData = CSVHelper.getSheetData(SheetName);
 		return bodyData.iterator();
 	}
-
 	
-
-
-//	public static Iterator<String[]> getData(String sheetName) throws IOException {
-//		final String SHEETNAME = "LoginDetails";
-//		ArrayList<String[]> bodyData = CSVHelper.getSheetData(SHEETNAME);
-//		return bodyData.iterator();
-//	}
-//
-//	private void handleStartupPages(LoginPage loginPage, String Country) {
-//		try {
-//			loginPage.locationPermissionAccess(Config.getProperty("LocationPermissionAccess"));
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		loginPage.selectContacts(Country);
-//	}
-//
-//	private void populateFormFields (LoginPage loginPage, String email, String password ) {
-//		loginPage.setUserName(email);
-//		loginPage.setPassword(password);
-//	}
-//
-//	public void isEmployer(LoginPage loginPage) {
-//		boolean isEmployer = loginPage.isEmployer();
-//		String buttonText = loginPage.getEmployerBtnText();
-//	}
-//
-//
-//	public void testLogin(LoginPage loginPage, String firstName, String lastName, String email, String password, String country) {
-//		loginPage.clickLoginUpBtn();
-//		handleStartupPages(loginPage, country);
-//		if (isEmployer()) {
-//			loginPage.clickEmployerBtn();
-//			populateFormFields(email,password);
-//			loginPage.clickLoginBtnOnLoginPage();
-//			try {
-//				loginPage.locationPermissionAccess(Config.getProperty("LocationPermissionAccess"));
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		String title = loginPage.getJobPostingsPageTitle();
-//		Assert.assertEquals(title, "My Job Postings"
-//				, "Login was not successfull");
-//
-//	}
-
+	public static Iterator<String[]> getLoginSheetData(String SheetName) throws IOException {
+		ArrayList<String[]> bodyData = CSVHelper.getLoginDetailsData(SheetName);
+		return bodyData.iterator();
+	}
 
 
 }

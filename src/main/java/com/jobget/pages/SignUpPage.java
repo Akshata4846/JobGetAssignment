@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.jobget.base.TestBase;
-import com.jobget.util.Util;
+
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -15,7 +15,6 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
  *
  */
 public class SignUpPage extends TestBase {
-	private String countryCodeValue;
 	public static final String s1 ="";
 
 	@FindBy(id=	"com.jobget:id/tvSignUp")
@@ -136,6 +135,7 @@ public class SignUpPage extends TestBase {
 	
 
 	public SignUpPage() {
+		super(null);
 		PageFactory.initElements(new AppiumFieldDecorator(driver),this);
 	}
 

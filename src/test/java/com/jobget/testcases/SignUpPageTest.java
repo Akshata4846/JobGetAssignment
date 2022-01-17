@@ -10,10 +10,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.jobget.helper.CSVHelper;
-import com.jobget.pages.LaunchPage;
 import com.jobget.pages.SignUpPage;
 import com.jobget.util.Config;
-import com.jobget.util.OTPRead;
+import com.jobget.util.MobileOTPValidator;
 import com.jobget.util.Util;
 
 
@@ -21,7 +20,6 @@ import com.jobget.util.Util;
 public class SignUpPageTest {
 	SignUpPage signUpPage;
 
-	private static final String SIGN_UP_AS_EMPLOYER_STRING = "Sign up as an Employer";
 
 	@DataProvider
 	public Iterator<String[]> getData() throws IOException {
@@ -138,7 +136,7 @@ public class SignUpPageTest {
 	}
 
 	public String getOTPFromTwilioNumber() throws IOException {
-		String otpNumber = OTPRead.setOTP();
+		String otpNumber = MobileOTPValidator.setOTP();
 		return otpNumber;
 	}
 

@@ -1,6 +1,5 @@
 package com.jobget.testcases;
 
-import com.jobget.base.TestBase;
 import com.jobget.pages.LaunchPage;
 
 import org.testng.Assert;
@@ -14,7 +13,7 @@ public class LaunchPageTest{
 	
 	@BeforeMethod
 	public void setUp() {
-		launchPage = new LaunchPage();
+		launchPage = new LaunchPage(null);
 	}
 	
 	@Test

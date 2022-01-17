@@ -3,8 +3,6 @@ package com.jobget.util;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.mail.Address;
 import javax.mail.Flags;
@@ -124,7 +122,7 @@ public class EmailOtpValidator {
 				System.out.println("Difference in Minutes b/w present time & Email Recieved time :" + diffMinutes);
 				try {
 					if (message.getSubject().contains(subjectKeyword) && email.equals(fromEmail)
-							&& getText(message).contains(bodySearchText) && diffMinutes <= 300) {
+							&& getText(message).contains(bodySearchText) && diffMinutes <= 3) {
 						String subject = message.getSubject();
 // System.out.println(getText(message));
 						System.out.println("Found message #" + i + ": ");
@@ -171,8 +169,8 @@ public class EmailOtpValidator {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		String userName = "AutomationUser4846";
-		String password = "Petocutechecho";
+		String userName = "automationuser4846";
+		String password = "Test@123!";
 		EmailOtpValidator emailOtpValidator = new EmailOtpValidator();
 		String subjectKeyword = "Forgot Password";
 		String fromEmail = "support@jobget.com";

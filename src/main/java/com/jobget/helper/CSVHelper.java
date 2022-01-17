@@ -29,8 +29,28 @@ public class CSVHelper {
 		String email = utils.getCellData(sheetName, 1, 2);
 		String password = utils.getCellData(sheetName, 1, 3);
 		String country = utils.getCellData(sheetName, 1, 4);
+		String companyName = utils.getCellData(sheetName, 1, 5);
+		String companyWebsite = utils.getCellData(sheetName, 1, 6);
+		String countryCode = utils.getCellData(sheetName, 1, 7);
+		String mobileNumber = utils.getCellData(sheetName, 1, 4);
 		
-		String[] allData = {firstName,lastName,email,password,country};
+		String[] allData = {firstName,lastName,email,password,country,companyName,companyWebsite,countryCode,mobileNumber};
+		data.add(allData);
+		
+		return data;
+	}
+    
+public static ArrayList<String[]> getLoginDetailsData(String sheetName) throws IOException {
+		
+		ArrayList<String[]> data = new ArrayList<String[]>();
+		
+		String csvPath = CSVHelper.getCSV();
+		ExcelUtils utils = new ExcelUtils(csvPath);
+		String emailAddress = utils.getCellData(sheetName, 1, 0);
+		String password = utils.getCellData(sheetName, 1, 1);
+		String country = utils.getCellData(sheetName, 1, 2);
+		
+		String[] allData = {emailAddress,password,country};
 		data.add(allData);
 		
 		return data;

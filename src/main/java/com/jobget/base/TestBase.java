@@ -17,8 +17,16 @@ public class TestBase {
 	public AppiumDriver<MobileElement> driver;
 	Config config = new Config();
 	
-	public TestBase() {
-		initialization();
+	/*
+	 * public TestBase() { this(null); }
+	 */
+	
+	public TestBase (AppiumDriver<MobileElement> driver) {
+		if (driver != null) {
+			this.driver = driver;
+		} else {
+			initialization();
+		}
 	}
 
 
