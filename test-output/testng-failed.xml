@@ -5,7 +5,7 @@
     <classes>
       <class name="com.jobget.testcases.SignUpPageTest">
         <methods>
-          <include name="testSignUpButtonDisabled"/>
+          <include name="testTermsPageRedirectiron"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.jobget.testcases.SignUpPageTest -->

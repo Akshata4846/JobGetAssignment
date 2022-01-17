@@ -1,5 +1,6 @@
 package com.jobget.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -14,21 +15,23 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
  *
  */
 public class SignUpPage extends TestBase {
+	private String countryCodeValue;
+	public static final String s1 ="";
 
 	@FindBy(id=	"com.jobget:id/tvSignUp")
 	public static MobileElement signUpBtn;
 
 	@FindBy(id=	"com.android.permissioncontroller:id/permission_allow_foreground_only_button")
-	MobileElement allowWhileUsingTheAppBtn;
+	public static MobileElement allowWhileUsingTheAppBtn;
 
 	@FindBy(id=	"com.android.permissioncontroller:id/permission_allow_one_time_button")
-	MobileElement allowOnlyThisTimeBtn;
+	public static MobileElement allowOnlyThisTimeBtn;
 
 	@FindBy(id=	"com.android.permissioncontroller:id/permission_deny_button")
-	MobileElement denyBtn;
+	public static MobileElement denyBtn;
 
 	@FindBy(id=	"com.jobget:id/rlEmployer")
-	MobileElement employerSignUpType;
+	public MobileElement employerSignUpType;
 
 	@FindBy(id=	"com.jobget:id/tv_continue")
 	MobileElement signUpTypePageTitle;
@@ -72,6 +75,65 @@ public class SignUpPage extends TestBase {
 
 	@FindBy(id = "com.jobget:id/iv_back")
 	public static MobileElement backBtn;
+	
+	@FindBy(id = "com.jobget:id/et_company_name")
+	MobileElement companyNameField;
+	
+	@FindBy(id = "com.jobget:id/et_company_address")
+	MobileElement companyWebsiteField;
+	
+	@FindBy(id = "com.jobget:id/tv_login")
+	MobileElement continueButtononCompanyWebsitePage;
+	
+	@FindBy(id = "com.jobget:id/et_phone_number")
+	MobileElement phoneNumberField;
+	
+	@FindBy(id = "com.jobget:id/tv_send")
+	MobileElement continueButtonOnMobileNumberPage;
+	
+	@FindBy(id = "com.jobget:id/tv_country_code")
+	MobileElement countryCode;
+	
+	@FindBy(id = "com.jobget:id/et_country_name")
+	MobileElement countryName;
+	
+	
+	@FindBy(id = "com.jobget:id/et_phone_number")
+	MobileElement otpField;
+	
+	@FindBy(id = "com.jobget:id/tv_send")
+	MobileElement finishButton;
+	
+	@FindBy(id = "com.jobget:id/tv_description") 
+	MobileElement successContent;
+	
+	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout")
+	MobileElement successContent1;
+	
+	@FindBy(id = "com.jobget:id/btn_ok")
+	MobileElement okayButton;
+	
+	@FindBy(id = "com.jobget:id/tv_i_am_employer")
+	MobileElement jobSeekerLink;
+	
+	@FindBy(id = "com.jobget:id/tv_title")
+	MobileElement jobSeekerPageTile;
+	
+	@FindBy(id = "com.jobget:id/tv_description")
+	MobileElement alreadyRegisteredUserPopUp;
+	
+	@FindBy(id = "com.jobget:id/btn_ok")
+	MobileElement okBtnOnAlreadyRegisteredUserPopUp;
+	
+	@FindBy(id = "com.jobget:id/tv_title")
+	MobileElement jobPostingsPageTitle;
+	
+	@FindBy(id = "com.jobget:id/tv_terms_condition")
+	MobileElement termsPageLinkFromSignUpPage;
+
+	@FindBy(id = "com.jobget:id/tv_toolbar_title")
+	MobileElement termsPageTitleClickedFromSignUpPage;
+	
 
 	public SignUpPage() {
 		PageFactory.initElements(new AppiumFieldDecorator(driver),this);
@@ -94,7 +156,7 @@ public class SignUpPage extends TestBase {
 		return employerSignUpType.isEnabled();
 	}
 
-	public String getSignUpForEmployerBtnText() {
+	public String getEmployerBtnText() {
 		String btnText = signUpBtn.getText();
 		return btnText;
 	}
@@ -106,13 +168,25 @@ public class SignUpPage extends TestBase {
 	public void setFirstName(String firstName) {
 		firstNameField.sendKeys(firstName);
 	}
+	
+	public boolean isFirstNameFieldDisplayed() {
+		return firstNameField.isDisplayed();
+	}
 
 	public void setlastName(String lastName) {
 		lastNameField.sendKeys(lastName);
 	}
+	
+	public boolean isLastNameFieldDisplayed() {
+		return lastNameField.isDisplayed();
+	}
 
 	public void setEmail(String emailAddress) {
 		emailAddressField.sendKeys(emailAddress);
+	}
+	
+	public boolean isEmailFieldDisplayed() {
+		return emailAddressField.isDisplayed();
 	}
 	
 	public String validateEmail(String emailAddress) {
@@ -123,6 +197,10 @@ public class SignUpPage extends TestBase {
 
 	public void setPassword(String password) {
 		passwordField.sendKeys(password);
+	}
+	
+	public boolean isPasswordFieldDisplayed() {
+		return passwordField.isDisplayed();
 	}
 	
 	public String validatePassword(String emailAddress) {
@@ -153,6 +231,90 @@ public class SignUpPage extends TestBase {
 		contactSearchBox.sendKeys(contact);
 		contactSearchResultSelection.click();
 	}
+	
+	
+	public void clickJobSeekerLink() {
+		jobSeekerLink.click();
+
+	}
+	
+	public String getJobSeekerPageTitle() {
+		return jobSeekerPageTile.getText();
+		
+	}
+	
+	public void setCompanyName(String companyName) {
+		companyNameField.sendKeys(companyName);
+
+	}
+	
+	public void setCompanyWebsite(String compnayWebsite) {
+		companyWebsiteField.sendKeys(compnayWebsite);
+		continueButtononCompanyWebsitePage.click();
+
+	}
+	
+	public String getAlreadyRegisteredEmailPopUpText() {
+		return alreadyRegisteredUserPopUp.getText();
+		
+	}
+	
+	public void clickOkBtnOnAlreadyRegisteredEmailPopUp() {
+		okBtnOnAlreadyRegisteredUserPopUp.click();
+		
+	}
+	
+	public void clickOnPhoneNumberCountryCodeDropDown() {
+		countryCode.click();
+		
+	}
+	
+	public void setCountryName(String CountryName) {
+		countryName.sendKeys(CountryName);
+		
+	}
+	
+	public void selectCountryCode(String countryCode) {
+		/**final String BeforeXpath="\"//android.widget.TextView[@text='\"";
+		final String afterXpath= "\"']\"";
+		final String xpath =  BeforeXpath  + countryCode + afterXpath; **/
+		driver.findElement(By.xpath("//android.widget.TextView[@text='+91']")).click();
+	}
+	
+	public void setPhoneNumber(String phoneNumber) {
+		phoneNumberField.sendKeys(phoneNumber);
+		continueButtonOnMobileNumberPage.click();
+	}
+	
+	public void setOTP(String OTP) {
+		otpField.sendKeys(OTP);
+		finishButton.click();
+	}
+	
+	public String getRegistrationSuccessContent() {
+		return successContent.getText();
+	}
+	
+	public void okayButtonOnSucessfulRegistration() {
+		okayButton.click();
+	}
+	
+	public String getJobPostingsPageTitle() {
+		String title = jobPostingsPageTitle.getText();
+		return title;
+	}
+	
+	public void clickOnTermsLinkFromSignUpPage() {
+		termsPageLinkFromSignUpPage.click();
+	}
+	
+	public String getTermsPageTitle() {
+		String title = termsPageTitleClickedFromSignUpPage.getText();
+		return title;
+	}
+	
+	
+	
 
 
 

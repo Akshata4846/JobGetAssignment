@@ -13,35 +13,28 @@ import com.jobget.helper.CSVHelper;
 import com.jobget.pages.LaunchPage;
 import com.jobget.pages.SignUpPage;
 import com.jobget.util.Config;
+import com.jobget.util.OTPRead;
+import com.jobget.util.Util;
 
 
 
 public class SignUpPageTest {
 	SignUpPage signUpPage;
-	
+
 	private static final String SIGN_UP_AS_EMPLOYER_STRING = "Sign up as an Employer";
-	
+
 	@DataProvider
 	public Iterator<String[]> getData() throws IOException {
 		final String SHEETNAME = "EmployerDetails";
 		ArrayList<String[]> bodyData = CSVHelper.getSheetData(SHEETNAME);
 		return bodyData.iterator();
 	}
-	
+
 	@BeforeMethod
 	public void setUp() {
 		signUpPage = new SignUpPage();
 	}
-	
-	private void handleStartupPages() {
-		try {
-			signUpPage.locationPermissionAccess(Config.getProperty("LocationPermissionAccess"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		signUpPage.selectContacts("India");
-	}
-	
+
 	private void populateFormFields (String firstName
 			, String lastName, String email, String password ) {
 		signUpPage.setFirstName(firstName);
@@ -49,92 +42,274 @@ public class SignUpPageTest {
 		signUpPage.setEmail(email);
 		signUpPage.setPassword(password);
 	}
-	
-	//@Test(priority = 1, dataProvider = "getData")
-	public void testEmployerSignUp(String firstName, String lastName, String email, String password) {
-		signUpPage.clickSignUpBtn();
-		handleStartupPages();
+
+
+	/**
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param password
+	 * @param country
+	 * This test case is used to validate the presence of mandatory elements on Sign Up page
+	 */
+	@Test(priority = 1, dataProvider = "getData")
+	public void testElementsPresentOnPage(String firstName, String lastName, String email, String password, String country) { boolean result;
+	signUpPage.clickSignUpBtn();
+	Util.handleStartupPages(signUpPage, country);
+	if (Util.isEmployerSignUp(signUpPage)) {
 		String pageTitle = signUpPage.getSignUpTypePageTitle();
 		Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
-		boolean  isEmployer = signUpPage.isEmployer();
-		Assert.assertTrue(isEmployer, "Expected selected type was employer but it is not");
-		String buttonText = signUpPage.getSignUpForEmployerBtnText();
-		Assert.assertEquals(buttonText, "Sign up as an Employer"
-				, "Expected text on sign up button was \"Sign up as Employer\", but it is not");
-		signUpPage.clickSignUpForEmployerBtn();
-		signUpPage.setFirstName(firstName);
-		signUpPage.setlastName(lastName);
-		signUpPage.setEmail(email);
-		signUpPage.setPassword(password);
-		signUpPage.clickSignUpBtnOnSignUpPage();
-	}
-	
-	@Test (dataProvider = "getData")
-	public void testSignUpButtonDisabled(String firstName, String lastName, String email, String password) {
-		signUpPage.clickSignUpBtn();
-		handleStartupPages();
-		String pageTitle = signUpPage.getSignUpTypePageTitle();
-		Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
-		boolean  isEmployer = signUpPage.isEmployer();
-		Assert.assertTrue(isEmployer, "Expected selected type was employer but it is not");
-		String buttonText = signUpPage.getSignUpForEmployerBtnText();
-		Assert.assertEquals(buttonText, "Sign up as an Employer"
-				, "Expected text on sign up button was \"Sign up as Employer\", but it is not");
-		signUpPage.clickSignUpForEmployerBtn();
-		populateFormFields(firstName, lastName, email, "");
-		boolean isEnabled = signUpPage.isSignUpBtnOnSignUpPageEnabled();
-		Assert.assertFalse(isEnabled, "Sign up button was expected to be disabled since some fields don't have values, but the button is enabled.");
-	}
-	
-	@Test (dataProvider = "getData")
-	public void testSignUpButtonEnabled(String firstName, String lastName, String email, String password) {
-		signUpPage.clickSignUpBtn();
-		handleStartupPages();
-		String pageTitle = signUpPage.getSignUpTypePageTitle();
-		Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
-		boolean  isEmployer = signUpPage.isEmployer();
-		Assert.assertTrue(isEmployer, "Expected selected type was employer but it is not");
-		String buttonText = signUpPage.getSignUpForEmployerBtnText();
-		Assert.assertEquals(buttonText, "Sign up as an Employer"
-				, "Expected text on sign up button was \"Sign up as Employer\", but it is not");
-		signUpPage.clickSignUpForEmployerBtn();
-		populateFormFields(firstName, lastName, email, password);
-		boolean isEnabled = signUpPage.isSignUpBtnOnSignUpPageEnabled();
-		Assert.assertTrue(isEnabled, "Sign up button was expected to be enabled since all fields have values, but the button is disabled.");
-	}
-	
-	@Test (dataProvider = "getData")
-	public void testEmailAddressValidation(String firstName, String lastName, String email, String password) {
-		signUpPage.clickSignUpBtn();
-		handleStartupPages();
-		String pageTitle = signUpPage.getSignUpTypePageTitle();
-		Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
-		boolean  isEmployer = signUpPage.isEmployer();
-		Assert.assertTrue(isEmployer, "Expected selected type was employer but it is not");
-		String buttonText = signUpPage.getSignUpForEmployerBtnText();
-		Assert.assertEquals(buttonText, "Sign up as an Employer"
-				, "Expected text on sign up button was \"Sign up as Employer\", but it is not");
-		signUpPage.clickSignUpForEmployerBtn();
-		populateFormFields(firstName, lastName, email, password);
-		String emailValue = signUpPage.validateEmail(email);
-		Assert.assertEquals(emailValue, "Please enter a valid email address", "Email addresss validation is not working as expected.");
-	}
-	
-	@Test (dataProvider = "getData")
-	public void testPasswordValidation(String firstName, String lastName, String email, String password) {
-		signUpPage.clickSignUpBtn();
-		handleStartupPages();
-		String pageTitle = signUpPage.getSignUpTypePageTitle();
-		Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
-		boolean  isEmployer = signUpPage.isEmployer();
-		Assert.assertTrue(isEmployer, "Expected selected type was employer but it is not");
-		String buttonText = signUpPage.getSignUpForEmployerBtnText();
-		Assert.assertEquals(buttonText, "Sign up as an Employer"
-				, "Expected text on sign up button was \"Sign up as Employer\", but it is not");
-		signUpPage.clickSignUpForEmployerBtn();
-		populateFormFields(firstName, lastName, email, password);
-		String passwordValue = signUpPage.validatePassword(password);
-		Assert.assertEquals(passwordValue, "Password must be atleast 6 characters", "Password must be atleast 6 characters");
+		if (true) {
+			signUpPage.clickSignUpForEmployerBtn();
+			//loginPage.clickEmployerBtn();
+			result = signUpPage.isFirstNameFieldDisplayed();
+			Assert.assertTrue(result, "FisrtName mandatory field on sign up page not present");
+
+			result = signUpPage.isLastNameFieldDisplayed();
+			Assert.assertTrue(result, "Last name mandatory field on sign up page not present");
+
+			result = signUpPage.isEmailFieldDisplayed();
+			Assert.assertTrue(result, "Email mandatory field on sign up page not present");
+
+			result = signUpPage.isPasswordFieldDisplayed();
+			Assert.assertTrue(result, "Password mandatory field on sign up page not present");
+		}
 	}
 
+	}
+
+	/**
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param password
+	 * @param country
+	 * This test case checks if user is redirected to Job Seekers Sign Up page on 
+	 * clicking "Oops, I'm a Job Seeker" from registration page
+	 */
+	@Test(priority = 4, dataProvider = "getData")
+	public void testJobSeekerRedirection(String firstName, String lastName, String email, String password, String country) {
+		String pageTitle;
+		signUpPage.clickSignUpBtn();
+		Util.handleStartupPages(signUpPage, country);
+		if (Util.isEmployerSignUp(signUpPage)) {
+			pageTitle = signUpPage.getSignUpTypePageTitle();
+			Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
+			if (true) {
+				signUpPage.clickSignUpForEmployerBtn();
+				signUpPage.clickJobSeekerLink();
+				pageTitle = signUpPage.getJobSeekerPageTitle();
+				Assert.assertEquals(pageTitle, "Sign Up as a Job Seeker", "JobSeeker Sign Up page not loaded correctly");
+
+			}
+		}
+	}
+
+
+
+	/**
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param password
+	 * @param country
+	 * This test case validates that already registered email address should not be allowed to register again
+	 */
+	@Test(priority = 3, dataProvider = "getData")
+	public void testAlreadyRegisteredEmail(String firstName, String lastName, String email, String password, String country) { String pageTitle;
+	String text;
+	signUpPage.clickSignUpBtn();
+	Util.handleStartupPages(signUpPage, country);
+	if (Util.isEmployerSignUp(signUpPage)) {
+		pageTitle = signUpPage.getSignUpTypePageTitle();
+		Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
+		if (true) {
+			signUpPage.clickSignUpForEmployerBtn();
+			signUpPage.setFirstName(firstName);
+			signUpPage.setlastName(lastName);
+			signUpPage.setEmail(email);
+			signUpPage.setPassword(password);
+			signUpPage.clickSignUpBtnOnSignUpPage();
+			text = signUpPage.getAlreadyRegisteredEmailPopUpText();
+			Assert.assertEquals(text, "This email already exists. Try logging in or resetting your password", "Already existed email allowed to registered again");
+			signUpPage.clickOkBtnOnAlreadyRegisteredEmailPopUp();
+		}
+	}
+	}
+
+	public String getOTPFromTwilioNumber() throws IOException {
+		String otpNumber = OTPRead.setOTP();
+		return otpNumber;
+	}
+
+
+
+	/**
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param password
+	 * @param country
+	 * @throws IOException
+	 * This test case checks a successful registration scenario when all input fields are valid
+	 */
+	@Test(priority = 2, dataProvider = "getData")
+	public void testValidEmployerSignUp(String firstName, String lastName, String email, String password, String country) throws IOException {
+		signUpPage.clickSignUpBtn();
+		Util.handleStartupPages(signUpPage, country);
+		if (Util.isEmployerSignUp(signUpPage)) {
+			String pageTitle = signUpPage.getSignUpTypePageTitle();
+			Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
+			if (true) {
+				signUpPage.clickSignUpForEmployerBtn();
+				signUpPage.setFirstName(firstName);
+				signUpPage.setlastName(lastName);
+				signUpPage.setEmail("test7@abc2.com");
+				signUpPage.setPassword(password);
+				signUpPage.clickSignUpBtnOnSignUpPage();
+				signUpPage.setCompanyName("test");
+				signUpPage.setCompanyWebsite("https://hhh.com");
+				signUpPage.clickOnPhoneNumberCountryCodeDropDown();
+				signUpPage.setCountryName("United States");
+				signUpPage.selectCountryCode("+1+");
+				signUpPage.setPhoneNumber(Config.getProperty("PhoneNumber"));
+				String otp = getOTPFromTwilioNumber();
+				signUpPage.setOTP(otp);
+				String successContent = signUpPage.getRegistrationSuccessContent();
+				Assert.assertEquals(successContent, "You have successfully verified your number.", "Mobile Number verification not working as expected");
+				signUpPage.okayButtonOnSucessfulRegistration();
+				signUpPage.locationPermissionAccess(Config.getProperty("LocationPermissionAccess"));
+				String title = signUpPage.getJobPostingsPageTitle();
+				Assert.assertEquals(title, "My Job Postings"
+						, "New Registration was not successfull");		
+			}
+		}
+	}
+	
+	
+
+	/**
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param password
+	 * @param country
+	 * This method checks if Sign Up button is disabled if all mandatory fields are not provided
+	 */
+	@Test(priority = 5, dataProvider = "getData")
+	public void testSignUpButtonDisabled(String firstName, String lastName, String email, String password, String country) {
+		signUpPage.clickSignUpBtn();
+		Util.handleStartupPages(signUpPage, country);
+		if (Util.isEmployerSignUp(signUpPage)) {
+			String pageTitle = signUpPage.getSignUpTypePageTitle();
+			Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
+			if (true) {
+				signUpPage.clickSignUpForEmployerBtn();
+				populateFormFields(firstName, lastName, email, "");
+				boolean isEnabled = signUpPage.isSignUpBtnOnSignUpPageEnabled();
+				Assert.assertFalse(isEnabled, "Sign up button was expected to be disabled since some fields don't have values, but the button is enabled.");
+			}
+		}
+	}
+
+
+
+	/**
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param password
+	 * @param country
+	 * This method checks if Sign Up button is enabled if all mandatory fields are provided
+	 */
+	@Test(priority = 6, dataProvider = "getData")
+	public void testSignUpButtonEnabled(String firstName, String lastName, String email, String password, String country) {
+		signUpPage.clickSignUpBtn();
+		Util.handleStartupPages(signUpPage, country);
+		if (Util.isEmployerSignUp(signUpPage)) {
+			String pageTitle = signUpPage.getSignUpTypePageTitle();
+			Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
+			if (true) {
+				signUpPage.clickSignUpForEmployerBtn();
+				populateFormFields(firstName, lastName, email, password);
+				boolean isEnabled = signUpPage.isSignUpBtnOnSignUpPageEnabled();
+				Assert.assertTrue(isEnabled, "Sign up button was expected to be enabled since all fields have values, but the button is disabled.");
+			}
+		}
+	}
+
+
+	/**
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param password
+	 * @param country
+	 * This method checks if email validation message is thrown when incorrect email address is used
+	 */
+	@Test(priority = 7, dataProvider = "getData")
+	public void testEmailAddressValidation(String firstName, String lastName, String email, String password, String country) {
+		signUpPage.clickSignUpBtn();
+		Util.handleStartupPages(signUpPage, country);
+		if (Util.isEmployerSignUp(signUpPage)) {
+			String pageTitle = signUpPage.getSignUpTypePageTitle();
+			Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
+			if (true) {
+				signUpPage.clickSignUpForEmployerBtn();
+				populateFormFields(firstName, lastName, email, password);
+				String emailValue = signUpPage.validateEmail(email);
+				Assert.assertEquals(emailValue, "Please enter a valid email address", "Email addresss validation is not working as expected.");
+			}
+		}
+	}
+
+	/**
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param password
+	 * @param country
+	 * This method checks if password validation message is thrown when incorrect password is used
+	 */
+	@Test(priority = 8, dataProvider = "getData")
+	public void testPasswordValidation(String firstName, String lastName, String email, String password, String country) {
+		signUpPage.clickSignUpBtn();
+		Util.handleStartupPages(signUpPage, country);
+		if (Util.isEmployerSignUp(signUpPage)) {
+			String pageTitle = signUpPage.getSignUpTypePageTitle();
+			Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
+			if (true) {
+				signUpPage.clickSignUpForEmployerBtn();
+				populateFormFields(firstName, lastName, email, password);
+				String passwordValue = signUpPage.validatePassword(password);
+				Assert.assertEquals(passwordValue, "Password must be atleast 6 characters", "Password must be atleast 6 characters");
+			}
+		}
+
+	}
+	
+	/**
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param password
+	 * @param country
+	 * This method checks if password validation message is thrown when incorrect password is used
+	 */
+	@Test(priority = 9, dataProvider = "getData")
+	public void testTermsPageRedirectiron(String firstName, String lastName, String email, String password, String country) {
+		signUpPage.clickSignUpBtn();
+		Util.handleStartupPages(signUpPage, country);
+		if (Util.isEmployerSignUp(signUpPage)) {
+			String pageTitle = signUpPage.getSignUpTypePageTitle();
+			Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
+			if (true) {
+				signUpPage.clickSignUpForEmployerBtn();
+				signUpPage.clickOnTermsLinkFromSignUpPage();
+				String title = signUpPage.getTermsPageTitle();
+				Assert.assertEquals(title, "Terms & Conditions", "Terms page from sign up not redirected correctly");
+			}
+		}
+
+	}
 }

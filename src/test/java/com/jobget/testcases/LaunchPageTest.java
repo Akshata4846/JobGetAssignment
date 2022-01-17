@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LaunchPageTest{
-	LaunchPage launchPage;
+	static LaunchPage launchPage;
 	
 	
 	@BeforeMethod
@@ -18,7 +18,7 @@ public class LaunchPageTest{
 	}
 	
 	@Test
-	public void logoDisplayedTest() {
+	public static void logoDisplayedTest() {
 		boolean displayed = launchPage.isLogoDisplayed();
 		Assert.assertTrue(displayed, "Jobget logo is not displayed on landing page");
 		System.out.println("logoDisplayedTest -------");

@@ -30,7 +30,7 @@ public class TestBase {
 			dc.setCapability(MobileCapabilityType.PLATFORM_VERSION, Config.getProperty("platformVersion"));
 			dc.setCapability(MobileCapabilityType.UDID, Config.getProperty("UDID"));
 			dc.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
-			dc.setCapability(MobileCapabilityType.APP, "C:\\Users\\AVK2E5744\\Downloads\\app-preproduction-jobget-14-jan.apk");
+			dc.setCapability(MobileCapabilityType.APP, "C:\\Users\\sanat\\Downloads\\app-preproduction-jobget-14-jan.apk");
 			//dc.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + "\\src\\test\\resources\\apps" + Config.getProperty("app"));
 			//System.out.println("apk path" + System.getProperty("user.dir") + "\\src\\test\\resources\\apps" + Config.getProperty("app"));
 			url =  new URL("http://0.0.0.0:4723/wd/hub");
@@ -45,5 +45,21 @@ public class TestBase {
 		}
 		return null;
 
+	}
+	
+	public void locationPermissionAccess(String action) {
+		
+	}
+	
+	public void selectContacts(String contact) {
+		
+	}
+	
+	public boolean isEmployer() {
+		return false;
+	}
+	
+	public String getEmployerBtnText() {
+		return null;
 	}
 }
