@@ -17,20 +17,15 @@ public class TestBase {
 	public AppiumDriver<MobileElement> driver;
 	Config config = new Config();
 	
-	/*
-	 * public TestBase() { this(null); }
-	 */
-	
 	public TestBase (AppiumDriver<MobileElement> driver) {
 		if (driver != null) {
 			this.driver = driver;
 		} else {
-			initialization();
+			initializeApp();
 		}
 	}
 
-
-	public AppiumDriver<MobileElement> initialization()  {
+	public AppiumDriver<MobileElement> initializeApp()  {
 		dc = new DesiredCapabilities();
 		try {
 			dc.setCapability(MobileCapabilityType.DEVICE_NAME, Config.getProperty("deviceName"));
@@ -52,7 +47,6 @@ public class TestBase {
 			e.printStackTrace();
 		}
 		return null;
-
 	}
 	
 	public void locationPermissionAccess(String action) {

@@ -7,17 +7,25 @@ import com.jobget.util.Config;
 import com.jobget.util.ExcelUtils;
 
 public class CSVHelper {
+	public static final String path =  "\\src\\main\\java\\com\\jobget\\testdata\\" ;
 
 	public static String getCSV() {
 		try {
-			String csvPath = System.getProperty("user.dir") + "\\src\\main\\java\\com\\jobget\\testdata\\" + Config.getProperty("CSVName");
+			String csvPath = System.getProperty("user.dir") + path + Config.getProperty("CSVName");
 			return csvPath;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "csv path is empty";
 		}
 	}
-
+    
+	
+	/**
+	 * @param sheetName
+	 * @return
+	 * @throws IOException
+	 * Reads csv file to get all sheet data 
+	 */
 	public static ArrayList<String[]> getSignUpSheetData(String sheetName) throws IOException {
 
 		ArrayList<String[]> data = new ArrayList<String[]>();
@@ -40,6 +48,12 @@ public class CSVHelper {
 		return data;
 	}
 
+	/**
+	 * @param sheetName
+	 * @return
+	 * @throws IOException
+	 * Reads csv file to get all sheet data 
+	 */
 	public static ArrayList<String[]> getLoginDetailsData(String sheetName) throws IOException {
 
 		ArrayList<String[]> data = new ArrayList<String[]>();
@@ -57,6 +71,12 @@ public class CSVHelper {
 	}
 	
 	
+	/**
+	 * @param sheetName
+	 * @param newData
+	 * @throws IOException
+	 * Sets data into csv sheet cell
+	 */
 	public static void setExcelCellData(String sheetName, String newData) throws IOException {
 		
 		String csvPath = CSVHelper.getCSV();

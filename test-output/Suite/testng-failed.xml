@@ -12,15 +12,4 @@
       </class> <!-- com.jobget.testcases.SignUpPageTest -->
     </classes>
   </test> <!-- Sign Up Test(failed) -->
-  <test thread-count="5" verbose="10" name="Login Test(failed)">
-    <classes>
-      <class name="com.jobget.testcases.LoginPageTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="testPasswordResetResendCodeEditAction" invocation-numbers="0"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.jobget.testcases.LoginPageTest -->
-    </classes>
-  </test> <!-- Login Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

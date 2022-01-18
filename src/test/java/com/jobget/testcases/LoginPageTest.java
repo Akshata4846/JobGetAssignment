@@ -4,10 +4,8 @@ import java.io.IOException;
 import java.util.Iterator;
 
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.jobget.helper.CSVHelper;
@@ -219,7 +217,7 @@ public class LoginPageTest {
 			loginPage.clickEmployerBtn();
 			pageTitle = loginPage.getLoginPageTitle();
 			Assert.assertEquals(pageTitle, "Login", "Login page not loaded correctly");
-			populateFormFields("automation9878@automation.com",password);
+			populateFormFields("automation9878@automation.com",password);//Hard coded a non registered email id
 			loginPage.clickLoginBtnOnLoginPage();
 			Util.takeScreenshot(loginPage.driver, new Object() {}
 	        .getClass()

@@ -174,7 +174,6 @@ public class SignUpPageTest {
 	public void testValidEmployerSignUp(String firstName, String lastName, String email, 
 			String password, String country, String companyName, String companyWebsite
 			, String countryCode, String mobileNumber)  throws IOException {
-		email="test3@ab.com";
 		signUpPage.clickSignUpBtn();
 		Util.handleStartupPages(signUpPage, country);
 		if (Util.isEmployerSignUp(signUpPage)) {
@@ -191,7 +190,7 @@ public class SignUpPageTest {
 				signUpPage.setCompanyWebsite("https://" +companyWebsite+ ".com");
 				signUpPage.clickOnPhoneNumberCountryCodeDropDown();
 				signUpPage.setCountryName(country);
-				signUpPage.selectCountryCode("+91");
+				signUpPage.selectCountryCode("+" + countryCode);
 				signUpPage.setPhoneNumber(Config.getProperty("PhoneNumber"));
 				
 				/**I was also trying to use Twilio api to test this case using mock number for OTP automation testing. However I was not able to pass the phone number provided by Twilio in the JobGet app.  

@@ -1,6 +1,5 @@
 package com.jobget.pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
