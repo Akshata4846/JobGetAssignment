@@ -227,7 +227,7 @@ public class SignUpPage extends TestBase {
 		else denyBtn.click();
 	}
 	
-	public void selectContacts(String contact) {
+	public void selectCountry(String contact) {
 		contactSearchBox.sendKeys(contact);
 		contactSearchResultSelection.click();
 	}

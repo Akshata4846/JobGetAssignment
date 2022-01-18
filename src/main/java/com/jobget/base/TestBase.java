@@ -59,7 +59,7 @@ public class TestBase {
 		
 	}
 	
-	public void selectContacts(String contact) {
+	public void selectCountry(String contact) {
 		
 	}
 	

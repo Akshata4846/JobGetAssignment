@@ -134,7 +134,7 @@ public class SignUpPageTest {
 				signUpPage.clickSignUpForEmployerBtn();
 				signUpPage.setFirstName(firstName);
 				signUpPage.setlastName(lastName);
-				signUpPage.setEmail(email);
+				signUpPage.setEmail("test@abc.com"); //hardcoded for already registered user. TODO:handle from csv file
 				signUpPage.setPassword(password);
 				signUpPage.clickSignUpBtnOnSignUpPage();
 				text = signUpPage.getAlreadyRegisteredEmailPopUpText();
@@ -164,6 +164,7 @@ public class SignUpPageTest {
 	public void testValidEmployerSignUp(String firstName, String lastName, String email, 
 			String password, String country, String companyName, String companyWebsite
 			, String countryCode, String mobileNumber)  throws IOException {
+		email="test3@ab.com";
 		signUpPage.clickSignUpBtn();
 		Util.handleStartupPages(signUpPage, country);
 		if (Util.isEmployerSignUp(signUpPage)) {
@@ -179,26 +180,25 @@ public class SignUpPageTest {
 				signUpPage.setCompanyName(companyName);
 				signUpPage.setCompanyWebsite("https://" +companyWebsite+ ".com");
 				signUpPage.clickOnPhoneNumberCountryCodeDropDown();
-				signUpPage.setCountryName("United States");
-				signUpPage.selectCountryCode("+1+");
+				signUpPage.setCountryName(country);
+				signUpPage.selectCountryCode("+91");
 				signUpPage.setPhoneNumber(Config.getProperty("PhoneNumber"));
 				
-				/**Below lines of code are commented as I was not able to pass the phone number to get the OTP. I am using a dummy phone number which can actually receive. 
+				/**I was also trying to use Twilio api to test this case using mock number for OTP automation testing. However I was not able to pass the phone number provided by Twilio in the JobGet app.  
 				 * When I enter this number in the Phone number field I get a popup saying "Please enter a VOIP number". This same number works when I tried registering 
-				 * with this number in jobget app from my actual mobile phone. Also I tried registering with the same number on other portal like amazon and it works. 
-				 * Was not sure why AVD was not taking the same number. The code to input the number, read the OTP and validate registration success has been added in 
-				 * commented section below. However I was not able to actually test the commented section because of the number restriction.
-				 */
+				 * in jobget app from my actual mobile phone. Also I tried registering with the same number on other portal like amazon and it works. 
+				 * Was not sure why AVD was not taking the same number. The code to input the OTP number is available under Util package. However I was not able to actually test the commented section because of the number restriction.
+				 * If I use the password(8579904918) provided to me during the assignment I get a message saying "database error" **/
 				
 //				String otp = getOTPFromTwilioNumber();
-//				signUpPage.setOTP(otp);
+//				signUpPage.setOTP("1234");  //currently hardcoded as twilio generated number is not being accepted on app hence my code for reading OTP automatically is not used here.
 //				String successContent = signUpPage.getRegistrationSuccessContent();
 //				Assert.assertEquals(successContent, "You have successfully verified your number.", "Mobile Number verification not working as expected");
 //				signUpPage.okayButtonOnSucessfulRegistration();
 //				signUpPage.locationPermissionAccess(Config.getProperty("LocationPermissionAccess"));
 //				String title = signUpPage.getJobPostingsPageTitle();
 //				Assert.assertEquals(title, "My Job Postings"
-//						, "New Registration was not successfull");		
+//						, "New Registration was not successful");		
 			}
 
 		}

@@ -3,13 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.jobget.testcases.LoginPageTest">
+      <class name="com.jobget.testcases.LaunchPageTest">
         <methods>
-          <include name="testElementsPresentOnPage" invocation-numbers="0"/>
+          <include name="logoDisplayedTest"/>
           <include name="setUp"/>
-          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.jobget.testcases.LoginPageTest -->
+      </class> <!-- com.jobget.testcases.LaunchPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

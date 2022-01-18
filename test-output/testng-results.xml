@@ -1,21 +1,1231 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="2" total="3" passed="1">
+<testng-results skipped="0" failed="2" ignored="0" total="28" passed="26">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="20356" started-at="2022-01-18T16:11:02 IST" finished-at="2022-01-18T16:11:22 IST">
+  <suite name="Suite" duration-ms="1031507" started-at="2022-01-19T00:31:39 IST" finished-at="2022-01-19T00:48:50 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="20356" started-at="2022-01-18T16:11:02 IST" finished-at="2022-01-18T16:11:22 IST">
+    <test name="Launch Test" duration-ms="56311" started-at="2022-01-19T00:31:39 IST" finished-at="2022-01-19T00:32:35 IST">
       <class name="com.jobget.testcases.LaunchPageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LaunchPageTest@50d0686]" name="setUp" is-config="true" duration-ms="17907" started-at="2022-01-18T16:11:02 IST" finished-at="2022-01-18T16:11:20 IST">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LaunchPageTest@13c27452]" name="setUp" is-config="true" duration-ms="22459" started-at="2022-01-19T00:31:39 IST" finished-at="2022-01-19T00:32:01 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="logoDisplayedTest()[pri:1, instance:com.jobget.testcases.LaunchPageTest@50d0686]" name="logoDisplayedTest" duration-ms="2386" started-at="2022-01-18T16:11:20 IST" finished-at="2022-01-18T16:11:22 IST">
+        <test-method status="PASS" signature="logoDisplayedTest()[pri:1, instance:com.jobget.testcases.LaunchPageTest@13c27452]" name="logoDisplayedTest" duration-ms="1055" started-at="2022-01-19T00:32:01 IST" finished-at="2022-01-19T00:32:02 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logoDisplayedTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LaunchPageTest@13c27452]" name="tearDown" is-config="true" duration-ms="681" started-at="2022-01-19T00:32:02 IST" finished-at="2022-01-19T00:32:03 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LaunchPageTest@13c27452]" name="setUp" is-config="true" duration-ms="11143" started-at="2022-01-19T00:32:03 IST" finished-at="2022-01-19T00:32:14 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="signUpButtonDisplayedTest()[pri:2, instance:com.jobget.testcases.LaunchPageTest@13c27452]" name="signUpButtonDisplayedTest" duration-ms="1504" started-at="2022-01-19T00:32:14 IST" finished-at="2022-01-19T00:32:16 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- signUpButtonDisplayedTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LaunchPageTest@13c27452]" name="tearDown" is-config="true" duration-ms="884" started-at="2022-01-19T00:32:16 IST" finished-at="2022-01-19T00:32:17 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LaunchPageTest@13c27452]" name="setUp" is-config="true" duration-ms="15181" started-at="2022-01-19T00:32:17 IST" finished-at="2022-01-19T00:32:32 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="loginButtonDisplayedTest()[pri:3, instance:com.jobget.testcases.LaunchPageTest@13c27452]" name="loginButtonDisplayedTest" duration-ms="2374" started-at="2022-01-19T00:32:32 IST" finished-at="2022-01-19T00:32:34 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginButtonDisplayedTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LaunchPageTest@13c27452]" name="tearDown" is-config="true" duration-ms="955" started-at="2022-01-19T00:32:34 IST" finished-at="2022-01-19T00:32:35 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
       </class> <!-- com.jobget.testcases.LaunchPageTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Launch Test -->
+    <test name="Sign Up Test" duration-ms="315772" started-at="2022-01-19T00:32:35 IST" finished-at="2022-01-19T00:37:51 IST">
+      <class name="com.jobget.testcases.SignUpPageTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="setUp" is-config="true" duration-ms="15871" started-at="2022-01-19T00:32:37 IST" finished-at="2022-01-19T00:32:53 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testElementsPresentOnPage(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="testElementsPresentOnPage" duration-ms="12479" started-at="2022-01-19T00:32:53 IST" data-provider="getData" finished-at="2022-01-19T00:33:05 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automation]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[user2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[autotestnew@xyz.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[test123456]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[AutomationTesting]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[AutomationUser]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[1.0]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testElementsPresentOnPage -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="tearDown" is-config="true" duration-ms="921" started-at="2022-01-19T00:33:05 IST" finished-at="2022-01-19T00:33:06 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="setUp" is-config="true" duration-ms="13892" started-at="2022-01-19T00:33:06 IST" finished-at="2022-01-19T00:33:20 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="FAIL" signature="testValidEmployerSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="testValidEmployerSignUp" duration-ms="43100" started-at="2022-01-19T00:33:20 IST" data-provider="getData" finished-at="2022-01-19T00:34:03 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automation]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[user2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[autotestnew@xyz.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[test123456]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[AutomationTesting]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[AutomationUser]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[1.0]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Can't locate an element by this strategy: By.id: com.jobget:id/et_company_name]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.id: com.jobget:id/et_company_name
+at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
+at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
+at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.sendKeys(<generated>)
+at com.jobget.pages.SignUpPage.setCompanyName(SignUpPage.java:247)
+at com.jobget.testcases.SignUpPageTest.testValidEmployerSignUp(SignUpPageTest.java:180)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@2bfbffb2 (tried for 1 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:304)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
+at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
+... 32 more
+Caused by: org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-QTT2AQ1K', ip: '192.168.1.35', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_251'
+Driver info: io.appium.java_client.AppiumDriver
+Capabilities {app: C:\Users\sanat\Downloads\ap..., appPackage: com.jobget, databaseEnabled: false, desired: {app: C:\Users\sanat\Downloads\ap..., deviceName: Android SDK built for x86, newCommandTimeout: 60, platformName: android, platformVersion: 10, udid: emulator-5554}, deviceApiLevel: 29, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 440, deviceScreenSize: 1080x2280, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 60, pixelRatio: 2.75, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 135, takesScreenshot: true, udid: emulator-5554, viewportRect: {height: 1842, left: 0, top: 135, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: 453042db-84ad-46ac-aa41-d9bb854b7e4c
+*** Element info: {Using=id, value=com.jobget:id/et_company_name}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:69)
+at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$0(AppiumElementLocator.java:120)
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:172)
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:1)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+... 34 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidEmployerSignUp -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="tearDown" is-config="true" duration-ms="577" started-at="2022-01-19T00:34:03 IST" finished-at="2022-01-19T00:34:04 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="setUp" is-config="true" duration-ms="11383" started-at="2022-01-19T00:34:04 IST" finished-at="2022-01-19T00:34:15 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testAlreadyRegisteredEmail(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="testAlreadyRegisteredEmail" duration-ms="16738" started-at="2022-01-19T00:34:15 IST" data-provider="getData" finished-at="2022-01-19T00:34:32 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automation]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[user2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[autotestnew@xyz.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[test123456]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[AutomationTesting]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[AutomationUser]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[1.0]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAlreadyRegisteredEmail -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="tearDown" is-config="true" duration-ms="1030" started-at="2022-01-19T00:34:32 IST" finished-at="2022-01-19T00:34:33 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="setUp" is-config="true" duration-ms="15769" started-at="2022-01-19T00:34:33 IST" finished-at="2022-01-19T00:34:49 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testJobSeekerRedirection(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="testJobSeekerRedirection" duration-ms="12769" started-at="2022-01-19T00:34:49 IST" data-provider="getData" finished-at="2022-01-19T00:35:02 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automation]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[user2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[autotestnew@xyz.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[test123456]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[AutomationTesting]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[AutomationUser]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[1.0]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testJobSeekerRedirection -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="tearDown" is-config="true" duration-ms="916" started-at="2022-01-19T00:35:02 IST" finished-at="2022-01-19T00:35:03 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="setUp" is-config="true" duration-ms="15223" started-at="2022-01-19T00:35:03 IST" finished-at="2022-01-19T00:35:18 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testSignUpButtonDisabled(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="testSignUpButtonDisabled" duration-ms="15964" started-at="2022-01-19T00:35:18 IST" data-provider="getData" finished-at="2022-01-19T00:35:34 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automation]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[user2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[autotestnew@xyz.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[test123456]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[AutomationTesting]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[AutomationUser]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[1.0]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSignUpButtonDisabled -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="tearDown" is-config="true" duration-ms="981" started-at="2022-01-19T00:35:34 IST" finished-at="2022-01-19T00:35:35 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="setUp" is-config="true" duration-ms="16176" started-at="2022-01-19T00:35:35 IST" finished-at="2022-01-19T00:35:51 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testSignUpButtonEnabled(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:6, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="testSignUpButtonEnabled" duration-ms="16176" started-at="2022-01-19T00:35:51 IST" data-provider="getData" finished-at="2022-01-19T00:36:07 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automation]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[user2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[autotestnew@xyz.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[test123456]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[AutomationTesting]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[AutomationUser]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[1.0]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSignUpButtonEnabled -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="tearDown" is-config="true" duration-ms="1071" started-at="2022-01-19T00:36:07 IST" finished-at="2022-01-19T00:36:09 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="setUp" is-config="true" duration-ms="15950" started-at="2022-01-19T00:36:09 IST" finished-at="2022-01-19T00:36:25 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testEmailAddressValidation(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:7, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="testEmailAddressValidation" duration-ms="17780" started-at="2022-01-19T00:36:25 IST" data-provider="getData" finished-at="2022-01-19T00:36:42 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automation]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[user2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[autotestnew@xyz.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[test123456]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[AutomationTesting]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[AutomationUser]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[1.0]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmailAddressValidation -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="tearDown" is-config="true" duration-ms="991" started-at="2022-01-19T00:36:42 IST" finished-at="2022-01-19T00:36:43 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="setUp" is-config="true" duration-ms="15933" started-at="2022-01-19T00:36:43 IST" finished-at="2022-01-19T00:36:59 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testPasswordValidation(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:8, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="testPasswordValidation" duration-ms="18494" started-at="2022-01-19T00:36:59 IST" data-provider="getData" finished-at="2022-01-19T00:37:18 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automation]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[user2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[autotestnew@xyz.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[test123456]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[AutomationTesting]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[AutomationUser]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[1.0]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPasswordValidation -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="tearDown" is-config="true" duration-ms="1062" started-at="2022-01-19T00:37:18 IST" finished-at="2022-01-19T00:37:19 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="setUp" is-config="true" duration-ms="15759" started-at="2022-01-19T00:37:19 IST" finished-at="2022-01-19T00:37:35 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testTermsPageRedirectiron(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:9, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="testTermsPageRedirectiron" duration-ms="15051" started-at="2022-01-19T00:37:35 IST" data-provider="getData" finished-at="2022-01-19T00:37:50 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automation]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[user2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[autotestnew@xyz.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[test123456]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[AutomationTesting]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[AutomationUser]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[1.0]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testTermsPageRedirectiron -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.SignUpPageTest@710726a3]" name="tearDown" is-config="true" duration-ms="1189" started-at="2022-01-19T00:37:50 IST" finished-at="2022-01-19T00:37:51 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.jobget.testcases.SignUpPageTest -->
+    </test> <!-- Sign Up Test -->
+    <test name="Login Test" duration-ms="545833" started-at="2022-01-19T00:37:51 IST" finished-at="2022-01-19T00:46:57 IST">
+      <class name="com.jobget.testcases.LoginPageTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="setUp" is-config="true" duration-ms="15911" started-at="2022-01-19T00:37:51 IST" finished-at="2022-01-19T00:38:07 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testElementsPresentOnPage(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="testElementsPresentOnPage" duration-ms="14306" started-at="2022-01-19T00:38:07 IST" data-provider="getData" finished-at="2022-01-19T00:38:21 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!478709244]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testElementsPresentOnPage -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="tearDown" is-config="true" duration-ms="967" started-at="2022-01-19T00:38:21 IST" finished-at="2022-01-19T00:38:22 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="setUp" is-config="true" duration-ms="15730" started-at="2022-01-19T00:38:22 IST" finished-at="2022-01-19T00:38:38 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testValidLogin(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="testValidLogin" duration-ms="22505" started-at="2022-01-19T00:38:38 IST" data-provider="getData" finished-at="2022-01-19T00:39:01 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!478709244]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidLogin -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="tearDown" is-config="true" duration-ms="961" started-at="2022-01-19T00:39:01 IST" finished-at="2022-01-19T00:39:02 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="setUp" is-config="true" duration-ms="15669" started-at="2022-01-19T00:39:02 IST" finished-at="2022-01-19T00:39:17 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testNotRegisteredEmailUsedForlogin(java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="testNotRegisteredEmailUsedForlogin" duration-ms="16003" started-at="2022-01-19T00:39:17 IST" data-provider="getData" finished-at="2022-01-19T00:39:33 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!478709244]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNotRegisteredEmailUsedForlogin -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="tearDown" is-config="true" duration-ms="1053" started-at="2022-01-19T00:39:33 IST" finished-at="2022-01-19T00:39:34 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="setUp" is-config="true" duration-ms="16046" started-at="2022-01-19T00:39:34 IST" finished-at="2022-01-19T00:39:50 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testSignUpRedirection(java.lang.String,java.lang.String,java.lang.String)[pri:4, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="testSignUpRedirection" duration-ms="13750" started-at="2022-01-19T00:39:50 IST" data-provider="getData" finished-at="2022-01-19T00:40:04 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!478709244]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSignUpRedirection -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="tearDown" is-config="true" duration-ms="1142" started-at="2022-01-19T00:40:04 IST" finished-at="2022-01-19T00:40:05 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="setUp" is-config="true" duration-ms="15703" started-at="2022-01-19T00:40:05 IST" finished-at="2022-01-19T00:40:21 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testLoginUpButtonEnabled(java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="testLoginUpButtonEnabled" duration-ms="16672" started-at="2022-01-19T00:40:21 IST" data-provider="getData" finished-at="2022-01-19T00:40:38 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!478709244]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLoginUpButtonEnabled -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="tearDown" is-config="true" duration-ms="1137" started-at="2022-01-19T00:40:38 IST" finished-at="2022-01-19T00:40:39 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="setUp" is-config="true" duration-ms="16020" started-at="2022-01-19T00:40:39 IST" finished-at="2022-01-19T00:40:55 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testEmptyUserNameValidiation(java.lang.String,java.lang.String,java.lang.String)[pri:6, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="testEmptyUserNameValidiation" duration-ms="17036" started-at="2022-01-19T00:40:55 IST" data-provider="getData" finished-at="2022-01-19T00:41:12 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!478709244]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmptyUserNameValidiation -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="tearDown" is-config="true" duration-ms="1115" started-at="2022-01-19T00:41:12 IST" finished-at="2022-01-19T00:41:13 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="setUp" is-config="true" duration-ms="16238" started-at="2022-01-19T00:41:13 IST" finished-at="2022-01-19T00:41:29 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testEmptyPasswordValidiation(java.lang.String,java.lang.String,java.lang.String)[pri:7, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="testEmptyPasswordValidiation" duration-ms="16692" started-at="2022-01-19T00:41:29 IST" data-provider="getData" finished-at="2022-01-19T00:41:46 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!478709244]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmptyPasswordValidiation -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="tearDown" is-config="true" duration-ms="1195" started-at="2022-01-19T00:41:46 IST" finished-at="2022-01-19T00:41:47 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="setUp" is-config="true" duration-ms="15622" started-at="2022-01-19T00:41:47 IST" finished-at="2022-01-19T00:42:03 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testInvalidEmailAddressValidation(java.lang.String,java.lang.String,java.lang.String)[pri:8, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="testInvalidEmailAddressValidation" duration-ms="18091" started-at="2022-01-19T00:42:03 IST" data-provider="getData" finished-at="2022-01-19T00:42:21 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!478709244]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidEmailAddressValidation -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="tearDown" is-config="true" duration-ms="998" started-at="2022-01-19T00:42:21 IST" finished-at="2022-01-19T00:42:22 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="setUp" is-config="true" duration-ms="15788" started-at="2022-01-19T00:42:22 IST" finished-at="2022-01-19T00:42:38 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testInvalidPasswordValidation(java.lang.String,java.lang.String,java.lang.String)[pri:9, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="testInvalidPasswordValidation" duration-ms="16613" started-at="2022-01-19T00:42:38 IST" data-provider="getData" finished-at="2022-01-19T00:42:55 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!478709244]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidPasswordValidation -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="tearDown" is-config="true" duration-ms="1108" started-at="2022-01-19T00:42:55 IST" finished-at="2022-01-19T00:42:56 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="setUp" is-config="true" duration-ms="14967" started-at="2022-01-19T00:42:56 IST" finished-at="2022-01-19T00:43:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testLoginButtonDisabled(java.lang.String,java.lang.String,java.lang.String)[pri:10, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="testLoginButtonDisabled" duration-ms="15456" started-at="2022-01-19T00:43:11 IST" data-provider="getData" finished-at="2022-01-19T00:43:26 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!478709244]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLoginButtonDisabled -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="tearDown" is-config="true" duration-ms="880" started-at="2022-01-19T00:43:26 IST" finished-at="2022-01-19T00:43:27 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="setUp" is-config="true" duration-ms="15259" started-at="2022-01-19T00:43:27 IST" finished-at="2022-01-19T00:43:42 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testForgotPasswordRedirection(java.lang.String,java.lang.String,java.lang.String)[pri:11, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="testForgotPasswordRedirection" duration-ms="19116" started-at="2022-01-19T00:43:42 IST" data-provider="getData" finished-at="2022-01-19T00:44:01 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!478709244]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testForgotPasswordRedirection -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="tearDown" is-config="true" duration-ms="1088" started-at="2022-01-19T00:44:01 IST" finished-at="2022-01-19T00:44:02 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="setUp" is-config="true" duration-ms="15742" started-at="2022-01-19T00:44:03 IST" finished-at="2022-01-19T00:44:18 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testForgotPassword(java.lang.String,java.lang.String,java.lang.String)[pri:12, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="testForgotPassword" duration-ms="32805" started-at="2022-01-19T00:44:18 IST" data-provider="getData" finished-at="2022-01-19T00:44:51 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!478709244]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testForgotPassword -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="tearDown" is-config="true" duration-ms="1354" started-at="2022-01-19T00:44:51 IST" finished-at="2022-01-19T00:44:52 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="setUp" is-config="true" duration-ms="15410" started-at="2022-01-19T00:44:53 IST" finished-at="2022-01-19T00:45:08 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="FAIL" signature="testPasswordResetResendCodeEditAction(java.lang.String,java.lang.String,java.lang.String)[pri:13, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="testPasswordResetResendCodeEditAction" duration-ms="59070" started-at="2022-01-19T00:45:08 IST" data-provider="getData" finished-at="2022-01-19T00:46:07 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!809059022]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Can't locate an element by this strategy: By.id: com.jobget:id/et_new_password]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.id: com.jobget:id/et_new_password
+at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
+at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
+at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.sendKeys(<generated>)
+at com.jobget.pages.LoginPage.resetPassword(LoginPage.java:217)
+at com.jobget.testcases.LoginPageTest.resetPassword(LoginPageTest.java:417)
+at com.jobget.testcases.LoginPageTest.testPasswordResetResendCodeEditAction(LoginPageTest.java:475)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@31e22365 (tried for 1 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:304)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
+at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
+... 33 more
+Caused by: org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-QTT2AQ1K', ip: '192.168.1.35', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_251'
+Driver info: io.appium.java_client.AppiumDriver
+Capabilities {app: C:\Users\sanat\Downloads\ap..., appPackage: com.jobget, databaseEnabled: false, desired: {app: C:\Users\sanat\Downloads\ap..., deviceName: Android SDK built for x86, newCommandTimeout: 60, platformName: android, platformVersion: 10, udid: emulator-5554}, deviceApiLevel: 29, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 440, deviceScreenSize: 1080x2280, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 60, pixelRatio: 2.75, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 135, takesScreenshot: true, udid: emulator-5554, viewportRect: {height: 1842, left: 0, top: 135, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: d2b0cff1-e92d-461f-9725-d74dc68c9463
+*** Element info: {Using=id, value=com.jobget:id/et_new_password}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:69)
+at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$0(AppiumElementLocator.java:120)
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:172)
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:1)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+... 35 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPasswordResetResendCodeEditAction -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="tearDown" is-config="true" duration-ms="638" started-at="2022-01-19T00:46:07 IST" finished-at="2022-01-19T00:46:08 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="setUp" is-config="true" duration-ms="11707" started-at="2022-01-19T00:46:08 IST" finished-at="2022-01-19T00:46:19 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testPasswordResetResendCodeYesAction(java.lang.String,java.lang.String,java.lang.String)[pri:14, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="testPasswordResetResendCodeYesAction" duration-ms="36453" started-at="2022-01-19T00:46:19 IST" data-provider="getData" finished-at="2022-01-19T00:46:56 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!809059022]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPasswordResetResendCodeYesAction -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LoginPageTest@4cf4d528]" name="tearDown" is-config="true" duration-ms="989" started-at="2022-01-19T00:46:56 IST" finished-at="2022-01-19T00:46:57 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.jobget.testcases.LoginPageTest -->
+    </test> <!-- Login Test -->
+    <test name="Logout Test" duration-ms="113419" started-at="2022-01-19T00:46:57 IST" finished-at="2022-01-19T00:48:50 IST">
+      <class name="com.jobget.testcases.LogOutPageTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LogOutPageTest@704921a5]" name="setUp" is-config="true" duration-ms="15911" started-at="2022-01-19T00:46:57 IST" finished-at="2022-01-19T00:47:13 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testLogoutConfirmationTrue(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.jobget.testcases.LogOutPageTest@704921a5]" name="testLogoutConfirmationTrue" duration-ms="38926" started-at="2022-01-19T00:47:13 IST" data-provider="getTestData" finished-at="2022-01-19T00:47:52 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!632758954]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogoutConfirmationTrue -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LogOutPageTest@704921a5]" name="tearDown" is-config="true" duration-ms="1020" started-at="2022-01-19T00:47:52 IST" finished-at="2022-01-19T00:47:53 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LogOutPageTest@704921a5]" name="setUp" is-config="true" duration-ms="15361" started-at="2022-01-19T00:47:53 IST" finished-at="2022-01-19T00:48:08 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testLogoutConfirmationFalse(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.jobget.testcases.LogOutPageTest@704921a5]" name="testLogoutConfirmationFalse" duration-ms="41141" started-at="2022-01-19T00:48:08 IST" data-provider="getTestData" finished-at="2022-01-19T00:48:49 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!632758954]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogoutConfirmationFalse -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LogOutPageTest@704921a5]" name="tearDown" is-config="true" duration-ms="962" started-at="2022-01-19T00:48:49 IST" finished-at="2022-01-19T00:48:50 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.jobget.testcases.LogOutPageTest -->
+    </test> <!-- Logout Test -->
+  </suite> <!-- Suite -->
 </testng-results>

@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -29,15 +30,17 @@ public class Util {
 
 	public static long IMPLICIT_WAIT_TIMEOUT = 30;
 	
+	//Handles startup pages in app like location access permission and providing location is deny
 	public static void handleStartupPages(TestBase miscPage, String Country) {
 		try {
 			miscPage.locationPermissionAccess(Config.getProperty("LocationPermissionAccess"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		miscPage.selectContacts(Country);
+		miscPage.selectCountry(Country);
 	}
 	
+	//Checks if user is employer or job seeker on login page
 	public static boolean isEmployerLogin(TestBase miscPage) {
 		boolean isEmployer = miscPage.isEmployer();
 		Assert.assertTrue(isEmployer, "Expected selected type was employer but it is not");
@@ -47,6 +50,7 @@ public class Util {
 		return true;
 	}
 	
+	//Checks if user is employer or job seeker on sign up page
 	public static boolean isEmployerSignUp(TestBase miscPage) {
 		boolean isEmployer = miscPage.isEmployer();
 		Assert.assertTrue(isEmployer, "Expected selected type was employer but it is not");
@@ -56,20 +60,23 @@ public class Util {
 		return true;
 	}
 	
+	//Gets all data from csv sheet for Sign up testcases
 	public static Iterator<String[]> getSignUpSheetData(String SheetName) throws IOException {
 		ArrayList<String[]> bodyData = CSVHelper.getSignUpSheetData(SheetName);
 		return bodyData.iterator();
 	}
 	
+	//Gets all data from csv sheet for login testcases
 	public static Iterator<String[]> getLoginSheetData(String SheetName) throws IOException {
 		ArrayList<String[]> bodyData = CSVHelper.getLoginDetailsData(SheetName);
 		return bodyData.iterator();
 	}
 	
+	//Takes screenshot
 	public static String takeScreenshot(AppiumDriver<MobileElement> driver, String methodName) throws IOException {
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy_hh_mm_ssaa");
-	    String destFile = dateFormat.format(new Date()) + "_" + methodName + ".png";
+	    String destFile = dateFormat.format(new Date()) + ".png";
 		
 		File destFilePath = new File(Config.getProperty("ScreenshotFilePath") + destFile);
 		FileUtils.copyFile(scrFile, destFilePath);
@@ -77,6 +84,7 @@ public class Util {
 
 	}
 	
+	//Reads toastMessage
 	public String readToastMessage(AppiumDriver<MobileElement> driver, String name) throws TesseractException,IOException {
 		String imgName = takeScreenshot(driver,name);
 		String output = null;
@@ -90,12 +98,22 @@ public class Util {
 		
 	}
 	
+	//Gets the current method name
 	public static String getCurrentMethodName() {
 		String nameofCurrMethod = new Object() {}
         .getClass()
         .getEnclosingMethod()
         .getName();
         return nameofCurrMethod;
+	}
+	
+	
+	//Generates random password 
+	public static String generateRandomPassword() {
+		Random random = new Random();
+		int randomNumber = random.nextInt(1111111111);
+		String password = "Auto!" + randomNumber;
+		return password;
 	}
 	
 	

@@ -72,7 +72,19 @@ public class LoginPage extends TestBase {
 	MobileElement loginButtonPassreset;
 	
 	@FindBy(id = "com.jobget:id/tv_resend")
-	MobileElement resendVerificationCodeButton;
+	MobileElement resendCodeLink;
+	
+	@FindBy(id = "com.jobget:id/tv_reset_link")
+	MobileElement resendCodePoPUpText;
+	
+	@FindBy(id = "com.jobget:id/tv_country_code")
+	MobileElement email;
+	
+	@FindBy(id = "com.jobget:id/btn_yes")
+	MobileElement confirmYes;
+	
+	@FindBy(id = "com.jobget:id/btn_edit")
+	MobileElement confirmEdit;
 	
 	@FindBy(id=	"com.android.permissioncontroller:id/permission_allow_foreground_only_button")
 	MobileElement allowWhileUsingTheAppBtn;
@@ -217,8 +229,24 @@ public class LoginPage extends TestBase {
 	
 	
 	
-	public void clickResendVerificationCodeButton() {
-		resendVerificationCodeButton.click();
+	public void clickResendVerificationCodeLink() {
+		resendCodeLink.click();
+	}
+	
+	public String getPopUpTextForResendVerificationCode() {
+		return resendCodePoPUpText.getText();
+	}
+	
+	public String getEmailOnResendCodePopUp() {
+		return email.getText();
+	}
+	
+	public void clickYesOnResendCodePopUp() {
+		confirmYes.click();
+	}
+	
+	public void clickEditOnResendCodePopUp() {
+		confirmEdit.click();
 	}
 	
 	public void locationPermissionAccess(String action) {
@@ -229,7 +257,7 @@ public class LoginPage extends TestBase {
 		else denyBtn.click();
 	}
 	
-	public void selectContacts(String contact) {
+	public void selectCountry(String contact) {
 		contactSearchBox.sendKeys(contact);
 		contactSearchResultSelection.click();
 	}

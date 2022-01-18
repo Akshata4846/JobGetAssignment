@@ -1,6 +1,7 @@
 package com.jobget.util;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -10,6 +11,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelUtils {
 	public static String path;
+	public FileInputStream input = null;
+	public FileOutputStream out = null;
 	private static XSSFWorkbook workBook = null;
 	private static XSSFSheet sheet = null;
 	private static XSSFRow row = null;
@@ -19,9 +22,8 @@ public class ExcelUtils {
 
 	/** Open excel **/
 	public ExcelUtils(String path) throws IOException {
-		FileInputStream input = new FileInputStream(path);
+		input = new FileInputStream(path);
 		workBook = new XSSFWorkbook(input);
-
 	}
 
 	/** Get sheet **/
@@ -117,5 +119,51 @@ public class ExcelUtils {
 
 		}
 	}
+	
+	
+		/**
+		 * @param sheetName
+		 * @param colName
+		 * @param rowNum
+		 * @param data
+		 * @return
+		 * Used for set cell data. Returns true if data is set successfully else false
+		 */
+		public boolean setCellData(String sheetName, int rowNum, int columnNum, String data, String path) {
+			try {
+				sheet = getSheet(sheetName);
+//				input = new FileInputStream(path);
+//				workBook = new XSSFWorkbook(input);
+				
+				if (rowNum <= 0) 
+					return false;
+				
+				if (columnNum < 0)
+					return false;
+
+				//int colNum = -1;
+	
+				//row = sheet.getRow(0);
+				
+				row = sheet.
+						getRow(rowNum);
+				if (row==null)
+					return false;
+
+				cell = row.getCell(columnNum);
+				if (cell == null)
+					return false;
+
+				cell.setCellValue(data);
+				out = new FileOutputStream(path);
+				workBook.write(out);
+				out.close();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				return false;
+			}
+			return true;
+		}
 	
 }
