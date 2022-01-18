@@ -55,16 +55,20 @@ public class LoginPageTest {
 	 * @param password
 	 * @param country
 	 * This test case checks if all mandatory input fields are present on login page
+	 * @throws IOException 
+	 * @throws InterruptedException 
 	 */
 	@Test (priority =1, dataProvider = "getData")
-	public void testElementsPresentOnPage(String email, String password, String country) {
+	public void testElementsPresentOnPage(String email, String password, String country) throws IOException, InterruptedException {
 		boolean result;
 		loginPage.clickLoginUpBtn();
 		Util.handleStartupPages(loginPage, country);
 		if (Util.isEmployerLogin(loginPage)) {
 			loginPage.clickEmployerBtn();
+			Thread.sleep(2000);
+			Util.takeScreenshot(loginPage.driver, "testElementsOnPage");
 			String loginPageTitle = loginPage.getLoginPageTitle();
-			Assert.assertEquals(loginPageTitle, "Login", "Login page not loaded correctly");
+			Assert.assertEquals(loginPageTitle, "ogin", "Login page not loaded correctly");
 			result = loginPage.isUserNameFieldDisplayed();
 			Assert.assertTrue(result, "UserName mandatory field on login page not present");
 

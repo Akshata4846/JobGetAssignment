@@ -3,6 +3,8 @@ package com.jobget.testcases;
 import com.jobget.pages.LaunchPage;
 import com.jobget.util.Util;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -19,9 +21,12 @@ public class LaunchPageTest{
 	
 	/**
 	 * This test case checks if JobGet logo is present on landing page
+	 * @throws IOException 
 	 */
 	@Test (priority=1)
-	public static void logoDisplayedTest() { 
+	public static void logoDisplayedTest() throws IOException {
+		String methodName = Util.getCurrentMethodName();
+		Util.takeScreenshot(launchPage.driver, methodName );
 		boolean displayed = launchPage.isLogoDisplayed();
 		Assert.assertTrue(displayed, "Jobget logo is not displayed on landing page");
 	}

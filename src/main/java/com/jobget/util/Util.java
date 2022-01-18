@@ -69,7 +69,7 @@ public class Util {
 	public static String takeScreenshot(AppiumDriver<MobileElement> driver, String methodName) throws IOException {
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy_hh_mm_ssaa");
-	    String destFile = dateFormat.format(new Date()) + methodName + ".png";
+	    String destFile = dateFormat.format(new Date()) + "_" + methodName + ".png";
 		
 		File destFilePath = new File(Config.getProperty("ScreenshotFilePath") + destFile);
 		FileUtils.copyFile(scrFile, destFilePath);
@@ -88,6 +88,14 @@ public class Util {
 		output = instance.doOCR(imageFile);
 		return output;	
 		
+	}
+	
+	public static String getCurrentMethodName() {
+		String nameofCurrMethod = new Object() {}
+        .getClass()
+        .getEnclosingMethod()
+        .getName();
+        return nameofCurrMethod;
 	}
 	
 	
