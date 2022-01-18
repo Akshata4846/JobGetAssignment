@@ -189,7 +189,7 @@ public class SignUpPage extends TestBase {
 		return emailAddressField.isDisplayed();
 	}
 	
-	public String validateEmail(String emailAddress) {
+	public String validateEmail() {
 		emailAddressField.click();
 		passwordField.click();
 		return emailAddressErrorMessage.getText();
@@ -203,7 +203,7 @@ public class SignUpPage extends TestBase {
 		return passwordField.isDisplayed();
 	}
 	
-	public String validatePassword(String emailAddress) {
+	public String validatePassword() {
 		passwordField.click();
 		emailAddressField.click();
 		return passwordErrorMessage.getText();

@@ -3,6 +3,7 @@ package com.jobget.testcases;
 import java.io.IOException;
 import java.util.Iterator;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -28,6 +29,12 @@ public class SignUpPageTest {
 		signUpPage = new SignUpPage();
 	}
 
+	@AfterMethod
+	public void tearDown() {
+		signUpPage.driver.quit();
+	}
+
+
 	private void populateFormFields (String firstName, String lastName, String email, String password ) {
 		signUpPage.setFirstName(firstName);
 		signUpPage.setlastName(lastName);
@@ -48,28 +55,28 @@ public class SignUpPageTest {
 	public void testElementsPresentOnPage(String firstName, String lastName, String email, 
 			String password, String country, String companyName, String companyWebsite
 			, String countryCode, String mobileNumber) { 
-	boolean result;
-	signUpPage.clickSignUpBtn();
-	Util.handleStartupPages(signUpPage, country);
-	if (Util.isEmployerSignUp(signUpPage)) {
-		String pageTitle = signUpPage.getSignUpTypePageTitle();
-		Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
-		if (true) {
-			signUpPage.clickSignUpForEmployerBtn();
-			//loginPage.clickEmployerBtn();
-			result = signUpPage.isFirstNameFieldDisplayed();
-			Assert.assertTrue(result, "FisrtName mandatory field on sign up page not present");
+		boolean result;
+		signUpPage.clickSignUpBtn();
+		Util.handleStartupPages(signUpPage, country);
+		if (Util.isEmployerSignUp(signUpPage)) {
+			String pageTitle = signUpPage.getSignUpTypePageTitle();
+			Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
+			if (true) {
+				signUpPage.clickSignUpForEmployerBtn();
+				//loginPage.clickEmployerBtn();
+				result = signUpPage.isFirstNameFieldDisplayed();
+				Assert.assertTrue(result, "FisrtName mandatory field on sign up page not present");
 
-			result = signUpPage.isLastNameFieldDisplayed();
-			Assert.assertTrue(result, "Last name mandatory field on sign up page not present");
+				result = signUpPage.isLastNameFieldDisplayed();
+				Assert.assertTrue(result, "Last name mandatory field on sign up page not present");
 
-			result = signUpPage.isEmailFieldDisplayed();
-			Assert.assertTrue(result, "Email mandatory field on sign up page not present");
+				result = signUpPage.isEmailFieldDisplayed();
+				Assert.assertTrue(result, "Email mandatory field on sign up page not present");
 
-			result = signUpPage.isPasswordFieldDisplayed();
-			Assert.assertTrue(result, "Password mandatory field on sign up page not present");
+				result = signUpPage.isPasswordFieldDisplayed();
+				Assert.assertTrue(result, "Password mandatory field on sign up page not present");
+			}
 		}
-	}
 
 	}
 
@@ -117,24 +124,24 @@ public class SignUpPageTest {
 			String password, String country, String companyName, String companyWebsite
 			, String countryCode, String mobileNumber) { 
 		String pageTitle;
-	String text;
-	signUpPage.clickSignUpBtn();
-	Util.handleStartupPages(signUpPage, country);
-	if (Util.isEmployerSignUp(signUpPage)) {
-		pageTitle = signUpPage.getSignUpTypePageTitle();
-		Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
-		if (true) {
-			signUpPage.clickSignUpForEmployerBtn();
-			signUpPage.setFirstName(firstName);
-			signUpPage.setlastName(lastName);
-			signUpPage.setEmail(email);
-			signUpPage.setPassword(password);
-			signUpPage.clickSignUpBtnOnSignUpPage();
-			text = signUpPage.getAlreadyRegisteredEmailPopUpText();
-			Assert.assertEquals(text, "This email already exists. Try logging in or resetting your password", "Already existed email allowed to registered again");
-			signUpPage.clickOkBtnOnAlreadyRegisteredEmailPopUp();
+		String text;
+		signUpPage.clickSignUpBtn();
+		Util.handleStartupPages(signUpPage, country);
+		if (Util.isEmployerSignUp(signUpPage)) {
+			pageTitle = signUpPage.getSignUpTypePageTitle();
+			Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
+			if (true) {
+				signUpPage.clickSignUpForEmployerBtn();
+				signUpPage.setFirstName(firstName);
+				signUpPage.setlastName(lastName);
+				signUpPage.setEmail(email);
+				signUpPage.setPassword(password);
+				signUpPage.clickSignUpBtnOnSignUpPage();
+				text = signUpPage.getAlreadyRegisteredEmailPopUpText();
+				Assert.assertEquals(text, "This email already exists. Try logging in or resetting your password", "Already existed email allowed to registered again");
+				signUpPage.clickOkBtnOnAlreadyRegisteredEmailPopUp();
+			}
 		}
-	}
 	}
 
 	public String getOTPFromTwilioNumber() throws IOException {
@@ -169,26 +176,35 @@ public class SignUpPageTest {
 				signUpPage.setEmail(email);
 				signUpPage.setPassword(password);
 				signUpPage.clickSignUpBtnOnSignUpPage();
-				signUpPage.setCompanyName("test");
-				signUpPage.setCompanyWebsite("https://hhh.com");
-				//signUpPage.clickOnPhoneNumberCountryCodeDropDown();
-				//signUpPage.setCountryName("United States");
-				//signUpPage.selectCountryCode("+1+");
+				signUpPage.setCompanyName(companyName);
+				signUpPage.setCompanyWebsite("https://" +companyWebsite+ ".com");
+				signUpPage.clickOnPhoneNumberCountryCodeDropDown();
+				signUpPage.setCountryName("United States");
+				signUpPage.selectCountryCode("+1+");
 				signUpPage.setPhoneNumber(Config.getProperty("PhoneNumber"));
-				String otp = getOTPFromTwilioNumber();
-				signUpPage.setOTP(otp);
-				String successContent = signUpPage.getRegistrationSuccessContent();
-				Assert.assertEquals(successContent, "You have successfully verified your number.", "Mobile Number verification not working as expected");
-				signUpPage.okayButtonOnSucessfulRegistration();
-				signUpPage.locationPermissionAccess(Config.getProperty("LocationPermissionAccess"));
-				String title = signUpPage.getJobPostingsPageTitle();
-				Assert.assertEquals(title, "My Job Postings"
-						, "New Registration was not successfull");		
+				
+				/**Below lines of code are commented as I was not able to pass the phone number to get the OTP. I am using a dummy phone number which can actually receive. 
+				 * When I enter this number in the Phone number field I get a popup saying "Please enter a VOIP number". This same number works when I tried registering 
+				 * with this number in jobget app from my actual mobile phone. Also I tried registering with the same number on other portal like amazon and it works. 
+				 * Was not sure why AVD was not taking the same number. The code to input the number, read the OTP and validate registration success has been added in 
+				 * commented section below. However I was not able to actually test the commented section because of the number restriction.
+				 */
+				
+//				String otp = getOTPFromTwilioNumber();
+//				signUpPage.setOTP(otp);
+//				String successContent = signUpPage.getRegistrationSuccessContent();
+//				Assert.assertEquals(successContent, "You have successfully verified your number.", "Mobile Number verification not working as expected");
+//				signUpPage.okayButtonOnSucessfulRegistration();
+//				signUpPage.locationPermissionAccess(Config.getProperty("LocationPermissionAccess"));
+//				String title = signUpPage.getJobPostingsPageTitle();
+//				Assert.assertEquals(title, "My Job Postings"
+//						, "New Registration was not successfull");		
 			}
+
 		}
 	}
-	
-	
+
+
 
 	/**
 	 * @param firstName
@@ -264,8 +280,8 @@ public class SignUpPageTest {
 			Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
 			if (true) {
 				signUpPage.clickSignUpForEmployerBtn();
-				populateFormFields(firstName, lastName, email, password);
-				String emailValue = signUpPage.validateEmail(email);
+				populateFormFields(firstName, lastName, "testemail@", password);
+				String emailValue = signUpPage.validateEmail();
 				Assert.assertEquals(emailValue, "Please enter a valid email address", "Email addresss validation is not working as expected.");
 			}
 		}
@@ -290,14 +306,14 @@ public class SignUpPageTest {
 			Assert.assertEquals(pageTitle, "I am looking to...", "SignUp type selection page not loaded correctly");
 			if (true) {
 				signUpPage.clickSignUpForEmployerBtn();
-				populateFormFields(firstName, lastName, email, password);
-				String passwordValue = signUpPage.validatePassword(password);
+				populateFormFields(firstName, lastName, email, "test");
+				String passwordValue = signUpPage.validatePassword();
 				Assert.assertEquals(passwordValue, "Password must be atleast 6 characters", "Password must be atleast 6 characters");
 			}
 		}
 
 	}
-	
+
 	/**
 	 * @param firstName
 	 * @param lastName

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="JobGetSuite">
+  <test thread-count="5" name="JobGetApplicationTestCases">
+    <classes>
+      <class name="com.jobget.testcases.LaunchPageTest"/>
+      <class name="com.jobget.testcases.LoginPageTest"/>
+      <class name="com.jobget.testcases.LogOutPageTest"/>
+      <class name="com.jobget.testcases.SignUpPageTest"/>
+    </classes>
+  </test> 
+</suite>

@@ -14,6 +14,7 @@ public class MobileOTPValidator {
 	public static final String AUTHTOKEN = "ece5581f9c3d4ab4bfe148605277af85";
 
 	// Get OTP from Twilio and pass the value
+	
 	public static String setOTP() throws IOException {
 		//Fetching OTP Number from SMS
 		Twilio.init(ACCOUNTSID, AUTHTOKEN);
@@ -24,7 +25,7 @@ public class MobileOTPValidator {
 	}
  
 
-	//This will fetch OTP send to the registered numbers
+	//This will fetch OTP send to the registered number
 	public static String getMessage(String PhoneNumber ) {
 		return getMessages().filter(m -> m.getDirection().compareTo(Message.Direction.INBOUND) == 0)
 				.filter(m -> m.getTo().equals("+1" +PhoneNumber)).map(Message::getBody).findFirst()

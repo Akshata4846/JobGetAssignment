@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\sanat\AppData\Local\Temp\testng-eclipse-335904701\testng-customsuite.xml</span>
+                    <span>C:\Users\sanat\AppData\Local\Temp\testng-eclipse--188032477\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -104,7 +104,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.jobget.testcases.LoginPageTest" hash-for-method="testForgotPassword(automationuser4846@gmail.com, Test@125!, India)">testForgotPassword(automationuser4846@gmail.com, Test@125!, India)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.jobget.testcases.SignUpPageTest" hash-for-method="testValidEmployerSignUp(automation, user2, testautomation679@gmail.com, test123456, India, AutomationTesting, AutomationUser...)">testValidEmployerSignUp(automation, user2, testautomation679@gmail.com, test123456, India, AutomationTesting, AutomationUser...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -122,21 +122,21 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">com.jobget.testcases.LoginPageTest</span>
+              <span class="class-name">com.jobget.testcases.SignUpPageTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testForgotPassword(automationuser4846@gmail.com, Test@125!, India)">
-                  </a> <!-- testForgotPassword(automationuser4846@gmail.com, Test@125!, India) -->
-                  <span class="method-name">testForgotPassword</span>
-                  <span class="parameters">(automationuser4846@gmail.com, Test@125!, India)</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Can&apos;t locate an element by this strategy: By.id: com.jobget:id/et_new_password
+                  <a name="testValidEmployerSignUp(automation, user2, testautomation679@gmail.com, test123456, India, AutomationTesting, AutomationUser...)">
+                  </a> <!-- testValidEmployerSignUp(automation, user2, testautomation679@gmail.com, test123456, India, AutomationTesting, AutomationUser...) -->
+                  <span class="method-name">testValidEmployerSignUp</span>
+                  <span class="parameters">(automation, user2, testautomation679@gmail.com, test123456, India, AutomationTesting, AutomationUser, 1.0, India)</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Can&apos;t locate an element by this strategy: By.id: com.jobget:id/et_company_name
 	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
 	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
 	at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.sendKeys(&lt;generated&gt;)
-	at com.jobget.pages.LoginPage.resetPassword(LoginPage.java:205)
-	at com.jobget.testcases.LoginPageTest.testForgotPassword(LoginPageTest.java:364)
+	at com.jobget.pages.SignUpPage.setCompanyName(SignUpPage.java:247)
+	at com.jobget.testcases.SignUpPageTest.testValidEmployerSignUp(SignUpPageTest.java:179)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -165,7 +165,7 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@30feffc (tried for 1 second(s) with 500 milliseconds interval)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@33aa93c (tried for 1 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:304)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
 	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
@@ -177,8 +177,8 @@ Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, tim
 System info: host: &apos;LAPTOP-QTT2AQ1K&apos;, ip: &apos;192.168.1.35&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_251&apos;
 Driver info: io.appium.java_client.AppiumDriver
 Capabilities {app: C:\Users\sanat\Downloads\ap..., appPackage: com.jobget, databaseEnabled: false, desired: {app: C:\Users\sanat\Downloads\ap..., deviceName: Android SDK built for x86, newCommandTimeout: 60, platformName: android, platformVersion: 10, udid: emulator-5554}, deviceApiLevel: 29, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 440, deviceScreenSize: 1080x2280, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 60, pixelRatio: 2.75, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 135, takesScreenshot: true, udid: emulator-5554, viewportRect: {height: 1842, left: 0, top: 135, width: 1080}, warnings: {}, webStorageEnabled: false}
-Session ID: e344c194-7197-438b-866c-d637730503fb
-*** Element info: {Using=id, value=com.jobget:id/et_new_password}
+Session ID: 83a849a3-459d-45cf-8227-e3e4d4e66692
+*** Element info: {Using=id, value=com.jobget:id/et_company_name}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -219,7 +219,7 @@ Session ID: e344c194-7197-438b-866c-d637730503fb
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\sanat\AppData\Local\Temp\testng-eclipse-335904701\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\sanat\AppData\Local\Temp\testng-eclipse--188032477\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -228,11 +228,11 @@ Session ID: e344c194-7197-438b-866c-d637730503fb
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test thread-count=&quot;5&quot; verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.jobget.testcases.LoginPageTest&quot;&gt;
+      &lt;class name=&quot;com.jobget.testcases.SignUpPageTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;testForgotPassword&quot;/&gt;
+          &lt;include name=&quot;testValidEmployerSignUp&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- com.jobget.testcases.LoginPageTest --&gt;
+      &lt;/class&gt; &lt;!-- com.jobget.testcases.SignUpPageTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -274,14 +274,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testForgotPassword')
-data.setCell(0, 2, 'com.jobget.testcases.LoginPageTest')
-data.setCell(0, 3, 55396);
+data.setCell(0, 1, 'testValidEmployerSignUp')
+data.setCell(0, 2, 'com.jobget.testcases.SignUpPageTest')
+data.setCell(0, 3, 45870);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 55 seconds</span>
+              <span class="suite-total-time">Total running time: 45 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -296,33 +296,27 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">11 ignored methods</span>
+            <span class="header-content">8 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">com.jobget.testcases.LoginPageTest</span>
+              <span class="ignored-class-name">com.jobget.testcases.SignUpPageTest</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">testInvalidPasswordValidation</span>
-                <br/>
-                <span class="ignored-method-name">testValidLogin</span>
-                <br/>
                 <span class="ignored-method-name">testElementsPresentOnPage</span>
                 <br/>
-                <span class="ignored-method-name">testForgotPasswordRedirection</span>
+                <span class="ignored-method-name">testTermsPageRedirectiron</span>
                 <br/>
-                <span class="ignored-method-name">testInvalidEmailAddressValidation</span>
+                <span class="ignored-method-name">testSignUpButtonDisabled</span>
                 <br/>
-                <span class="ignored-method-name">testEmptyUserNameValidiation</span>
+                <span class="ignored-method-name">testAlreadyRegisteredEmail</span>
                 <br/>
-                <span class="ignored-method-name">testNotRegisteredEmailUsedForlogin</span>
+                <span class="ignored-method-name">testJobSeekerRedirection</span>
                 <br/>
-                <span class="ignored-method-name">testEmptyPasswordValidiation</span>
+                <span class="ignored-method-name">testEmailAddressValidation</span>
                 <br/>
-                <span class="ignored-method-name">testLoginUpButtonEnabled</span>
+                <span class="ignored-method-name">testPasswordValidation</span>
                 <br/>
-                <span class="ignored-method-name">testLoginButtonDisabled</span>
-                <br/>
-                <span class="ignored-method-name">testSignUpRedirection</span>
+                <span class="ignored-method-name">testSignUpButtonEnabled</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -334,7 +328,7 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.jobget.testcases.LoginPageTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.jobget.testcases.SignUpPageTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
@@ -342,12 +336,12 @@ return data;
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">testForgotPassword(automationuser4846@gmail.com, Test@125!, India)</span>
-                <span class="method-start">16529 ms</span>
+                <span class="method-name">testValidEmployerSignUp(automation, user2, testautomation679@gmail.com, test123456, India, AutomationTesting, AutomationUser...)</span>
+                <span class="method-start">12016 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">71936 ms</span>
+                <span class="method-start">57897 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
