@@ -76,7 +76,7 @@ public class Util {
 	public static String takeScreenshot(AppiumDriver<MobileElement> driver, String methodName) throws IOException {
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy_hh_mm_ssaa");
-	    String destFile = dateFormat.format(new Date()) + ".png";
+	    String destFile = dateFormat.format(new Date()) + "_" + methodName + ".png";
 		
 		File destFilePath = new File(Config.getProperty("ScreenshotFilePath") + destFile);
 		FileUtils.copyFile(scrFile, destFilePath);

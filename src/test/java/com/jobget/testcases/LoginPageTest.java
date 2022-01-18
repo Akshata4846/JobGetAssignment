@@ -17,6 +17,8 @@ import com.jobget.util.EmailOtpValidator;
 import com.jobget.util.Util;
 
 import org.testng.Assert;
+import org.testng.ITestContext;
+import org.testng.ITestResult;
 
 //@Listeners(com.jobget.util.Listener.class)
 
@@ -45,7 +47,15 @@ public class LoginPageTest {
 	}
 
 	@AfterMethod
-	public void tearDown() {
+	public void tearDown(ITestResult iTestResult, ITestContext iTestContext) {
+		if (iTestResult.getStatus() == ITestResult.FAILURE) {
+			try {
+				Util.takeScreenshot(loginPage.driver, iTestResult.getName() + "_FAILED");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		loginPage.driver.quit();
 	}
 
