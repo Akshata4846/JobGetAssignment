@@ -38,10 +38,10 @@ public class TestBase {
 			dc.setCapability(MobileCapabilityType.PLATFORM_VERSION, Config.getProperty("platformVersion"));
 			dc.setCapability(MobileCapabilityType.UDID, Config.getProperty("UDID"));
 			dc.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
-			dc.setCapability(MobileCapabilityType.APP, "C:\\Users\\sanat\\Downloads\\app-preproduction-jobget-14-jan.apk");
+			dc.setCapability(MobileCapabilityType.APP, Config.getProperty("appPath")+"preproduction-jobget-14-jan.apk");
 			//dc.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + "\\src\\test\\resources\\apps" + Config.getProperty("app"));
 			//System.out.println("apk path" + System.getProperty("user.dir") + "\\src\\test\\resources\\apps" + Config.getProperty("app"));
-			url =  new URL("http://0.0.0.0:4723/wd/hub");
+			url =  new URL("http://" + Config.getProperty("hostname") + ":" + Config.getProperty("port") + "/wd/hub");
 			driver = new AppiumDriver<MobileElement>(url,dc);
 			driver.manage().timeouts().implicitlyWait(Util.IMPLICIT_WAIT_TIMEOUT, TimeUnit.SECONDS);
 			return driver;
