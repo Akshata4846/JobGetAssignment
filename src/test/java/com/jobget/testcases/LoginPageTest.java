@@ -2,8 +2,12 @@ package com.jobget.testcases;
 
 import java.io.IOException;
 import java.util.Iterator;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import com.jobget.pages.LoginPage;
 import com.jobget.util.Config;
@@ -12,11 +16,14 @@ import com.jobget.util.Util;
 
 import org.testng.Assert;
 
-public class loginPageTest {
+//@Listeners(com.jobget.util.Listener.class)
+
+
+public class LoginPageTest {
 	LoginPage loginPage;
 	private String pageTitle;
 	final String SHEETNAME = "LoginDetails";
-
+	
 
 	@DataProvider
 	public Iterator<String[]> getData() throws IOException {
@@ -34,6 +41,11 @@ public class loginPageTest {
 	public void setUp() {
 		loginPage = new LoginPage();
 	}
+	
+    @AfterMethod
+    public void tearDown() {
+    	loginPage.driver.quit();
+    }
 
 
 	/**
@@ -44,7 +56,7 @@ public class loginPageTest {
 	 * @param country
 	 * This test case checks if all mandatory input fields are present on login page
 	 */
-	@Test(priority =1, dataProvider = "getData")
+	@Test (priority =1, dataProvider = "getData")
 	public void testElementsPresentOnPage(String email, String password, String country) {
 		boolean result;
 		loginPage.clickLoginUpBtn();
@@ -76,20 +88,21 @@ public class loginPageTest {
 	 * @param country
 	 * This test case checks if user is redirected to Forgot password page after clicking
 	 * on Forgot Password link on login page 
+	 * @throws InterruptedException 
 	 */
-	@Test(priority =12, dataProvider = "getData")
-	public void testForgotPasswordRedirection(String email, String password, String country) {
-		String title;
+	@Test (priority =11, dataProvider = "getData")
+	public void testForgotPasswordRedirection(String email, String password, String country) throws InterruptedException {
+		String pageText;
 		loginPage.clickLoginUpBtn();
 		Util.handleStartupPages(loginPage, country);
 		if (Util.isEmployerLogin(loginPage)) {
 			loginPage.clickEmployerBtn();
 			String pageTitle = loginPage.getLoginPageTitle();
 			Assert.assertEquals(pageTitle, "Login", "Login page not loaded correctly");
-
 			loginPage.clickForgotPasswordLink();
-			title = loginPage.getForgotPasswordPageTitle();
-			Assert.assertEquals(title, "Forgot Password ", "Forgot Password page not loaded correctly.");
+			Thread.sleep(5000);
+			pageText = loginPage.getForgotPasswordPageText();
+			Assert.assertEquals(pageText, "Please enter your registered email address. We will send you a verification code to reset your password.", "Forgot Password page not loaded correctly.");
 		}
 	}
 
@@ -102,7 +115,7 @@ public class loginPageTest {
 	 * This test case checks if user is redirected to Employer Sign Up page after clicking
 	 * on Sign Up link on login page  
 	 */
-	@Test(priority =4, dataProvider = "getData")
+	@Test (priority =4, dataProvider = "getData")
 	public void testSignUpRedirection(String email, String password, String country) {
 		loginPage.clickLoginUpBtn();
 		Util.handleStartupPages(loginPage, country);
@@ -125,7 +138,7 @@ public class loginPageTest {
 	 * @param country
 	 * This test case checks if login is successful if user provides all valid values 
 	 */
-	@Test(priority =2, dataProvider = "getData")
+	@Test (priority =2, dataProvider = "getData")
 	public void testValidLogin(String email, String password, String country) {
 		loginPage.clickLoginUpBtn();
 		Util.handleStartupPages(loginPage, country);
@@ -147,6 +160,36 @@ public class loginPageTest {
 
 	}
 
+	
+	/** Currently checking this case by validating if after clicking on login button, the user is still on login page. 
+	 * The ideal way to check is to read the actual error message. However I was not able to find the id of error message using Appium Inspector
+	 */
+	/**
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param password
+	 * @param country
+	 * This test case checks whether login fails if non registered email address is used
+	 */
+	@Test (priority =3, dataProvider = "getData")
+	public void testNotRegisteredEmailUsedForlogin(String email, String password, String country) {
+		loginPage.clickLoginUpBtn();
+		Util.handleStartupPages(loginPage, country);
+		if (Util.isEmployerLogin(loginPage))  {
+			loginPage.clickEmployerBtn();
+			pageTitle = loginPage.getLoginPageTitle();
+			Assert.assertEquals(pageTitle, "Login", "Login page not loaded correctly");
+			populateFormFields("automation9878@automation.com",password);
+			loginPage.clickLoginBtnOnLoginPage();
+			pageTitle = loginPage.getLoginPageTitle();
+			Assert.assertEquals(pageTitle, "Login", "Non Registered Email validation for login is not working as expected.");
+		}
+
+	}
+	
+	
+	
 	/**
 	 * @param firstName
 	 * @param lastName
@@ -155,7 +198,7 @@ public class loginPageTest {
 	 * @param country
 	 * This test case checks if Login button is disabled if all mandatory fields are not provided
 	 */
-	@Test(priority =11, dataProvider = "getData")
+	@Test (priority =10, dataProvider = "getData")
 	public void testLoginButtonDisabled(String email, String password, String country) {
 		loginPage.clickLoginUpBtn();
 		Util.handleStartupPages(loginPage, country);
@@ -173,10 +216,10 @@ public class loginPageTest {
 	 * @param email
 	 * @param password
 	 * @param country
-	 * This test case checks if Login button is enabled if all mandatory fields are not provided
+	 * This test case checks if Login button is enabled if all mandatory fields are provided
 	 */
-	@Test(priority =5, dataProvider = "getData")
-	public void testSignUpButtonEnabled(String firstName, String lastName, String email, String password, String country) {
+	@Test (priority =5, dataProvider = "getData")
+	public void testLoginUpButtonEnabled(String email, String password, String country) {
 		loginPage.clickLoginUpBtn();
 		Util.handleStartupPages(loginPage, country);
 		if (Util.isEmployerLogin(loginPage)) {
@@ -195,7 +238,7 @@ public class loginPageTest {
 	 * @param country
 	 * This test case checks if email validation message is thrown when empty email address is used
 	 */
-	@Test(priority =6, dataProvider = "getData")
+	@Test (priority =6, dataProvider = "getData")
 	public void testEmptyUserNameValidiation(String email, String password, String country) {
 		loginPage.clickLoginUpBtn();
 		Util.handleStartupPages(loginPage, country);
@@ -203,7 +246,7 @@ public class loginPageTest {
 			loginPage.clickEmployerBtn();
 			populateFormFields("",password);
 			String emailValue = loginPage.validateEmail("");
-			Assert.assertEquals(emailValue, "Please enter a valid email address", "Email addresss validation is not working as expected.");
+			Assert.assertEquals(emailValue, "Please enter email an address", "Email addresss validation is not working as expected.");
 
 			boolean isEnabled = loginPage.isLoginButtonOnLoginPageEnabled();
 			Assert.assertFalse(isEnabled, "Login button was expected to be disabled since username field does not have value, but the button is enabled.");
@@ -218,7 +261,7 @@ public class loginPageTest {
 	 * @param country
 	 * This test case checks if password validation message is thrown when empty password is used
 	 */
-	@Test(priority =7, dataProvider = "getData")
+	@Test (priority =7, dataProvider = "getData")
 	public void testEmptyPasswordValidiation(String email, String password, String country) {
 		loginPage.clickLoginUpBtn();
 		Util.handleStartupPages(loginPage, country);
@@ -226,7 +269,7 @@ public class loginPageTest {
 			loginPage.clickEmployerBtn();
 			populateFormFields(email,"");
 			String passwordValue = loginPage.validatePassword("");
-			Assert.assertEquals(passwordValue, "Password must be atleast 6 characters", "Password validation is not working as expected.");
+			Assert.assertEquals(passwordValue, "Please enter password", "Password validation is not working as expected.");
 
 			boolean isEnabled = loginPage.isLoginButtonOnLoginPageEnabled();
 			Assert.assertFalse(isEnabled, "Login button was expected to be disabled since password field does not have value, but the button is enabled.");
@@ -243,7 +286,7 @@ public class loginPageTest {
 	 * @param country
 	 * This test case checks if email validation message is thrown when incorrect email address is used
 	 */
-	@Test(priority =8, dataProvider = "getData")
+	@Test (priority =8, dataProvider = "getData")
 	public void testInvalidEmailAddressValidation(String email, String password, String country) {
 		loginPage.clickLoginUpBtn();
 		Util.handleStartupPages(loginPage, country);
@@ -263,7 +306,7 @@ public class loginPageTest {
 	 * @param country
 	 * This test case checks if password validation message is thrown when invalid password is used
 	 */
-	@Test(priority =9, dataProvider = "getData")
+	@Test (priority =9, dataProvider = "getData")
 	public void testInvalidPasswordValidation(String email, String password, String country) {
 		loginPage.clickLoginUpBtn();
 		Util.handleStartupPages(loginPage, country);
@@ -284,9 +327,10 @@ public class loginPageTest {
 	 * @param country
 	 * This test case checks if user is able to reset password after clicking on Forgot Password link on Login page
 	 * @throws IOException 
+	 * @throws InterruptedException 
 	 */
-	@Test(priority =10, dataProvider = "getData")
-	public void testForgotPassword(String email, String password, String country) throws IOException {
+	@Test (priority =12, dataProvider = "getData")
+	public void testForgotPassword(String email, String password, String country) throws IOException, InterruptedException {
 		String subjectKeyword = "Forgot Password";
 		String emailPassword = Config.getProperty("EmailPassword");
 		String fromEmail = "support@jobget.com";
@@ -303,6 +347,7 @@ public class loginPageTest {
 			//if (text != null)
 			//Assert.assertEquals(text, "Please enter a valid email address", "Email addresss validation is not working as expected.");
 			loginPage.clickSendBtnOnForgotPasswordPage();
+			Thread.sleep(2000);
 			String message = loginPage.getEmailSendVerificationTextforForgotPassword();
 			if (message.contains(email +" to reset your password")) {
 				EmailOtpValidator emailOtpValidator = new EmailOtpValidator();
@@ -327,32 +372,6 @@ public class loginPageTest {
 	}
 
 
-	/** Currently checking this case by validating if after clicking on login button, the user is still on login page. 
-	 * The ideal way to check is to read the actual error message. However I was not able to find the id of error message using Appium Inspector
-	 */
-	/**
-	 * @param firstName
-	 * @param lastName
-	 * @param email
-	 * @param password
-	 * @param country
-	 * This test case checks whether login fails if non registered email address is used
-	 */
-	@Test(priority =3, dataProvider = "getData")
-	public void testNotRegisteredEmailUsedForlogin(String email, String password, String country) {
-		loginPage.clickLoginUpBtn();
-		Util.handleStartupPages(loginPage, country);
-		if (Util.isEmployerLogin(loginPage))  {
-			loginPage.clickEmployerBtn();
-			pageTitle = loginPage.getLoginPageTitle();
-			Assert.assertEquals(pageTitle, "Login", "Login page not loaded correctly");
-			populateFormFields("nbbb@nn.com",password);
-			loginPage.clickLoginBtnOnLoginPage();
-			pageTitle = loginPage.getLoginPageTitle();
-			Assert.assertEquals(pageTitle, "Login", "Non Registered Email validation for login is not working as expected.");
-		}
-
-	}
 
 
 

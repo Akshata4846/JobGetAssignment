@@ -1,15 +1,11 @@
 package com.jobget.testcases;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Iterator;
-
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import com.jobget.helper.CSVHelper;
 import com.jobget.pages.SignUpPage;
 import com.jobget.util.Config;
 import com.jobget.util.MobileOTPValidator;
@@ -19,13 +15,12 @@ import com.jobget.util.Util;
 
 public class SignUpPageTest {
 	SignUpPage signUpPage;
+	final String SHEETNAME = "EmployerDetails";
 
 
 	@DataProvider
 	public Iterator<String[]> getData() throws IOException {
-		final String SHEETNAME = "EmployerDetails";
-		ArrayList<String[]> bodyData = CSVHelper.getSheetData(SHEETNAME);
-		return bodyData.iterator();
+		return Util.getSignUpSheetData(SHEETNAME);
 	}
 
 	@BeforeMethod
@@ -33,8 +28,7 @@ public class SignUpPageTest {
 		signUpPage = new SignUpPage();
 	}
 
-	private void populateFormFields (String firstName
-			, String lastName, String email, String password ) {
+	private void populateFormFields (String firstName, String lastName, String email, String password ) {
 		signUpPage.setFirstName(firstName);
 		signUpPage.setlastName(lastName);
 		signUpPage.setEmail(email);
@@ -51,7 +45,10 @@ public class SignUpPageTest {
 	 * This test case is used to validate the presence of mandatory elements on Sign Up page
 	 */
 	@Test(priority = 1, dataProvider = "getData")
-	public void testElementsPresentOnPage(String firstName, String lastName, String email, String password, String country) { boolean result;
+	public void testElementsPresentOnPage(String firstName, String lastName, String email, 
+			String password, String country, String companyName, String companyWebsite
+			, String countryCode, String mobileNumber) { 
+	boolean result;
 	signUpPage.clickSignUpBtn();
 	Util.handleStartupPages(signUpPage, country);
 	if (Util.isEmployerSignUp(signUpPage)) {
@@ -86,7 +83,9 @@ public class SignUpPageTest {
 	 * clicking "Oops, I'm a Job Seeker" from registration page
 	 */
 	@Test(priority = 4, dataProvider = "getData")
-	public void testJobSeekerRedirection(String firstName, String lastName, String email, String password, String country) {
+	public void testJobSeekerRedirection(String firstName, String lastName, String email, 
+			String password, String country, String companyName, String companyWebsite
+			, String countryCode, String mobileNumber) {
 		String pageTitle;
 		signUpPage.clickSignUpBtn();
 		Util.handleStartupPages(signUpPage, country);
@@ -114,7 +113,10 @@ public class SignUpPageTest {
 	 * This test case validates that already registered email address should not be allowed to register again
 	 */
 	@Test(priority = 3, dataProvider = "getData")
-	public void testAlreadyRegisteredEmail(String firstName, String lastName, String email, String password, String country) { String pageTitle;
+	public void testAlreadyRegisteredEmail(String firstName, String lastName, String email, 
+			String password, String country, String companyName, String companyWebsite
+			, String countryCode, String mobileNumber) { 
+		String pageTitle;
 	String text;
 	signUpPage.clickSignUpBtn();
 	Util.handleStartupPages(signUpPage, country);
@@ -152,7 +154,9 @@ public class SignUpPageTest {
 	 * This test case checks a successful registration scenario when all input fields are valid
 	 */
 	@Test(priority = 2, dataProvider = "getData")
-	public void testValidEmployerSignUp(String firstName, String lastName, String email, String password, String country) throws IOException {
+	public void testValidEmployerSignUp(String firstName, String lastName, String email, 
+			String password, String country, String companyName, String companyWebsite
+			, String countryCode, String mobileNumber)  throws IOException {
 		signUpPage.clickSignUpBtn();
 		Util.handleStartupPages(signUpPage, country);
 		if (Util.isEmployerSignUp(signUpPage)) {
@@ -162,14 +166,14 @@ public class SignUpPageTest {
 				signUpPage.clickSignUpForEmployerBtn();
 				signUpPage.setFirstName(firstName);
 				signUpPage.setlastName(lastName);
-				signUpPage.setEmail("test7@abc2.com");
+				signUpPage.setEmail(email);
 				signUpPage.setPassword(password);
 				signUpPage.clickSignUpBtnOnSignUpPage();
 				signUpPage.setCompanyName("test");
 				signUpPage.setCompanyWebsite("https://hhh.com");
-				signUpPage.clickOnPhoneNumberCountryCodeDropDown();
-				signUpPage.setCountryName("United States");
-				signUpPage.selectCountryCode("+1+");
+				//signUpPage.clickOnPhoneNumberCountryCodeDropDown();
+				//signUpPage.setCountryName("United States");
+				//signUpPage.selectCountryCode("+1+");
 				signUpPage.setPhoneNumber(Config.getProperty("PhoneNumber"));
 				String otp = getOTPFromTwilioNumber();
 				signUpPage.setOTP(otp);
@@ -195,7 +199,9 @@ public class SignUpPageTest {
 	 * This method checks if Sign Up button is disabled if all mandatory fields are not provided
 	 */
 	@Test(priority = 5, dataProvider = "getData")
-	public void testSignUpButtonDisabled(String firstName, String lastName, String email, String password, String country) {
+	public void testSignUpButtonDisabled(String firstName, String lastName, String email, 
+			String password, String country, String companyName, String companyWebsite
+			, String countryCode, String mobileNumber) {
 		signUpPage.clickSignUpBtn();
 		Util.handleStartupPages(signUpPage, country);
 		if (Util.isEmployerSignUp(signUpPage)) {
@@ -221,7 +227,9 @@ public class SignUpPageTest {
 	 * This method checks if Sign Up button is enabled if all mandatory fields are provided
 	 */
 	@Test(priority = 6, dataProvider = "getData")
-	public void testSignUpButtonEnabled(String firstName, String lastName, String email, String password, String country) {
+	public void testSignUpButtonEnabled(String firstName, String lastName, String email, 
+			String password, String country, String companyName, String companyWebsite
+			, String countryCode, String mobileNumber) {
 		signUpPage.clickSignUpBtn();
 		Util.handleStartupPages(signUpPage, country);
 		if (Util.isEmployerSignUp(signUpPage)) {
@@ -246,7 +254,9 @@ public class SignUpPageTest {
 	 * This method checks if email validation message is thrown when incorrect email address is used
 	 */
 	@Test(priority = 7, dataProvider = "getData")
-	public void testEmailAddressValidation(String firstName, String lastName, String email, String password, String country) {
+	public void testEmailAddressValidation(String firstName, String lastName, String email, 
+			String password, String country, String companyName, String companyWebsite
+			, String countryCode, String mobileNumber) {
 		signUpPage.clickSignUpBtn();
 		Util.handleStartupPages(signUpPage, country);
 		if (Util.isEmployerSignUp(signUpPage)) {
@@ -270,7 +280,9 @@ public class SignUpPageTest {
 	 * This method checks if password validation message is thrown when incorrect password is used
 	 */
 	@Test(priority = 8, dataProvider = "getData")
-	public void testPasswordValidation(String firstName, String lastName, String email, String password, String country) {
+	public void testPasswordValidation(String firstName, String lastName, String email, 
+			String password, String country, String companyName, String companyWebsite
+			, String countryCode, String mobileNumber) {
 		signUpPage.clickSignUpBtn();
 		Util.handleStartupPages(signUpPage, country);
 		if (Util.isEmployerSignUp(signUpPage)) {
@@ -295,7 +307,9 @@ public class SignUpPageTest {
 	 * This method checks if password validation message is thrown when incorrect password is used
 	 */
 	@Test(priority = 9, dataProvider = "getData")
-	public void testTermsPageRedirectiron(String firstName, String lastName, String email, String password, String country) {
+	public void testTermsPageRedirectiron(String firstName, String lastName, String email, 
+			String password, String country, String companyName, String companyWebsite
+			, String countryCode, String mobileNumber) {
 		signUpPage.clickSignUpBtn();
 		Util.handleStartupPages(signUpPage, country);
 		if (Util.isEmployerSignUp(signUpPage)) {

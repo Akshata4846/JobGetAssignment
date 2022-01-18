@@ -38,7 +38,7 @@ public class TestBase {
 			dc.setCapability(MobileCapabilityType.PLATFORM_VERSION, Config.getProperty("platformVersion"));
 			dc.setCapability(MobileCapabilityType.UDID, Config.getProperty("UDID"));
 			dc.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
-			dc.setCapability(MobileCapabilityType.APP, Config.getProperty("appPath")+"preproduction-jobget-14-jan.apk");
+			dc.setCapability(MobileCapabilityType.APP, Config.getProperty("appPath") + "app-preproduction-jobget-14-jan.apk");
 			//dc.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + "\\src\\test\\resources\\apps" + Config.getProperty("app"));
 			//System.out.println("apk path" + System.getProperty("user.dir") + "\\src\\test\\resources\\apps" + Config.getProperty("app"));
 			url =  new URL("http://" + Config.getProperty("hostname") + ":" + Config.getProperty("port") + "/wd/hub");

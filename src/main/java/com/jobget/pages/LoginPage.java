@@ -38,7 +38,7 @@ public class LoginPage extends TestBase {
 	@FindBy(id ="com.jobget:id/tv_forgot_password")
 	MobileElement forgotPaswordLink;
 	
-	@FindBy(id = "com.jobget:id/tv_forgot_password")
+	@FindBy(id = "com.jobget:id/label_varified_email")
 	MobileElement forgotPaswordLinkPageTitle;
 	
 	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.EditText")
@@ -177,20 +177,13 @@ public class LoginPage extends TestBase {
 		return forgotPaswordLink.isDisplayed();
 	}
 	
-	public String getForgotPasswordPageTitle() {
+	public String getForgotPasswordPageText() {
 		String title = forgotPaswordLinkPageTitle.getText();
 		return title;
 	}
 	
 	public void setEmailAddressforForgotPassword(String email) {
-		try {
 		forgotPaswordEmailAddress.sendKeys(email);
-		}
-		catch (Exception ex) {
-	        ex.printStackTrace();
-	        JavascriptExecutor js = (JavascriptExecutor) driver;
-	        js.executeScript("arguments[0].click();", forgotPaswordEmailAddress);
-	    }
 	}
 	
 	public void clickSendBtnOnForgotPasswordPage() {
@@ -203,8 +196,8 @@ public class LoginPage extends TestBase {
 	}
 	
 	
-	public void inputOTP(String OTP) {
-		otpField.sendKeys(OTP);
+	public void inputOTP(String otp) {
+		otpField.sendKeys(otp);
 		submitButtonOnEmailVerifiicationPage.click();
 	}
 	

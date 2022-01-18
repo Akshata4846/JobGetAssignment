@@ -1,6 +1,8 @@
 package com.jobget.pages;
 
 import com.jobget.base.TestBase;
+
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import io.appium.java_client.AppiumDriver;
@@ -15,17 +17,32 @@ public class LaunchPage extends TestBase {
 	 */
 	@AndroidFindBy(id = "com.jobget:id/ivLogoJobget")
 	MobileElement logo;
+	
+	@FindBy(id=	"com.jobget:id/tvSignUp")
+    MobileElement signUpBtn;
+	
+	@FindBy(id = "com.jobget:id/tvLogin")
+	MobileElement loginBtn;
 
 	
 	public LaunchPage(AppiumDriver<MobileElement> driver) {
 		super(driver);
-		PageFactory.initElements(new AppiumFieldDecorator(driver),this);
+		PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
 		}
 				
 	
-	//Check if JobGet logo is present on landing page
 	public boolean isLogoDisplayed() {
 		return logo.isDisplayed();
+	}
+	
+	public boolean isSignUpButtonAvailable() {
+		return signUpBtn.isEnabled();
+		
+	}
+	
+	public boolean isLoginButtonAvailable() {
+		return loginBtn.isDisplayed();
+		
 	}
 	
 

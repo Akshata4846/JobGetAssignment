@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="1" ignored="11" total="12" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="57240" started-at="2022-01-18T01:50:09 IST" finished-at="2022-01-18T01:51:06 IST">
+  <suite name="Default suite" duration-ms="73800" started-at="2022-01-18T13:45:04 IST" finished-at="2022-01-18T13:46:18 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="57240" started-at="2022-01-18T01:50:09 IST" finished-at="2022-01-18T01:51:06 IST">
-      <class name="com.jobget.testcases.loginPageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.loginPageTest@6043cd28]" name="setUp" is-config="true" duration-ms="14874" started-at="2022-01-18T01:50:10 IST" finished-at="2022-01-18T01:50:25 IST">
+    <test name="Default test" duration-ms="73800" started-at="2022-01-18T13:45:04 IST" finished-at="2022-01-18T13:46:18 IST">
+      <class name="com.jobget.testcases.LoginPageTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.jobget.testcases.LoginPageTest@6121c9d6]" name="setUp" is-config="true" duration-ms="16526" started-at="2022-01-18T13:45:05 IST" finished-at="2022-01-18T13:45:22 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="testForgotPassword(java.lang.String,java.lang.String,java.lang.String)[pri:10, instance:com.jobget.testcases.loginPageTest@6043cd28]" name="testForgotPassword" duration-ms="41595" started-at="2022-01-18T01:50:25 IST" data-provider="getData" finished-at="2022-01-18T01:51:06 IST">
+        <test-method status="FAIL" signature="testForgotPassword(java.lang.String,java.lang.String,java.lang.String)[pri:12, instance:com.jobget.testcases.LoginPageTest@6121c9d6]" name="testForgotPassword" duration-ms="55396" started-at="2022-01-18T13:45:22 IST" data-provider="getData" finished-at="2022-01-18T13:46:17 IST">
           <params>
             <param index="0">
               <value>
@@ -20,7 +20,7 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[Test@124!]]>
+                <![CDATA[Test@125!]]>
               </value>
             </param>
             <param index="2">
@@ -31,15 +31,15 @@
           </params>
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[Can't locate an element by this strategy: By.id: com.jobget:id/tv_error_email]]>
+              <![CDATA[Can't locate an element by this strategy: By.id: com.jobget:id/et_new_password]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.id: com.jobget:id/tv_error_email
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.id: com.jobget:id/et_new_password
 at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
 at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
-at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.isDisplayed(<generated>)
-at com.jobget.pages.LoginPage.validateEmailOnForgotPasswordPage(LoginPage.java:154)
-at com.jobget.testcases.loginPageTest.testForgotPassword(loginPageTest.java:302)
+at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.sendKeys(<generated>)
+at com.jobget.pages.LoginPage.resetPassword(LoginPage.java:205)
+at com.jobget.testcases.LoginPageTest.testForgotPassword(LoginPageTest.java:364)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -68,7 +68,7 @@ at org.testng.TestNG.run(TestNG.java:1031)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@7728643a (tried for 1 second(s) with 500 milliseconds interval)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@30feffc (tried for 1 second(s) with 500 milliseconds interval)
 at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:304)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
 at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
@@ -80,8 +80,8 @@ Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17
 System info: host: 'LAPTOP-QTT2AQ1K', ip: '192.168.1.35', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_251'
 Driver info: io.appium.java_client.AppiumDriver
 Capabilities {app: C:\Users\sanat\Downloads\ap..., appPackage: com.jobget, databaseEnabled: false, desired: {app: C:\Users\sanat\Downloads\ap..., deviceName: Android SDK built for x86, newCommandTimeout: 60, platformName: android, platformVersion: 10, udid: emulator-5554}, deviceApiLevel: 29, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 440, deviceScreenSize: 1080x2280, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 60, pixelRatio: 2.75, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 135, takesScreenshot: true, udid: emulator-5554, viewportRect: {height: 1842, left: 0, top: 135, width: 1080}, warnings: {}, webStorageEnabled: false}
-Session ID: 91906951-c95a-4327-9bf0-d5e3cb1b0bd0
-*** Element info: {Using=id, value=com.jobget:id/tv_error_email}
+Session ID: e344c194-7197-438b-866c-d637730503fb
+*** Element info: {Using=id, value=com.jobget:id/et_new_password}
 at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -119,7 +119,11 @@ at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testForgotPassword -->
-      </class> <!-- com.jobget.testcases.loginPageTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jobget.testcases.LoginPageTest@6121c9d6]" name="tearDown" is-config="true" duration-ms="1215" started-at="2022-01-18T13:46:17 IST" finished-at="2022-01-18T13:46:18 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.jobget.testcases.LoginPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

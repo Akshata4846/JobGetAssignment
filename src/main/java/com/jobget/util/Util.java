@@ -24,11 +24,8 @@ import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 import net.sourceforge.tess4j.util.LoadLibs;
 
-public class Util extends TestBase {
+public class Util {
 	
-	public Util(AppiumDriver<MobileElement> driver) {
-		super(driver);
-	}
 
 	public static long IMPLICIT_WAIT_TIMEOUT = 30;
 	
@@ -59,8 +56,8 @@ public class Util extends TestBase {
 		return true;
 	}
 	
-	public static Iterator<String[]> getData(String SheetName) throws IOException {
-		ArrayList<String[]> bodyData = CSVHelper.getSheetData(SheetName);
+	public static Iterator<String[]> getSignUpSheetData(String SheetName) throws IOException {
+		ArrayList<String[]> bodyData = CSVHelper.getSignUpSheetData(SheetName);
 		return bodyData.iterator();
 	}
 	
@@ -69,11 +66,10 @@ public class Util extends TestBase {
 		return bodyData.iterator();
 	}
 	
-	public String takeScreenshot() throws IOException {
-		TakesScreenshot screenshot = ((TakesScreenshot)driver);
-		File scrFile = screenshot.getScreenshotAs(OutputType.FILE);
+	public static String takeScreenshot(AppiumDriver<MobileElement> driver, String methodName) throws IOException {
+		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy_hh_mm_ssaa");
-	    String destFile = dateFormat.format(new Date()) + ".png";
+	    String destFile = dateFormat.format(new Date()) + methodName + ".png";
 		
 		File destFilePath = new File(Config.getProperty("ScreenshotFilePath") + destFile);
 		FileUtils.copyFile(scrFile, destFilePath);
@@ -81,8 +77,8 @@ public class Util extends TestBase {
 
 	}
 	
-	public String readToastMessage() throws TesseractException,IOException {
-		String imgName = takeScreenshot();
+	public String readToastMessage(AppiumDriver<MobileElement> driver, String name) throws TesseractException,IOException {
+		String imgName = takeScreenshot(driver,name);
 		String output = null;
 		File imageFile = new File(Config.getProperty("ScreenshotFilePath"), imgName);
 		ITesseract instance = new Tesseract();

@@ -18,7 +18,7 @@ public class CSVHelper {
 		}
 	}
 	
-    public static ArrayList<String[]> getSheetData(String sheetName) throws IOException {
+    public static ArrayList<String[]> getSignUpSheetData(String sheetName) throws IOException {
 		
 		ArrayList<String[]> data = new ArrayList<String[]>();
 		

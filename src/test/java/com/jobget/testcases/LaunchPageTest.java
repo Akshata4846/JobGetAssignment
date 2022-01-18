@@ -1,6 +1,7 @@
 package com.jobget.testcases;
 
 import com.jobget.pages.LaunchPage;
+import com.jobget.util.Util;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -16,17 +17,35 @@ public class LaunchPageTest{
 		launchPage = new LaunchPage(null);
 	}
 	
-	@Test
-	public static void logoDisplayedTest() {
+	/**
+	 * This test case checks if JobGet logo is present on landing page
+	 */
+	@Test (priority=1)
+	public static void logoDisplayedTest() { 
 		boolean displayed = launchPage.isLogoDisplayed();
 		Assert.assertTrue(displayed, "Jobget logo is not displayed on landing page");
-		System.out.println("logoDisplayedTest -------");
 	}
 	
-	@AfterMethod
-	public void tearDown() {		
-		//launchPage.driver.quit();
+	/**
+	 * This test case checks if sign up button is present and enabled on landing page
+	 */
+	@Test (priority=2)
+	public void signUpButtonDisplayedTest() { 
+	boolean enabled = launchPage.isSignUpButtonAvailable();
+	Assert.assertTrue(enabled, "Sign up button is not available on landing page");
+}
+	
+	/**
+	 * This test case checks if login up button is present and enabled on landing page
+	 */
+	@Test (priority=3)
+	public void loginButtonDisplayedTest() {
+		boolean enabled = launchPage.isLoginButtonAvailable();
+		Assert.assertTrue(enabled, "Login button is not available on landing page");
 	}
+	
+	
+
 	
 
 }
