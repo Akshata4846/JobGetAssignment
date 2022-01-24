@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" verbose="10" name="Failed suite [Suite]" parallel="tests">
+  <test thread-count="5" verbose="10" name="Launch Test(failed)" parallel="tests">
     <classes>
-      <class name="com.jobget.testcases.SignUpPageTest">
+      <class name="com.jobget.testcases.LaunchPageTest">
         <methods>
-          <include name="testValidEmployerSignUp" invocation-numbers="0"/>
+          <include name="logoDisplayedTest"/>
+          <include name="signUpButtonDisplayedTest"/>
+          <include name="writeReport"/>
+          <include name="setUp"/>
+          <include name="loginButtonDisplayedTest"/>
+          <include name="tearDown"/>
+          <include name="generateReport"/>
+        </methods>
+      </class> <!-- com.jobget.testcases.LaunchPageTest -->
+    </classes>
+  </test> <!-- Launch Test(failed) -->
+  <test thread-count="5" verbose="10" name="Logout Test(failed)" parallel="tests">
+    <classes>
+      <class name="com.jobget.testcases.LogOutPageTest">
+        <methods>
+          <include name="testLogoutConfirmationFalse" invocation-numbers="0"/>
           <include name="setUp"/>
           <include name="tearDown"/>
+          <include name="writeReport"/>
+          <include name="testLogoutConfirmationTrue" invocation-numbers="0"/>
+          <include name="generateReport"/>
         </methods>
-      </class> <!-- com.jobget.testcases.SignUpPageTest -->
+      </class> <!-- com.jobget.testcases.LogOutPageTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Logout Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

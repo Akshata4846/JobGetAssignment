@@ -5,19 +5,17 @@ import java.util.concurrent.TimeUnit;
 import com.jobget.util.Util;
 import com.jobget.util.Config;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 
-public class TestBase {
-	public static DesiredCapabilities dc;
-	static URL url;
-	public AppiumDriver<MobileElement> driver;
-	Config config = new Config();
-	
-	public TestBase (AppiumDriver<MobileElement> driver) {
+public class Base {
+
+	private DesiredCapabilities dc;
+	private URL url;
+	private AppiumDriver<MobileElement> driver;
+
+	public Base (AppiumDriver<MobileElement> driver) {
 		if (driver != null) {
 			this.driver = driver;
 		} else {
@@ -25,7 +23,7 @@ public class TestBase {
 		}
 	}
 
-	public AppiumDriver<MobileElement> initializeApp()  {
+	public void initializeApp()  {
 		dc = new DesiredCapabilities();
 		try {
 			dc.setCapability(MobileCapabilityType.DEVICE_NAME, Config.getProperty("deviceName"));
@@ -39,14 +37,17 @@ public class TestBase {
 			url =  new URL("http://" + Config.getProperty("hostname") + ":" + Config.getProperty("port") + "/wd/hub");
 			driver = new AppiumDriver<MobileElement>(url,dc);
 			driver.manage().timeouts().implicitlyWait(Util.IMPLICIT_WAIT_TIMEOUT, TimeUnit.SECONDS);
-			return driver;
+		
 		} 
 		catch (Exception e) {
 			System.out.println("ExceptionCause is " + e.getCause());
 			System.out.println("Message is " +e.getMessage());
 			e.printStackTrace();
 		}
-		return null;
+	}
+	
+	public AppiumDriver<MobileElement> getDriver() {
+		return driver;
 	}
 	
 	public void locationPermissionAccess(String action) {
@@ -64,4 +65,5 @@ public class TestBase {
 	public String getEmployerBtnText() {
 		return null;
 	}
+
 }

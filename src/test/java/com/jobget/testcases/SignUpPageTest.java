@@ -28,20 +28,20 @@ public class SignUpPageTest {
 
 	@BeforeMethod
 	public void setUp() {
-		signUpPage = new SignUpPage();
+		signUpPage = new SignUpPage(null);
 	}
 
 	@AfterMethod
 	public void tearDown(ITestResult iTestResult, ITestContext iTestContext) {
 		if (iTestResult.getStatus() == ITestResult.FAILURE) {
 			try {
-				Util.takeScreenshot(signUpPage.driver, iTestResult.getName() + "_FAILED");
+				Util.takeScreenshot(signUpPage.getDriver(), iTestResult.getName() + "_FAILED");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		signUpPage.driver.quit();
+		signUpPage.getDriver().quit();
 	}
 
 

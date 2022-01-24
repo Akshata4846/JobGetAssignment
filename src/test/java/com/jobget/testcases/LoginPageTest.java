@@ -1,6 +1,7 @@
 package com.jobget.testcases;
 
 import java.io.IOException;
+import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.Iterator;
 
 import org.testng.annotations.AfterMethod;
@@ -9,20 +10,28 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.jobget.helper.CSVHelper;
+import com.jobget.pages.HomePage;
 import com.jobget.pages.LoginPage;
 import com.jobget.util.Config;
 import com.jobget.util.EmailOtpValidator;
 import com.jobget.util.Util;
+import com.relevantcodes.extentreports.LogStatus;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.ITestContext;
 import org.testng.ITestResult;
 
 //@Listeners(com.jobget.util.Listener.class)
 
 
-public class LoginPageTest {
-	LoginPage loginPage;
+/**
+ * @author sanat
+ *
+ */
+public class LoginPageTest extends LoginTestBase {
+
+	HomePage homePage;
 	private String pageTitle;
 	final String SHEETNAME = "LoginDetails";
 
@@ -32,30 +41,33 @@ public class LoginPageTest {
 		return Util.getLoginSheetData(SHEETNAME);
 	}
 
-
-	private void populateFormFields (String email, String password ) {
-		loginPage.setUserName(email);
-		loginPage.setPassword(password);
-	}
-
-
 	@BeforeMethod
 	public void setUp() {
-		loginPage = new LoginPage();
+		loginPage = new LoginPage(null);
+		homePage = new HomePage(loginPage.getDriver());
 	}
 
 	@AfterMethod
-	public void tearDown(ITestResult iTestResult, ITestContext iTestContext) {
+	public void tearDown(ITestResult iTestResult) {
 		if (iTestResult.getStatus() == ITestResult.FAILURE) {
+			test.log(LogStatus.FAIL, "Test case failed is: " + iTestResult.getName());
+			test.log(LogStatus.FAIL, "Test case failed is: " + iTestResult.getThrowable());
 			try {
-				Util.takeScreenshot(loginPage.driver, iTestResult.getName() + "_FAILED");
+				String screenshot = Util.takeScreenshot(loginPage.getDriver(), iTestResult.getName() + "_FAILED");
+				test.addScreenCapture(screenshot);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		loginPage.driver.quit();
+		else if (iTestResult.getStatus() == ITestResult.SKIP) {
+			test.log(LogStatus.SKIP, "Test case skipped is: " + iTestResult.getName());
+		}
+		else if (iTestResult.getStatus() == ITestResult.SUCCESS) {
+			test.log(LogStatus.PASS, "Test case passed is: " + iTestResult.getName());
+		}
+		loginPage.getDriver().quit();
 	}
+
 
 
 	/**
@@ -71,29 +83,19 @@ public class LoginPageTest {
 	@Test (priority =1, dataProvider = "getData")
 	public void testElementsPresentOnPage(String email, String password, String country) throws IOException, InterruptedException {
 		boolean result;
-		loginPage.clickLoginUpBtn();
-		Util.handleStartupPages(loginPage, country);
-		if (Util.isEmployerLogin(loginPage)) {
-			loginPage.clickEmployerBtn();
-			Thread.sleep(2000);
-			Util.takeScreenshot(loginPage.driver, new Object() {}
-	        .getClass()
-	        .getEnclosingMethod()
-	        .getName());
-			String loginPageTitle = loginPage.getLoginPageTitle();
-			Assert.assertEquals(loginPageTitle, "Login", "Login page not loaded correctly");
-			result = loginPage.isUserNameFieldDisplayed();
-			Assert.assertTrue(result, "UserName mandatory field on login page not present");
+		test = extent.startTest("testElementsPresentOnPage");
+		prepareForLogin(country);
+		result = loginPage.isUserNameFieldDisplayed();
+		Assert.assertTrue(result, "UserName mandatory field on login page not present");
 
-			result = loginPage.isPasswordFieldDisplayed();
-			Assert.assertTrue(result, "Password mandatory field on login page not present");
+		result = loginPage.isPasswordFieldDisplayed();
+		Assert.assertTrue(result, "Password mandatory field on login page not present");
 
-			result = loginPage.isForgotPasswordLinkDisplayed();
-			Assert.assertTrue(result, "Forgot Password link on login page not present");
+		result = loginPage.isForgotPasswordLinkDisplayed();
+		Assert.assertTrue(result, "Forgot Password link on login page not present");
 
-			result = loginPage.isSignUpLinkDisplayed();
-			Assert.assertTrue(result, "SignUp button on login page not present");	
-		}
+		result = loginPage.isSignUpLinkDisplayed();
+		Assert.assertTrue(result, "SignUp button on login page not present");	
 
 	}
 
@@ -112,22 +114,18 @@ public class LoginPageTest {
 	@Test (priority =11, dataProvider = "getData")
 	public void testForgotPasswordRedirection(String email, String password, String country) throws InterruptedException, SecurityException, IOException {
 		String pageText;
-		loginPage.clickLoginUpBtn();
-		Util.handleStartupPages(loginPage, country);
-		if (Util.isEmployerLogin(loginPage)) {
-			loginPage.clickEmployerBtn();
-			String pageTitle = loginPage.getLoginPageTitle();
-			Assert.assertEquals(pageTitle, "Login", "Login page not loaded correctly");
-			loginPage.clickForgotPasswordLink();
-			Util.takeScreenshot(loginPage.driver, new Object() {}
-	        .getClass()
-	        .getEnclosingMethod()
-	        .getName());
-			Thread.sleep(5000);
-			pageText = loginPage.getForgotPasswordPageText();
-			Assert.assertEquals(pageText, "Please enter your registered email address. We will send you a verification code to reset your password.", "Forgot Password page not loaded correctly.");
-		}
+		test = extent.startTest("testForgotPasswordRedirection");
+		prepareForLogin(country);
+		loginPage.clickForgotPasswordLink();
+		Util.takeScreenshot(loginPage.getDriver(), new Object() {}
+		.getClass()
+		.getEnclosingMethod()
+		.getName());
+		Thread.sleep(5000);
+		pageText = loginPage.getForgotPasswordPageText();
+		Assert.assertEquals(pageText, "Please enter your registered email address. We will send you a verification code to reset your password.", "Forgot Password page not loaded correctly.");
 	}
+
 
 	/**
 	 * @param firstName
@@ -143,20 +141,17 @@ public class LoginPageTest {
 	@Test (priority =4, dataProvider = "getData")
 	public void testSignUpRedirection(String email, String password, String country) throws SecurityException, IOException {
 		loginPage.clickLoginUpBtn();
-		Util.handleStartupPages(loginPage, country);
-		if (Util.isEmployerLogin(loginPage)) {
-			loginPage.clickEmployerBtn();
-			pageTitle = loginPage.getLoginPageTitle();
-			Assert.assertEquals(pageTitle, "Login", "Login page not loaded correctly");
-			loginPage.clickSignUpLinkOnLoginPage();
-			Util.takeScreenshot(loginPage.driver, new Object() {}
-	        .getClass()
-	        .getEnclosingMethod()
-	        .getName());
-			String title = loginPage.getSignUpPageTitle();
-			Assert.assertEquals(title, "Sign Up as an Employer ", "Sign Up page not loaded correctly.");
-		}
+		test = extent.startTest("testSignUpRedirection");
+		prepareForLogin(country);
+		loginPage.clickSignUpLinkOnLoginPage();
+		Util.takeScreenshot(loginPage.getDriver(), new Object() {}
+		.getClass()
+		.getEnclosingMethod()
+		.getName());
+		String title = loginPage.getSignUpPageTitle();
+		Assert.assertEquals(title, "Sign Up as an Employer ", "Sign Up page not loaded correctly.");
 	}
+
 
 
 	/**
@@ -171,25 +166,20 @@ public class LoginPageTest {
 	 */
 	@Test (priority =2, dataProvider = "getData")
 	public void testValidLogin(String email, String password, String country) throws SecurityException, IOException {
-		loginPage.clickLoginUpBtn();
-		Util.handleStartupPages(loginPage, country);
-		if (Util.isEmployerLogin(loginPage)) {
-			loginPage.clickEmployerBtn();
-			String loginPageTitle = loginPage.getLoginPageTitle();
-			Assert.assertEquals(loginPageTitle, "Login", "Login page not loaded correctly");
-			populateFormFields(email,password);
-			loginPage.clickLoginBtnOnLoginPage();
-			try {
-				loginPage.locationPermissionAccess(Config.getProperty("LocationPermissionAccess"));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		test = extent.startTest("testValidLogin");
+		prepareForLogin(country);
+		populateFormFields(email,password);
+		loginPage.clickLoginBtnOnLoginPage();
+		try {
+			loginPage.locationPermissionAccess(Config.getProperty("LocationPermissionAccess"));
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		Util.takeScreenshot(loginPage.driver, new Object() {}
-        .getClass()
-        .getEnclosingMethod()
-        .getName());
-		String title = loginPage.getJobPostingsPageTitle();
+		Util.takeScreenshot(loginPage.getDriver(), new Object() {}
+		.getClass()
+		.getEnclosingMethod()
+		.getName());
+		String title = homePage.getJobPostingsPageTitle();
 		Assert.assertEquals(title, "My Job Postings"
 				, "Login was not successfull");
 
@@ -211,23 +201,19 @@ public class LoginPageTest {
 	 */
 	@Test (priority =3, dataProvider = "getData")
 	public void testNotRegisteredEmailUsedForlogin(String email, String password, String country) throws SecurityException, IOException {
-		loginPage.clickLoginUpBtn();
-		Util.handleStartupPages(loginPage, country);
-		if (Util.isEmployerLogin(loginPage))  {
-			loginPage.clickEmployerBtn();
-			pageTitle = loginPage.getLoginPageTitle();
-			Assert.assertEquals(pageTitle, "Login", "Login page not loaded correctly");
-			populateFormFields("automation9878@automation.com",password);//Hard coded a non registered email id
-			loginPage.clickLoginBtnOnLoginPage();
-			Util.takeScreenshot(loginPage.driver, new Object() {}
-	        .getClass()
-	        .getEnclosingMethod()
-	        .getName());
-			pageTitle = loginPage.getLoginPageTitle();
-			Assert.assertEquals(pageTitle, "Login", "Non Registered Email validation for login is not working as expected.");
-		}
-
+		test = extent.startTest("testNotRegisteredEmailUsedForlogin");
+		prepareForLogin(country);
+		populateFormFields("automation9878@automation.com",password);//Hard coded a non registered email id
+		loginPage.clickLoginBtnOnLoginPage();
+		Util.takeScreenshot(loginPage.getDriver(), new Object() {}
+		.getClass()
+		.getEnclosingMethod()
+		.getName());
+		pageTitle = loginPage.getLoginPageTitle();
+		Assert.assertEquals(pageTitle, "Login", "Non Registered Email validation for login is not working as expected.");
 	}
+
+
 
 
 
@@ -243,19 +229,17 @@ public class LoginPageTest {
 	 */
 	@Test (priority =10, dataProvider = "getData")
 	public void testLoginButtonDisabled(String email, String password, String country) throws SecurityException, IOException {
-		loginPage.clickLoginUpBtn();
-		Util.handleStartupPages(loginPage, country);
-		if (Util.isEmployerLogin(loginPage)) {
-			loginPage.clickEmployerBtn();
-			populateFormFields(email,"");
-			boolean isEnabled = loginPage.isLoginButtonOnLoginPageEnabled();
-			Util.takeScreenshot(loginPage.driver, new Object() {}
-	        .getClass()
-	        .getEnclosingMethod()
-	        .getName());
-			Assert.assertFalse(isEnabled, "Login button was expected to be disabled since some fields don't have values, but the button is enabled.");
-		}
+		test = extent.startTest("testLoginButtonDisabled");
+		prepareForLogin(country);
+		populateFormFields(email,"");
+		boolean isEnabled = loginPage.isLoginButtonOnLoginPageEnabled();
+		Util.takeScreenshot(loginPage.getDriver(), new Object() {}
+		.getClass()
+		.getEnclosingMethod()
+		.getName());
+		Assert.assertFalse(isEnabled, "Login button was expected to be disabled since some fields don't have values, but the button is enabled.");
 	}
+
 
 	/**
 	 * @param firstName
@@ -269,19 +253,17 @@ public class LoginPageTest {
 	 */
 	@Test (priority =5, dataProvider = "getData")
 	public void testLoginUpButtonEnabled(String email, String password, String country) throws SecurityException, IOException {
-		loginPage.clickLoginUpBtn();
-		Util.handleStartupPages(loginPage, country);
-		if (Util.isEmployerLogin(loginPage)) {
-			loginPage.clickEmployerBtn();
-			populateFormFields(email,password);
-			boolean isEnabled = loginPage.isLoginButtonOnLoginPageEnabled();
-			Util.takeScreenshot(loginPage.driver, new Object() {}
-	        .getClass()
-	        .getEnclosingMethod()
-	        .getName());
-			Assert.assertTrue(isEnabled, "Login button was expected to be enabled since all fields have values, but the button is disabled.");
-		}
+		test = extent.startTest("testLoginUpButtonEnabled");
+		prepareForLogin(country);
+		populateFormFields(email,password);
+		boolean isEnabled = loginPage.isLoginButtonOnLoginPageEnabled();
+		Util.takeScreenshot(loginPage.getDriver(), new Object() {}
+		.getClass()
+		.getEnclosingMethod()
+		.getName());
+		Assert.assertTrue(isEnabled, "Login button was expected to be enabled since all fields have values, but the button is disabled.");
 	}
+
 
 	/**
 	 * @param firstName
@@ -295,21 +277,19 @@ public class LoginPageTest {
 	 */
 	@Test (priority =6, dataProvider = "getData")
 	public void testEmptyUserNameValidiation(String email, String password, String country) throws SecurityException, IOException {
-		loginPage.clickLoginUpBtn();
-		Util.handleStartupPages(loginPage, country);
-		if (Util.isEmployerLogin(loginPage)) {
-			loginPage.clickEmployerBtn();
-			populateFormFields("",password);
-			String emailValue = loginPage.validateEmail("");
-			Assert.assertEquals(emailValue, "Please enter email an address", "Email addresss validation is not working as expected.");
-			Util.takeScreenshot(loginPage.driver, new Object() {}
-	        .getClass()
-	        .getEnclosingMethod()
-	        .getName());
-			boolean isEnabled = loginPage.isLoginButtonOnLoginPageEnabled();
-			Assert.assertFalse(isEnabled, "Login button was expected to be disabled since username field does not have value, but the button is enabled.");
-		}
+		test = extent.startTest("testEmptyUserNameValidiation");
+		prepareForLogin(country);
+		populateFormFields("",password);
+		String emailValue = loginPage.validateEmail("");
+		Assert.assertEquals(emailValue, "Please enter email an address", "Email addresss validation is not working as expected.");
+		Util.takeScreenshot(loginPage.getDriver(), new Object() {}
+		.getClass()
+		.getEnclosingMethod()
+		.getName());
+		boolean isEnabled = loginPage.isLoginButtonOnLoginPageEnabled();
+		Assert.assertFalse(isEnabled, "Login button was expected to be disabled since username field does not have value, but the button is enabled.");
 	}
+
 
 	/**
 	 * @param firstName
@@ -323,21 +303,19 @@ public class LoginPageTest {
 	 */
 	@Test (priority =7, dataProvider = "getData")
 	public void testEmptyPasswordValidiation(String email, String password, String country) throws SecurityException, IOException {
-		loginPage.clickLoginUpBtn();
-		Util.handleStartupPages(loginPage, country);
-		if (Util.isEmployerLogin(loginPage)) {
-			loginPage.clickEmployerBtn();
-			populateFormFields(email,"");
-			String passwordValue = loginPage.validatePassword("");
-			Assert.assertEquals(passwordValue, "Please enter password", "Password validation is not working as expected.");
-			Util.takeScreenshot(loginPage.driver, new Object() {}
-	        .getClass()
-	        .getEnclosingMethod()
-	        .getName());
-			boolean isEnabled = loginPage.isLoginButtonOnLoginPageEnabled();
-			Assert.assertFalse(isEnabled, "Login button was expected to be disabled since password field does not have value, but the button is enabled.");
-		}
+		test = extent.startTest("testEmptyPasswordValidiation");
+		prepareForLogin(country);
+		populateFormFields(email,"");
+		String passwordValue = loginPage.validatePassword("");
+		Assert.assertEquals(passwordValue, "Please enter password", "Password validation is not working as expected.");
+		Util.takeScreenshot(loginPage.getDriver(), new Object() {}
+		.getClass()
+		.getEnclosingMethod()
+		.getName());
+		boolean isEnabled = loginPage.isLoginButtonOnLoginPageEnabled();
+		Assert.assertFalse(isEnabled, "Login button was expected to be disabled since password field does not have value, but the button is enabled.");
 	}
+
 
 
 
@@ -353,16 +331,17 @@ public class LoginPageTest {
 	 */
 	@Test (priority =8, dataProvider = "getData")
 	public void testInvalidEmailAddressValidation(String email, String password, String country) throws SecurityException, IOException {
+		test = extent.startTest("testInvalidEmailAddressValidation");
 		loginPage.clickLoginUpBtn();
 		Util.handleStartupPages(loginPage, country);
 		if (Util.isEmployerLogin(loginPage)) {
 			loginPage.clickEmployerBtn();
 			populateFormFields("abc@",password);
 			String emailValue = loginPage.validateEmail("abc@");
-			Util.takeScreenshot(loginPage.driver, new Object() {}
-	        .getClass()
-	        .getEnclosingMethod()
-	        .getName());
+			Util.takeScreenshot(loginPage.getDriver(), new Object() {}
+			.getClass()
+			.getEnclosingMethod()
+			.getName());
 			Assert.assertEquals(emailValue, "Please enter a valid email address", "Email addresss validation is not working as expected.");
 		}
 	}
@@ -377,15 +356,13 @@ public class LoginPageTest {
 	 */
 	@Test (priority =9, dataProvider = "getData")
 	public void testInvalidPasswordValidation(String email, String password, String country) {
-		loginPage.clickLoginUpBtn();
-		Util.handleStartupPages(loginPage, country);
-		if (Util.isEmployerLogin(loginPage)) {
-			loginPage.clickEmployerBtn();
-			populateFormFields(email,"abc");
-			String passwordValue = loginPage.validatePassword("abc");
-			Assert.assertEquals(passwordValue, "Password must be atleast 6 characters", "Password validation is not working as expected.");
-		}
+		test = extent.startTest("testInvalidPasswordValidation");
+		prepareForLogin(country);
+		populateFormFields(email,"abc");
+		String passwordValue = loginPage.validatePassword("abc");
+		Assert.assertEquals(passwordValue, "Password must be atleast 6 characters", "Password validation is not working as expected.");
 	}
+
 
 
 	/**
@@ -424,10 +401,10 @@ public class LoginPageTest {
 			Thread.sleep(9000);
 			loginPage.inputOTP(otp);
 			loginPage.resetPassword(newPassword, confirmPassword);
-			Util.takeScreenshot(loginPage.driver, new Object() {}
-	        .getClass()
-	        .getEnclosingMethod()
-	        .getName());
+			Util.takeScreenshot(loginPage.getDriver(), new Object() {}
+			.getClass()
+			.getEnclosingMethod()
+			.getName());
 			String successText = loginPage.getResetPasswordSuccessContentText();
 			Assert.assertEquals(successText, "Password has been Reset", "Password was not reset correctly");
 			loginPage.clickOnLoginButtonAfterPassReset();
@@ -454,39 +431,35 @@ public class LoginPageTest {
 	 */
 	@Test (priority =13, dataProvider = "getData")
 	public void testPasswordResetResendCodeEditAction(String email, String password, String country) throws InterruptedException, SecurityException, IOException {
-		loginPage.clickLoginUpBtn();
-		Util.handleStartupPages(loginPage, country);
-		if (Util.isEmployerLogin(loginPage)) {
-			loginPage.clickEmployerBtn();
-			String pageTitle = loginPage.getLoginPageTitle();
-			Assert.assertEquals(pageTitle, "Login", "Login page not loaded correctly");
-			loginPage.clickForgotPasswordLink();
-			loginPage.setEmailAddressforForgotPassword(email);
-			loginPage.clickSendBtnOnForgotPasswordPage();
-			loginPage.clickResendVerificationCodeLink();
-			String title = loginPage.getPopUpTextForResendVerificationCode();
-			Assert.assertEquals(title, "EMAIL CONFIRMATION", "Resend button not working as expected or perhaps not clicked properly");
-			String emailAddress = loginPage.getEmailOnResendCodePopUp();
-			Assert.assertEquals(email.toUpperCase(), emailAddress, "Email displayed on code verification popup incorrect");
-			loginPage.clickEditOnResendCodePopUp();
-			//Redirect to forgot password page
-			Util.takeScreenshot(loginPage.driver, new Object() {}
-	        .getClass()
-	        .getEnclosingMethod()
-	        .getName());
-			String pageText = loginPage.getForgotPasswordPageText();
-			Assert.assertEquals(pageText, "Please enter your registered email address. We will send you a verification code to reset your password.", "Forgot Password page not loaded correctly.");
-			loginPage.setEmailAddressforForgotPassword(email);
-			loginPage.clickSendBtnOnForgotPasswordPage();
-			Thread.sleep(2000);
-			//Reset password
-			try {
-				resetPassword(email);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+		test = extent.startTest("testPasswordResetResendCodeEditAction");
+		prepareForLogin(country);
+		loginPage.clickForgotPasswordLink();
+		loginPage.setEmailAddressforForgotPassword(email);
+		loginPage.clickSendBtnOnForgotPasswordPage();
+		loginPage.clickResendVerificationCodeLink();
+		String title = loginPage.getPopUpTextForResendVerificationCode();
+		Assert.assertEquals(title, "EMAIL CONFIRMATION", "Resend button not working as expected or perhaps not clicked properly");
+		String emailAddress = loginPage.getEmailOnResendCodePopUp();
+		Assert.assertEquals(email.toUpperCase(), emailAddress, "Email displayed on code verification popup incorrect");
+		loginPage.clickEditOnResendCodePopUp();
+		//Redirect to forgot password page
+		Util.takeScreenshot(loginPage.getDriver(), new Object() {}
+		.getClass()
+		.getEnclosingMethod()
+		.getName());
+		String pageText = loginPage.getForgotPasswordPageText();
+		Assert.assertEquals(pageText, "Please enter your registered email address. We will send you a verification code to reset your password.", "Forgot Password page not loaded correctly.");
+		loginPage.setEmailAddressforForgotPassword(email);
+		loginPage.clickSendBtnOnForgotPasswordPage();
+		Thread.sleep(2000);
+		//Reset password
+		try {
+			resetPassword(email);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
+
 
 
 	/**
@@ -500,29 +473,25 @@ public class LoginPageTest {
 	 */
 	@Test (priority =14, dataProvider = "getData")
 	public void testPasswordResetResendCodeYesAction(String email, String password, String country) throws SecurityException, IOException {
-		loginPage.clickLoginUpBtn();
-		Util.handleStartupPages(loginPage, country);
-		if (Util.isEmployerLogin(loginPage)) {
-			loginPage.clickEmployerBtn();
-			String pageTitle = loginPage.getLoginPageTitle();
-			Assert.assertEquals(pageTitle, "Login", "Login page not loaded correctly");
-			loginPage.clickForgotPasswordLink();
-			loginPage.setEmailAddressforForgotPassword(email);
-			loginPage.clickSendBtnOnForgotPasswordPage();
-			loginPage.clickResendVerificationCodeLink();
-			String title = loginPage.getPopUpTextForResendVerificationCode();
-			Assert.assertEquals(title, "EMAIL CONFIRMATION", "Resend button not working as expected or perhaps not clicked properly");
-			String emailAddress = loginPage.getEmailOnResendCodePopUp();
-			Assert.assertEquals(email.toUpperCase(), emailAddress, "Email displayed on code verification popup incorrect");
-			loginPage.clickYesOnResendCodePopUp();
-			//Reset password
-			try {
-				resetPassword(email);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+		test = extent.startTest("testPasswordResetResendCodeYesAction");
+		prepareForLogin(country);
+		loginPage.clickForgotPasswordLink();
+		loginPage.setEmailAddressforForgotPassword(email);
+		loginPage.clickSendBtnOnForgotPasswordPage();
+		loginPage.clickResendVerificationCodeLink();
+		String title = loginPage.getPopUpTextForResendVerificationCode();
+		Assert.assertEquals(title, "EMAIL CONFIRMATION", "Resend button not working as expected or perhaps not clicked properly");
+		String emailAddress = loginPage.getEmailOnResendCodePopUp();
+		Assert.assertEquals(email.toUpperCase(), emailAddress, "Email displayed on code verification popup incorrect");
+		loginPage.clickYesOnResendCodePopUp();
+		//Reset password
+		try {
+			resetPassword(email);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
+
 
 
 	/**
@@ -537,20 +506,41 @@ public class LoginPageTest {
 	 */
 	@Test (priority =12, dataProvider = "getData")
 	public void testForgotPassword(String email, String password, String country) throws IOException, InterruptedException {
-		loginPage.clickLoginUpBtn();
-		Util.handleStartupPages(loginPage, country);
-		if (Util.isEmployerLogin(loginPage)) {
-			loginPage.clickEmployerBtn();
-			String pageTitle = loginPage.getLoginPageTitle();
-			Assert.assertEquals(pageTitle, "Login", "Login page not loaded correctly");
-			loginPage.clickForgotPasswordLink();
-			loginPage.setEmailAddressforForgotPassword(email);
-			loginPage.clickSendBtnOnForgotPasswordPage();
-			Thread.sleep(2000);
-			//Reset Password
-			resetPassword(email);
+		test = extent.startTest("testForgotPassword");
+		prepareForLogin(country);
+		loginPage.clickForgotPasswordLink();
+		loginPage.setEmailAddressforForgotPassword(email);
+		loginPage.clickSendBtnOnForgotPasswordPage();
+		Thread.sleep(2000);
+		//Reset Password
+		resetPassword(email);
+	}
+
+
+	@Test (priority =15, dataProvider = "getData")
+	public void testLoginWithFaceBook(String email, String password, String country) throws Exception {
+		test = extent.startTest("testLoginWithFaceBook");
+		prepareForLogin(country);
+		loginPage.clickContinueWithFaceBookButton();
+		WebDriverWait wait = new WebDriverWait(loginPage.getDriver(),30);
+		wait.until(ExpectedConditions.visibilityOf(loginPage.getFaceBookPageText()));
+		String continueButtonText = loginPage.facebookLogin(email, Config.getProperty("FaceBookPassword"));
+		try {
+			if (continueButtonText.contains(Config.getProperty("FaceBookUserName")) ) {
+				loginPage.clickContinueBuuton();
+				String title = homePage.getJobPostingsPageTitle();
+				Assert.assertEquals(title, "My Job Postings"
+						, "Login was not successfull");		
+			}
+			else {
+				throw new Exception("Username not matching the required value on continue button");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
+
+
 
 
 

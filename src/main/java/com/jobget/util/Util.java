@@ -12,7 +12,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
 
-import com.jobget.base.TestBase;
+import com.jobget.base.Base;
 import com.jobget.helper.CSVHelper;
 
 import io.appium.java_client.AppiumDriver;
@@ -28,7 +28,7 @@ public class Util {
 	public static long IMPLICIT_WAIT_TIMEOUT = 30;
 	
 	//Handles startup pages in app like location access permission and providing location is deny
-	public static void handleStartupPages(TestBase miscPage, String Country) {
+	public static void handleStartupPages(Base miscPage, String Country) {
 		try {
 			miscPage.locationPermissionAccess(Config.getProperty("LocationPermissionAccess"));
 		} catch (IOException e) {
@@ -38,7 +38,7 @@ public class Util {
 	}
 	
 	//Checks if user is employer or job seeker on login page
-	public static boolean isEmployerLogin(TestBase miscPage) {
+	public static boolean isEmployerLogin(Base miscPage) {
 		boolean isEmployer = miscPage.isEmployer();
 		Assert.assertTrue(isEmployer, "Expected selected type was employer but it is not");
 		String buttonText = miscPage.getEmployerBtnText();
@@ -48,7 +48,7 @@ public class Util {
 	}
 	
 	//Checks if user is employer or job seeker on sign up page
-	public static boolean isEmployerSignUp(TestBase miscPage) {
+	public static boolean isEmployerSignUp(Base miscPage) {
 		boolean isEmployer = miscPage.isEmployer();
 		Assert.assertTrue(isEmployer, "Expected selected type was employer but it is not");
 		String buttonText = miscPage.getEmployerBtnText();

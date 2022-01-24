@@ -1,14 +1,16 @@
 package com.jobget.pages;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.jobget.base.TestBase;
+import com.jobget.base.Base;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class LoginPage extends TestBase {
+public class LoginPage extends Base {
 	
 	@FindBy(id = "com.jobget:id/tvLogin")
 	public static MobileElement loginBtn;
@@ -30,9 +32,6 @@ public class LoginPage extends TestBase {
 	
 	@FindBy(id = "com.jobget:id/tv_login")
 	MobileElement loginBtnOnLoginPage;
-	
-	@FindBy(id = "com.jobget:id/tv_title")
-	MobileElement jobPostingsPageTitle;
 	
 	@FindBy(id ="com.jobget:id/tv_forgot_password")
 	MobileElement forgotPaswordLink;
@@ -112,10 +111,27 @@ public class LoginPage extends TestBase {
 	@FindBy(id=	"com.jobget:id/tv_title")
 	MobileElement signUpAsEmployerPageTitle;
 	
+	@FindBy(id="com.jobget:id/tv_login_facebook")
+	MobileElement loginWithFacebookButton;
 	
-	public LoginPage() {
-		super(null);
-		PageFactory.initElements(new AppiumFieldDecorator(driver),this);
+	@FindBy(xpath="//android.view.View[@text='Log in to your Facebook account to connect to JobGet']")
+	WebElement faceBookPageText;
+	
+	@FindBy(id="m_login_email")
+	WebElement userNameFieldFaceBook;
+	
+	@FindBy(id="m_login_password")
+	WebElement passwordFieldFaceBook;
+	
+	@FindBy(xpath="//android.widget.Button[@text='Log In']")
+	WebElement logInButtonFaceBook;
+	
+	@FindBy(xpath="//android.widget.Button[@resource-id='u_0_7_v8']")
+	WebElement continueAsEmailButton;
+	
+	public LoginPage(AppiumDriver<MobileElement> driver) {
+		super(driver);
+		PageFactory.initElements(new AppiumFieldDecorator(getDriver()),this);
 	}
 
 	public void clickLoginUpBtn() {
@@ -146,11 +162,6 @@ public class LoginPage extends TestBase {
 	
 	public void clickLoginBtnOnLoginPage() {
 		loginBtnOnLoginPage.click();
-	}
-	
-	public String getJobPostingsPageTitle() {
-		String title = jobPostingsPageTitle.getText();
-		return title;
 	}
 	
 	public String validateEmail(String emailAddress) {
@@ -288,6 +299,24 @@ public class LoginPage extends TestBase {
 		return signUpLinkOnLoginPage.isDisplayed();
 	}
 	
+	public void clickContinueWithFaceBookButton() {
+	 loginWithFacebookButton.click();
+	}
+	
+	public WebElement getFaceBookPageText() {
+		return faceBookPageText;
+	}
+	
+	public String facebookLogin(String username, String password) {
+		userNameFieldFaceBook.sendKeys(username);
+		passwordFieldFaceBook.sendKeys(password);
+		logInButtonFaceBook.click();
+		return continueAsEmailButton.getText();
+	}
+	
+	public void clickContinueBuuton() {
+		continueAsEmailButton.click();
+	}
 	
 	
 	

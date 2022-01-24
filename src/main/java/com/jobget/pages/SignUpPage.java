@@ -4,9 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.jobget.base.TestBase;
+import com.jobget.base.Base;
 
-
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
@@ -14,7 +14,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
  * @author AVK2E5744
  *
  */
-public class SignUpPage extends TestBase {
+public class SignUpPage extends Base {
 	public static final String s1 ="";
 
 	@FindBy(id=	"com.jobget:id/tvSignUp")
@@ -134,9 +134,9 @@ public class SignUpPage extends TestBase {
 	MobileElement termsPageTitleClickedFromSignUpPage;
 	
 
-	public SignUpPage() {
-		super(null);
-		PageFactory.initElements(new AppiumFieldDecorator(driver),this);
+	public SignUpPage(AppiumDriver<MobileElement> driver) {
+		super(driver);
+		PageFactory.initElements(new AppiumFieldDecorator(getDriver()),this);
 	}
 
 	/**
@@ -278,7 +278,7 @@ public class SignUpPage extends TestBase {
 		/**final String BeforeXpath="\"//android.widget.TextView[@text='\"";
 		final String afterXpath= "\"']\"";
 		final String xpath =  BeforeXpath  + countryCode + afterXpath; **/
-		driver.findElement(By.xpath("//android.widget.TextView[@text='+91']")).click();
+		getDriver().findElement(By.xpath("//android.widget.TextView[@text='+91']")).click();
 	}
 	
 	public void setPhoneNumber(String phoneNumber) {

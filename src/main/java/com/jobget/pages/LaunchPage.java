@@ -1,6 +1,6 @@
 package com.jobget.pages;
 
-import com.jobget.base.TestBase;
+import com.jobget.base.Base;
 
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,7 +10,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class LaunchPage extends TestBase {
+public class LaunchPage extends Base {
 	
 	/*
 	 * This is the logo of JobGet app
@@ -27,7 +27,7 @@ public class LaunchPage extends TestBase {
 	
 	public LaunchPage(AppiumDriver<MobileElement> driver) {
 		super(driver);
-		PageFactory.initElements(new AppiumFieldDecorator(this.driver),this);
+		PageFactory.initElements(new AppiumFieldDecorator(this.getDriver()),this);
 		}
 				
 	
