@@ -13,6 +13,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class LaunchPageTest extends TestBase{
@@ -20,8 +21,9 @@ public class LaunchPageTest extends TestBase{
 	
 	
 	@BeforeMethod
-	public void setUp() {
-		launchPage = new LaunchPage(null);
+	@Parameters({"deviceName","platFormVersion", "UDID"})
+	public void setUp(String deviceName, String platFormVersion, String UDID) {
+		launchPage = new LaunchPage(null, deviceName, platFormVersion, UDID);
 	}
 	
 	@AfterMethod

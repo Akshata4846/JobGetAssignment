@@ -12,12 +12,12 @@ import io.appium.java_client.MobileElement;
 
 public class Listener extends Base implements ITestListener {
 	
-	public Listener() {
-		super(null);
+	public Listener(String deviceName,String platformVersion, String UDID) {
+		super(null, deviceName, platformVersion, UDID);
 	}
 
-	public Listener(AppiumDriver<MobileElement> driver) {
-		super(driver);
+	public Listener(AppiumDriver<MobileElement> driver, String deviceName,String platformVersion, String UDID) {
+		super(driver, deviceName, platformVersion, UDID);
 	}
 
 	@Override

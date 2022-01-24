@@ -7,6 +7,7 @@ import java.util.Iterator;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.jobget.helper.CSVHelper;
@@ -42,9 +43,10 @@ public class LoginPageTest extends LoginTestBase {
 	}
 
 	@BeforeMethod
-	public void setUp() {
-		loginPage = new LoginPage(null);
-		homePage = new HomePage(loginPage.getDriver());
+	@Parameters({"deviceName","platFormVersion", "UDID"})
+	public void setUp(String deviceName, String platformVersion, String UDID) {
+		loginPage = new LoginPage(null, deviceName, platformVersion, UDID);
+		homePage = new HomePage(loginPage.getDriver(), deviceName, platformVersion, UDID);
 	}
 
 	@AfterMethod

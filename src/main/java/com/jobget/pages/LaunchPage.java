@@ -25,8 +25,8 @@ public class LaunchPage extends Base {
 	MobileElement loginBtn;
 
 	
-	public LaunchPage(AppiumDriver<MobileElement> driver) {
-		super(driver);
+	public LaunchPage(AppiumDriver<MobileElement> driver, String deviceName, String platformVersion, String UDID) {
+		super(driver, deviceName,platformVersion, UDID);
 		PageFactory.initElements(new AppiumFieldDecorator(this.getDriver()),this);
 		}
 				

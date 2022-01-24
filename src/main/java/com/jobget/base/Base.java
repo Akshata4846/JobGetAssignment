@@ -14,22 +14,24 @@ public class Base {
 	private DesiredCapabilities dc;
 	private URL url;
 	private AppiumDriver<MobileElement> driver;
+	
 
-	public Base (AppiumDriver<MobileElement> driver) {
+	public Base (AppiumDriver<MobileElement> driver, String deviceName,String platformVersion, String UDID ) {
 		if (driver != null) {
 			this.driver = driver;
 		} else {
-			initializeApp();
+			initializeApp(deviceName,platformVersion, UDID);
 		}
 	}
 
-	public void initializeApp()  {
+	public void initializeApp(String deviceName,String platformVersion, String UDID)  {
 		dc = new DesiredCapabilities();
 		try {
-			dc.setCapability(MobileCapabilityType.DEVICE_NAME, Config.getProperty("deviceName"));
+			//dc.setCapability(MobileCapabilityType.DEVICE_NAME, Config.getProperty("deviceName"));
+			dc.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
 			dc.setCapability(MobileCapabilityType.PLATFORM_NAME, Config.getProperty("platformName"));
-			dc.setCapability(MobileCapabilityType.PLATFORM_VERSION, Config.getProperty("platformVersion"));
-			dc.setCapability(MobileCapabilityType.UDID, Config.getProperty("UDID"));
+			dc.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
+			dc.setCapability(MobileCapabilityType.UDID, UDID);
 			dc.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
 			dc.setCapability(MobileCapabilityType.APP, Config.getProperty("appPath") + "app-preproduction-jobget-14-jan.apk");
 			//dc.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + "\\src\\test\\resources\\apps" + Config.getProperty("app"));

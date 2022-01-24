@@ -8,6 +8,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import com.jobget.pages.SignUpPage;
 import com.jobget.util.Config;
@@ -27,8 +28,9 @@ public class SignUpPageTest {
 	}
 
 	@BeforeMethod
-	public void setUp() {
-		signUpPage = new SignUpPage(null);
+	@Parameters({"deviceName","platFormVersion", "UDID"})
+	public void setUp(String deviceName, String platformVersion, String UDID) {
+		signUpPage = new SignUpPage(null, deviceName, platformVersion, UDID);
 	}
 
 	@AfterMethod

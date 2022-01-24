@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" verbose="10" name="Failed suite [Suite]" parallel="tests">
+  <test thread-count="5" verbose="10" name="Logout Test(failed)" parallel="tests">
+    <parameter name="platFormVersion" value="10"/>
+    <parameter name="deviceName" value="Android SDK built for x86"/>
+    <parameter name="UDID" value="emulator-5556"/>
+    <classes>
+      <class name="com.jobget.testcases.LogOutPageTest">
+        <methods>
+          <include name="testLogoutConfirmationFalse"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="writeReport"/>
+          <include name="testLogoutConfirmationTrue"/>
+          <include name="generateReport"/>
+        </methods>
+      </class> <!-- com.jobget.testcases.LogOutPageTest -->
+    </classes>
+  </test> <!-- Logout Test(failed) -->
   <test thread-count="5" verbose="10" name="Launch Test(failed)" parallel="tests">
+    <parameter name="platFormVersion" value="10"/>
+    <parameter name="deviceName" value="Android SDK built for x86"/>
+    <parameter name="UDID" value="emulator-5554"/>
     <classes>
       <class name="com.jobget.testcases.LaunchPageTest">
         <methods>
@@ -16,18 +36,4 @@
       </class> <!-- com.jobget.testcases.LaunchPageTest -->
     </classes>
   </test> <!-- Launch Test(failed) -->
-  <test thread-count="5" verbose="10" name="Logout Test(failed)" parallel="tests">
-    <classes>
-      <class name="com.jobget.testcases.LogOutPageTest">
-        <methods>
-          <include name="testLogoutConfirmationFalse" invocation-numbers="0"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="writeReport"/>
-          <include name="testLogoutConfirmationTrue" invocation-numbers="0"/>
-          <include name="generateReport"/>
-        </methods>
-      </class> <!-- com.jobget.testcases.LogOutPageTest -->
-    </classes>
-  </test> <!-- Logout Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

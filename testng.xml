@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite" verbose = "10" parallel="none" >
-  <test name="Launch Test" preserve-order="true">
+<suite name="Suite" verbose = "10" parallel="tests" thread-count="5" >
+  <!--<test name="Launch Test">
+     <parameter name="deviceName" value="Android SDK built for x86"/>
+     <parameter name="platFormVersion" value="10"/>
+     <parameter name="UDID" value="emulator-5554"/>
     <classes>
       <class name="com.jobget.testcases.LaunchPageTest"/>
     </classes>
-   </test>
+   </test>-->
 
   <!-- <test name="Sign Up Test" parallel="none" preserve-order="true">
      <classes>
@@ -19,7 +22,10 @@
      </classes>
    </test>-->
    
-   <test name="Logout Test" preserve-order="true">
+   <test name="Logout Test" >
+<parameter name="deviceName" value="Android SDK built for x86"/>
+     <parameter name="platFormVersion" value="10"/>
+<parameter name="UDID" value="emulator-5556"/>
      <classes>
        <class name="com.jobget.testcases.LogOutPageTest"/>
     </classes>
