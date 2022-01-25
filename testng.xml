@@ -21,7 +21,7 @@
      <classes>
       <class name="com.jobget.testcases.LoginPageTest"/>
      </classes>
-   </test>-->
+   </test>
    
   <test name="Logout Test" >
 <parameter name="deviceName" value="Android SDK built for x86"/>
@@ -31,6 +31,6 @@
      <classes>
        <class name="com.jobget.testcases.LogOutPageTest"/>
     </classes>
-   </test>
+   </test>-->
  
 </suite> 
