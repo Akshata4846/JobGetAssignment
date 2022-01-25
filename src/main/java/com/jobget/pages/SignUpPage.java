@@ -134,8 +134,8 @@ public class SignUpPage extends Base {
 	MobileElement termsPageTitleClickedFromSignUpPage;
 	
 
-	public SignUpPage(AppiumDriver<MobileElement> driver, String deviceName,String platformVersion, String UDID) {
-		super(driver, deviceName, platformVersion, UDID);
+	public SignUpPage(AppiumDriver<MobileElement> driver, String deviceName,String platformVersion, String UDID, String port) {
+		super(driver, deviceName, platformVersion, UDID, port);
 		PageFactory.initElements(new AppiumFieldDecorator(getDriver()),this);
 	}
 

@@ -35,8 +35,8 @@ public class LogOutPage extends Base {
 	MobileElement settingsPageTitle;
 	
 	
-	public LogOutPage(AppiumDriver<MobileElement> driver, String deviceName,String platformVersion, String UDID) {
-		super(driver, deviceName, platformVersion, UDID);
+	public LogOutPage(AppiumDriver<MobileElement> driver, String deviceName,String platformVersion, String UDID, String port) {
+		super(driver, deviceName, platformVersion, UDID, port);
 		PageFactory.initElements(new AppiumFieldDecorator(driver),this);
 	}
 

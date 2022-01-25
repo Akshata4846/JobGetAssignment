@@ -11,8 +11,8 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class HomePage extends Base {
 	
-	public HomePage(AppiumDriver<MobileElement> driver, String deviceName,String platformVersion, String UDID) {
-		super(driver, deviceName, platformVersion, UDID);
+	public HomePage(AppiumDriver<MobileElement> driver, String deviceName,String platformVersion, String UDID, String port) {
+		super(driver, deviceName, platformVersion, UDID, port);
 		PageFactory.initElements(new AppiumFieldDecorator(driver),this);
 	}
 

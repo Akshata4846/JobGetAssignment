@@ -129,8 +129,8 @@ public class LoginPage extends Base {
 	@FindBy(xpath="//android.widget.Button[@resource-id='u_0_7_v8']")
 	WebElement continueAsEmailButton;
 	
-	public LoginPage(AppiumDriver<MobileElement> driver, String deviceName,String platformVersion, String UDID) {
-		super(driver, deviceName,platformVersion, UDID);
+	public LoginPage(AppiumDriver<MobileElement> driver, String deviceName,String platformVersion, String UDID, String port) {
+		super(driver, deviceName,platformVersion, UDID, port);
 		PageFactory.initElements(new AppiumFieldDecorator(getDriver()),this);
 	}
 

@@ -12,6 +12,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -20,10 +21,10 @@ public class LaunchPageTest extends TestBase{
 	static LaunchPage launchPage;
 	
 	
-	@BeforeMethod
-	@Parameters({"deviceName","platFormVersion", "UDID"})
-	public void setUp(String deviceName, String platFormVersion, String UDID) {
-		launchPage = new LaunchPage(null, deviceName, platFormVersion, UDID);
+	@BeforeClass
+	@Parameters({"deviceName","platFormVersion", "UDID", "port"})
+	public void setUp(String deviceName, String platFormVersion, String UDID, String port) {
+		launchPage = new LaunchPage(null, deviceName, platFormVersion, UDID, port);
 	}
 	
 	@AfterMethod

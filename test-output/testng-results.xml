@@ -1,236 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="5" failed="0" ignored="0" total="5" passed="0">
+<testng-results skipped="3" failed="2" ignored="0" total="5" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="366948" started-at="2022-01-24T15:09:55 IST" finished-at="2022-01-24T15:16:01 IST">
+  <suite name="Suite" duration-ms="64255" started-at="2022-01-24T18:44:01 IST" finished-at="2022-01-24T18:45:05 IST">
     <groups>
     </groups>
-    <test name="Logout Test" duration-ms="199037" started-at="2022-01-24T15:09:55 IST" finished-at="2022-01-24T15:13:14 IST">
-      <class name="com.jobget.testcases.LogOutPageTest">
-        <test-method status="PASS" signature="generateReport()[pri:0, instance:com.jobget.testcases.LogOutPageTest@5fdba6f9]" name="generateReport" is-config="true" duration-ms="3919" started-at="2022-01-24T15:09:55 IST" finished-at="2022-01-24T15:09:58 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- generateReport -->
-        <test-method status="FAIL" signature="setUp(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.jobget.testcases.LogOutPageTest@5fdba6f9]" name="setUp" is-config="true" duration-ms="182214" started-at="2022-01-24T15:10:09 IST" finished-at="2022-01-24T15:13:12 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Android SDK built for x86]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[10]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[emulator-5556]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.IllegalArgumentException">
-            <message>
-              <![CDATA[Can not set static io.appium.java_client.MobileElement field com.jobget.pages.LoginPage.loginBtn to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.IllegalArgumentException: Can not set static io.appium.java_client.MobileElement field com.jobget.pages.LoginPage.loginBtn to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4
-at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(Unknown Source)
-at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(Unknown Source)
-at sun.reflect.UnsafeStaticObjectFieldAccessorImpl.set(Unknown Source)
-at java.lang.reflect.Field.set(Unknown Source)
-at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:117)
-at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
-at com.jobget.pages.LoginPage.<init>(LoginPage.java:134)
-at com.jobget.testcases.LogOutPageTest.setUp(LogOutPageTest.java:37)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
-at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
-at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:700)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:527)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.access$000(SuiteRunner.java:28)
-at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:418)
-at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
-at java.util.concurrent.FutureTask.run(Unknown Source)
-at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-at java.lang.Thread.run(Unknown Source)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.IllegalArgumentException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="testLogoutConfirmationTrue(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.jobget.testcases.LogOutPageTest@5fdba6f9]" name="testLogoutConfirmationTrue" duration-ms="0" started-at="2022-01-24T15:13:13 IST" data-provider="getTestData" finished-at="2022-01-24T15:13:13 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[automationuser4846@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Auto!554001231]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[India]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.IllegalArgumentException">
-            <message>
-              <![CDATA[Can not set static io.appium.java_client.MobileElement field com.jobget.pages.LoginPage.loginBtn to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.IllegalArgumentException: Can not set static io.appium.java_client.MobileElement field com.jobget.pages.LoginPage.loginBtn to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4
-at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(Unknown Source)
-at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(Unknown Source)
-at sun.reflect.UnsafeStaticObjectFieldAccessorImpl.set(Unknown Source)
-at java.lang.reflect.Field.set(Unknown Source)
-at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:117)
-at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
-at com.jobget.pages.LoginPage.<init>(LoginPage.java:134)
-at com.jobget.testcases.LogOutPageTest.setUp(LogOutPageTest.java:37)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
-at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
-at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:700)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:527)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.access$000(SuiteRunner.java:28)
-at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:418)
-at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
-at java.util.concurrent.FutureTask.run(Unknown Source)
-at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-at java.lang.Thread.run(Unknown Source)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.IllegalArgumentException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testLogoutConfirmationTrue -->
-        <test-method status="SKIP" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.jobget.testcases.LogOutPageTest@5fdba6f9]" name="tearDown" is-config="true" duration-ms="-1643017393306" started-at="2022-01-24T15:13:13 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="SKIP" signature="setUp(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.jobget.testcases.LogOutPageTest@5fdba6f9]" name="setUp" is-config="true" duration-ms="-1643017394027" started-at="2022-01-24T15:13:14 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="testLogoutConfirmationFalse(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.jobget.testcases.LogOutPageTest@5fdba6f9]" name="testLogoutConfirmationFalse" duration-ms="0" started-at="2022-01-24T15:13:14 IST" data-provider="getTestData" finished-at="2022-01-24T15:13:14 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[automationuser4846@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Auto!554001231]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[India]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.IllegalArgumentException">
-            <message>
-              <![CDATA[Can not set static io.appium.java_client.MobileElement field com.jobget.pages.LoginPage.loginBtn to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.IllegalArgumentException: Can not set static io.appium.java_client.MobileElement field com.jobget.pages.LoginPage.loginBtn to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4
-at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(Unknown Source)
-at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(Unknown Source)
-at sun.reflect.UnsafeStaticObjectFieldAccessorImpl.set(Unknown Source)
-at java.lang.reflect.Field.set(Unknown Source)
-at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:117)
-at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
-at com.jobget.pages.LoginPage.<init>(LoginPage.java:134)
-at com.jobget.testcases.LogOutPageTest.setUp(LogOutPageTest.java:37)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
-at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
-at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:700)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:527)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.access$000(SuiteRunner.java:28)
-at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:418)
-at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
-at java.util.concurrent.FutureTask.run(Unknown Source)
-at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-at java.lang.Thread.run(Unknown Source)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.IllegalArgumentException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testLogoutConfirmationFalse -->
-        <test-method status="SKIP" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.jobget.testcases.LogOutPageTest@5fdba6f9]" name="tearDown" is-config="true" duration-ms="-1643017394036" started-at="2022-01-24T15:13:14 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="SKIP" signature="writeReport()[pri:0, instance:com.jobget.testcases.LogOutPageTest@5fdba6f9]" name="writeReport" is-config="true" duration-ms="-1643017394040" started-at="2022-01-24T15:13:14 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- writeReport -->
-      </class> <!-- com.jobget.testcases.LogOutPageTest -->
-    </test> <!-- Logout Test -->
-    <test name="Launch Test" duration-ms="366948" started-at="2022-01-24T15:09:55 IST" finished-at="2022-01-24T15:16:01 IST">
+    <test name="Launch Test" duration-ms="2572" started-at="2022-01-24T18:44:01 IST" finished-at="2022-01-24T18:44:03 IST">
       <class name="com.jobget.testcases.LaunchPageTest">
-        <test-method status="PASS" signature="generateReport()[pri:0, instance:com.jobget.testcases.LaunchPageTest@2a70a3d8]" name="generateReport" is-config="true" duration-ms="3919" started-at="2022-01-24T15:09:55 IST" finished-at="2022-01-24T15:09:58 IST">
+        <test-method status="PASS" signature="generateReport()[pri:0, instance:com.jobget.testcases.LaunchPageTest@396e2f39]" name="generateReport" is-config="true" duration-ms="203" started-at="2022-01-24T18:44:01 IST" finished-at="2022-01-24T18:44:01 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateReport -->
-        <test-method status="FAIL" signature="setUp(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.jobget.testcases.LaunchPageTest@2a70a3d8]" name="setUp" is-config="true" duration-ms="361983" started-at="2022-01-24T15:09:59 IST" finished-at="2022-01-24T15:16:01 IST">
+        <test-method status="FAIL" signature="setUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.jobget.testcases.LaunchPageTest@396e2f39]" name="setUp" is-config="true" duration-ms="2239" started-at="2022-01-24T18:44:01 IST" finished-at="2022-01-24T18:44:03 IST">
           <params>
             <param index="0">
               <value>
@@ -247,13 +28,18 @@ at java.lang.Thread.run(Unknown Source)
                 <![CDATA[emulator-5554]]>
               </value>
             </param>
+            <param index="3">
+              <value>
+                <![CDATA[4723]]>
+              </value>
+            </param>
           </params>
           <exception class="java.lang.IllegalArgumentException">
             <message>
-              <![CDATA[Can not set io.appium.java_client.MobileElement field com.jobget.pages.LaunchPage.logo to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4]]>
+              <![CDATA[Can not set io.appium.java_client.MobileElement field com.jobget.pages.LaunchPage.logo to null value]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.IllegalArgumentException: Can not set io.appium.java_client.MobileElement field com.jobget.pages.LaunchPage.logo to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4
+              <![CDATA[java.lang.IllegalArgumentException: Can not set io.appium.java_client.MobileElement field com.jobget.pages.LaunchPage.logo to null value
 at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(Unknown Source)
 at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(Unknown Source)
 at sun.reflect.UnsafeObjectFieldAccessorImpl.set(Unknown Source)
@@ -261,7 +47,7 @@ at java.lang.reflect.Field.set(Unknown Source)
 at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:117)
 at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
 at com.jobget.pages.LaunchPage.<init>(LaunchPage.java:30)
-at com.jobget.testcases.LaunchPageTest.setUp(LaunchPageTest.java:26)
+at com.jobget.testcases.LaunchPageTest.setUp(LaunchPageTest.java:27)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -270,14 +56,8 @@ at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelpe
 at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
 at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
 at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
-at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:700)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:527)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
 at java.util.ArrayList.forEach(Unknown Source)
 at org.testng.TestRunner.privateRun(TestRunner.java:794)
 at org.testng.TestRunner.run(TestRunner.java:596)
@@ -295,13 +75,13 @@ at java.lang.Thread.run(Unknown Source)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="logoDisplayedTest()[pri:1, instance:com.jobget.testcases.LaunchPageTest@2a70a3d8]" name="logoDisplayedTest" duration-ms="0" started-at="2022-01-24T15:16:01 IST" finished-at="2022-01-24T15:16:01 IST">
+        <test-method status="SKIP" signature="logoDisplayedTest()[pri:1, instance:com.jobget.testcases.LaunchPageTest@396e2f39]" name="logoDisplayedTest" duration-ms="0" started-at="2022-01-24T18:44:03 IST" finished-at="2022-01-24T18:44:03 IST">
           <exception class="java.lang.IllegalArgumentException">
             <message>
-              <![CDATA[Can not set io.appium.java_client.MobileElement field com.jobget.pages.LaunchPage.logo to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4]]>
+              <![CDATA[Can not set io.appium.java_client.MobileElement field com.jobget.pages.LaunchPage.logo to null value]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.IllegalArgumentException: Can not set io.appium.java_client.MobileElement field com.jobget.pages.LaunchPage.logo to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4
+              <![CDATA[java.lang.IllegalArgumentException: Can not set io.appium.java_client.MobileElement field com.jobget.pages.LaunchPage.logo to null value
 at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(Unknown Source)
 at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(Unknown Source)
 at sun.reflect.UnsafeObjectFieldAccessorImpl.set(Unknown Source)
@@ -309,7 +89,7 @@ at java.lang.reflect.Field.set(Unknown Source)
 at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:117)
 at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
 at com.jobget.pages.LaunchPage.<init>(LaunchPage.java:30)
-at com.jobget.testcases.LaunchPageTest.setUp(LaunchPageTest.java:26)
+at com.jobget.testcases.LaunchPageTest.setUp(LaunchPageTest.java:27)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -318,14 +98,8 @@ at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelpe
 at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
 at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
 at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
-at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:700)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:527)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
 at java.util.ArrayList.forEach(Unknown Source)
 at org.testng.TestRunner.privateRun(TestRunner.java:794)
 at org.testng.TestRunner.run(TestRunner.java:596)
@@ -343,21 +117,17 @@ at java.lang.Thread.run(Unknown Source)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logoDisplayedTest -->
-        <test-method status="SKIP" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.jobget.testcases.LaunchPageTest@2a70a3d8]" name="tearDown" is-config="true" duration-ms="-1643017561369" started-at="2022-01-24T15:16:01 IST" finished-at="1970-01-01T05:30:00 IST">
+        <test-method status="SKIP" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.jobget.testcases.LaunchPageTest@396e2f39]" name="tearDown" is-config="true" duration-ms="-1643030043962" started-at="2022-01-24T18:44:03 IST" finished-at="1970-01-01T05:30:00 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="SKIP" signature="setUp(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.jobget.testcases.LaunchPageTest@2a70a3d8]" name="setUp" is-config="true" duration-ms="-1643017561695" started-at="2022-01-24T15:16:01 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="signUpButtonDisplayedTest()[pri:2, instance:com.jobget.testcases.LaunchPageTest@2a70a3d8]" name="signUpButtonDisplayedTest" duration-ms="0" started-at="2022-01-24T15:16:01 IST" finished-at="2022-01-24T15:16:01 IST">
+        <test-method status="SKIP" signature="signUpButtonDisplayedTest()[pri:2, instance:com.jobget.testcases.LaunchPageTest@396e2f39]" name="signUpButtonDisplayedTest" duration-ms="0" started-at="2022-01-24T18:44:03 IST" finished-at="2022-01-24T18:44:03 IST">
           <exception class="java.lang.IllegalArgumentException">
             <message>
-              <![CDATA[Can not set io.appium.java_client.MobileElement field com.jobget.pages.LaunchPage.logo to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4]]>
+              <![CDATA[Can not set io.appium.java_client.MobileElement field com.jobget.pages.LaunchPage.logo to null value]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.IllegalArgumentException: Can not set io.appium.java_client.MobileElement field com.jobget.pages.LaunchPage.logo to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4
+              <![CDATA[java.lang.IllegalArgumentException: Can not set io.appium.java_client.MobileElement field com.jobget.pages.LaunchPage.logo to null value
 at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(Unknown Source)
 at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(Unknown Source)
 at sun.reflect.UnsafeObjectFieldAccessorImpl.set(Unknown Source)
@@ -365,7 +135,7 @@ at java.lang.reflect.Field.set(Unknown Source)
 at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:117)
 at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
 at com.jobget.pages.LaunchPage.<init>(LaunchPage.java:30)
-at com.jobget.testcases.LaunchPageTest.setUp(LaunchPageTest.java:26)
+at com.jobget.testcases.LaunchPageTest.setUp(LaunchPageTest.java:27)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -374,14 +144,8 @@ at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelpe
 at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
 at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
 at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
-at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:700)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:527)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
 at java.util.ArrayList.forEach(Unknown Source)
 at org.testng.TestRunner.privateRun(TestRunner.java:794)
 at org.testng.TestRunner.run(TestRunner.java:596)
@@ -399,21 +163,17 @@ at java.lang.Thread.run(Unknown Source)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- signUpButtonDisplayedTest -->
-        <test-method status="SKIP" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.jobget.testcases.LaunchPageTest@2a70a3d8]" name="tearDown" is-config="true" duration-ms="-1643017561880" started-at="2022-01-24T15:16:01 IST" finished-at="1970-01-01T05:30:00 IST">
+        <test-method status="SKIP" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.jobget.testcases.LaunchPageTest@396e2f39]" name="tearDown" is-config="true" duration-ms="-1643030043974" started-at="2022-01-24T18:44:03 IST" finished-at="1970-01-01T05:30:00 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="SKIP" signature="setUp(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.jobget.testcases.LaunchPageTest@2a70a3d8]" name="setUp" is-config="true" duration-ms="-1643017561946" started-at="2022-01-24T15:16:01 IST" finished-at="1970-01-01T05:30:00 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="loginButtonDisplayedTest()[pri:3, instance:com.jobget.testcases.LaunchPageTest@2a70a3d8]" name="loginButtonDisplayedTest" duration-ms="0" started-at="2022-01-24T15:16:01 IST" finished-at="2022-01-24T15:16:01 IST">
+        <test-method status="SKIP" signature="loginButtonDisplayedTest()[pri:3, instance:com.jobget.testcases.LaunchPageTest@396e2f39]" name="loginButtonDisplayedTest" duration-ms="0" started-at="2022-01-24T18:44:03 IST" finished-at="2022-01-24T18:44:03 IST">
           <exception class="java.lang.IllegalArgumentException">
             <message>
-              <![CDATA[Can not set io.appium.java_client.MobileElement field com.jobget.pages.LaunchPage.logo to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4]]>
+              <![CDATA[Can not set io.appium.java_client.MobileElement field com.jobget.pages.LaunchPage.logo to null value]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.IllegalArgumentException: Can not set io.appium.java_client.MobileElement field com.jobget.pages.LaunchPage.logo to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4
+              <![CDATA[java.lang.IllegalArgumentException: Can not set io.appium.java_client.MobileElement field com.jobget.pages.LaunchPage.logo to null value
 at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(Unknown Source)
 at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(Unknown Source)
 at sun.reflect.UnsafeObjectFieldAccessorImpl.set(Unknown Source)
@@ -421,7 +181,315 @@ at java.lang.reflect.Field.set(Unknown Source)
 at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:117)
 at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
 at com.jobget.pages.LaunchPage.<init>(LaunchPage.java:30)
-at com.jobget.testcases.LaunchPageTest.setUp(LaunchPageTest.java:26)
+at com.jobget.testcases.LaunchPageTest.setUp(LaunchPageTest.java:27)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
+at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:28)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:418)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+at java.util.concurrent.FutureTask.run(Unknown Source)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+at java.lang.Thread.run(Unknown Source)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalArgumentException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginButtonDisplayedTest -->
+        <test-method status="SKIP" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.jobget.testcases.LaunchPageTest@396e2f39]" name="tearDown" is-config="true" duration-ms="-1643030043991" started-at="2022-01-24T18:44:03 IST" finished-at="1970-01-01T05:30:00 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="SKIP" signature="writeReport()[pri:0, instance:com.jobget.testcases.LaunchPageTest@396e2f39]" name="writeReport" is-config="true" duration-ms="-1643030043994" started-at="2022-01-24T18:44:03 IST" finished-at="1970-01-01T05:30:00 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- writeReport -->
+      </class> <!-- com.jobget.testcases.LaunchPageTest -->
+    </test> <!-- Launch Test -->
+    <test name="Logout Test" duration-ms="64255" started-at="2022-01-24T18:44:01 IST" finished-at="2022-01-24T18:45:05 IST">
+      <class name="com.jobget.testcases.LogOutPageTest">
+        <test-method status="PASS" signature="generateReport()[pri:0, instance:com.jobget.testcases.LogOutPageTest@3b94d659]" name="generateReport" is-config="true" duration-ms="203" started-at="2022-01-24T18:44:01 IST" finished-at="2022-01-24T18:44:01 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateReport -->
+        <test-method status="PASS" signature="setUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.jobget.testcases.LogOutPageTest@3b94d659]" name="setUp" is-config="true" duration-ms="21145" started-at="2022-01-24T18:44:01 IST" finished-at="2022-01-24T18:44:22 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Android SDK built for x86]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[11]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[emulator-5556]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[4733]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="FAIL" signature="testLogoutConfirmationTrue(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.jobget.testcases.LogOutPageTest@3b94d659]" name="testLogoutConfirmationTrue" duration-ms="40575" started-at="2022-01-24T18:44:24 IST" data-provider="getTestData" finished-at="2022-01-24T18:45:04 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!554001231]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Can't locate an element by this strategy: By.id: com.android.permissioncontroller:id/permission_deny_button]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.id: com.android.permissioncontroller:id/permission_deny_button
+at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
+at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
+at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.click(<generated>)
+at com.jobget.pages.LoginPage.locationPermissionAccess(LoginPage.java:267)
+at com.jobget.testcases.LogOutPageTest.userLogin(LogOutPageTest.java:70)
+at com.jobget.testcases.LogOutPageTest.testLogoutConfirmationTrue(LogOutPageTest.java:95)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:28)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:418)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+at java.util.concurrent.FutureTask.run(Unknown Source)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+at java.lang.Thread.run(Unknown Source)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@57fde68e (tried for 1 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:304)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
+at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
+... 28 more
+Caused by: org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-3RDL7KS', ip: '192.168.0.172', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_301'
+Driver info: io.appium.java_client.AppiumDriver
+Capabilities {app: C:\Users\AVK2E5744\Download..., appPackage: com.jobget, databaseEnabled: false, desired: {app: C:\Users\AVK2E5744\Download..., deviceName: Android SDK built for x86, newCommandTimeout: 60, platformName: android, platformVersion: 11, udid: emulator-5556}, deviceApiLevel: 30, deviceManufacturer: unknown, deviceModel: Android SDK built for x86, deviceName: emulator-5556, deviceScreenDensity: 440, deviceScreenSize: 1080x2280, deviceUDID: emulator-5556, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 60, pixelRatio: 2.75, platform: LINUX, platformName: Android, platformVersion: 11, statBarHeight: 135, takesScreenshot: true, udid: emulator-5556, viewportRect: {height: 1842, left: 0, top: 135, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: a5b2316e-914f-4e8d-8e89-8f91d43eb33f
+*** Element info: {Using=id, value=com.android.permissioncontroller:id/permission_deny_button}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:69)
+at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$0(AppiumElementLocator.java:120)
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:172)
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:1)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+... 30 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogoutConfirmationTrue -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.jobget.testcases.LogOutPageTest@3b94d659]" name="tearDown" is-config="true" duration-ms="768" started-at="2022-01-24T18:45:04 IST" finished-at="2022-01-24T18:45:05 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLogoutConfirmationTrue status=FAILURE method=LogOutPageTest.testLogoutConfirmationTrue(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.jobget.testcases.LogOutPageTest@3b94d659] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="FAIL" signature="testLogoutConfirmationFalse(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.jobget.testcases.LogOutPageTest@3b94d659]" name="testLogoutConfirmationFalse" duration-ms="2" started-at="2022-01-24T18:45:05 IST" data-provider="getTestData" finished-at="2022-01-24T18:45:05 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationuser4846@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Auto!554001231]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.WebDriverException">
+            <message>
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-3RDL7KS', ip: '192.168.0.172', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_301'
+Driver info: driver.version: AppiumDriver]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.WebDriverException: org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-3RDL7KS', ip: '192.168.0.172', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_301'
+Driver info: driver.version: AppiumDriver
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:192)
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:1)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
+at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
+at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
+at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.click(<generated>)
+at com.jobget.pages.LoginPage.clickLoginUpBtn(LoginPage.java:138)
+at com.jobget.testcases.LoginTestBase.prepareForLogin(LoginTestBase.java:26)
+at com.jobget.testcases.LogOutPageTest.userLogin(LogOutPageTest.java:66)
+at com.jobget.testcases.LogOutPageTest.testLogoutConfirmationFalse(LogOutPageTest.java:123)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:28)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:418)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+at java.util.concurrent.FutureTask.run(Unknown Source)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+at java.lang.Thread.run(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-3RDL7KS', ip: '192.168.0.172', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_301'
+Driver info: driver.version: AppiumDriver
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:125)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:69)
+at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$0(AppiumElementLocator.java:120)
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:172)
+... 33 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogoutConfirmationFalse -->
+        <test-method status="FAIL" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.jobget.testcases.LogOutPageTest@3b94d659]" name="tearDown" is-config="true" duration-ms="1" started-at="2022-01-24T18:45:05 IST" finished-at="2022-01-24T18:45:05 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLogoutConfirmationFalse status=FAILURE method=LogOutPageTest.testLogoutConfirmationFalse(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:com.jobget.testcases.LogOutPageTest@3b94d659] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchSessionException">
+            <message>
+              <![CDATA[Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-3RDL7KS', ip: '192.168.0.172', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_301'
+Driver info: driver.version: RemoteWebDriver]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-3RDL7KS', ip: '192.168.0.172', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_301'
+Driver info: driver.version: RemoteWebDriver
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:125)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:45)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:295)
+at com.jobget.util.Util.takeScreenshot(Util.java:74)
+at com.jobget.testcases.LogOutPageTest.tearDown(LogOutPageTest.java:49)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -431,7 +499,8 @@ at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(Met
 at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
 at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
 at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:700)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:527)
+at org.testng.internal.TestInvoker.runAfterGroupsConfigurations(TestInvoker.java:676)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:660)
 at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
 at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
 at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
@@ -451,19 +520,15 @@ at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 at java.lang.Thread.run(Unknown Source)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.IllegalArgumentException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginButtonDisplayedTest -->
-        <test-method status="SKIP" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.jobget.testcases.LaunchPageTest@2a70a3d8]" name="tearDown" is-config="true" duration-ms="-1643017561952" started-at="2022-01-24T15:16:01 IST" finished-at="1970-01-01T05:30:00 IST">
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="SKIP" signature="writeReport()[pri:0, instance:com.jobget.testcases.LaunchPageTest@2a70a3d8]" name="writeReport" is-config="true" duration-ms="-1643017561954" started-at="2022-01-24T15:16:01 IST" finished-at="1970-01-01T05:30:00 IST">
+        <test-method status="SKIP" signature="writeReport()[pri:0, instance:com.jobget.testcases.LogOutPageTest@3b94d659]" name="writeReport" is-config="true" duration-ms="-1643030105677" started-at="2022-01-24T18:45:05 IST" finished-at="1970-01-01T05:30:00 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- writeReport -->
-      </class> <!-- com.jobget.testcases.LaunchPageTest -->
-    </test> <!-- Launch Test -->
+      </class> <!-- com.jobget.testcases.LogOutPageTest -->
+    </test> <!-- Logout Test -->
   </suite> <!-- Suite -->
 </testng-results>

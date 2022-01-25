@@ -29,8 +29,8 @@ public class SignUpPageTest {
 
 	@BeforeMethod
 	@Parameters({"deviceName","platFormVersion", "UDID"})
-	public void setUp(String deviceName, String platformVersion, String UDID) {
-		signUpPage = new SignUpPage(null, deviceName, platformVersion, UDID);
+	public void setUp(String deviceName, String platformVersion, String UDID, String port) {
+		signUpPage = new SignUpPage(null, deviceName, platformVersion, UDID, port);
 	}
 
 	@AfterMethod

@@ -6,6 +6,7 @@ import java.util.Iterator;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -31,12 +32,12 @@ public class LogOutPageTest extends LoginTestBase {
 	}
 
 
-	@BeforeMethod
-	@Parameters({"deviceName","platFormVersion", "UDID"})
-	public void setUp(String deviceName,String platformVersion, String UDID) {
-		loginPage = new LoginPage(null, deviceName, platformVersion, UDID);
-		homePage = new HomePage(loginPage.getDriver(), deviceName, platformVersion, UDID);
-		logoutPage = new LogOutPage(loginPage.getDriver(), deviceName, platformVersion, UDID);
+	@BeforeClass
+	@Parameters({"deviceName","platFormVersion", "UDID", "port"})
+	public void setUp(String deviceName,String platformVersion, String UDID, String port) {
+		loginPage = new LoginPage(null, deviceName, platformVersion, UDID, port);
+		homePage = new HomePage(loginPage.getDriver(), deviceName, platformVersion, UDID, port);
+		logoutPage = new LogOutPage(loginPage.getDriver(), deviceName, platformVersion, UDID, port);
 	}
 	
 	@AfterMethod

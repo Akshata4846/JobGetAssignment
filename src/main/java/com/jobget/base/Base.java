@@ -16,15 +16,15 @@ public class Base {
 	private AppiumDriver<MobileElement> driver;
 	
 
-	public Base (AppiumDriver<MobileElement> driver, String deviceName,String platformVersion, String UDID ) {
+	public Base (AppiumDriver<MobileElement> driver, String deviceName,String platformVersion, String UDID, String port ) {
 		if (driver != null) {
 			this.driver = driver;
 		} else {
-			initializeApp(deviceName,platformVersion, UDID);
+			initializeApp(deviceName,platformVersion, UDID, port);
 		}
 	}
 
-	public void initializeApp(String deviceName,String platformVersion, String UDID)  {
+	public void initializeApp(String deviceName,String platformVersion, String UDID, String port)  {
 		dc = new DesiredCapabilities();
 		try {
 			//dc.setCapability(MobileCapabilityType.DEVICE_NAME, Config.getProperty("deviceName"));
@@ -36,7 +36,7 @@ public class Base {
 			dc.setCapability(MobileCapabilityType.APP, Config.getProperty("appPath") + "app-preproduction-jobget-14-jan.apk");
 			//dc.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + "\\src\\test\\resources\\apps" + Config.getProperty("app"));
 			//System.out.println("apk path" + System.getProperty("user.dir") + "\\src\\test\\resources\\apps" + Config.getProperty("app"));
-			url =  new URL("http://" + Config.getProperty("hostname") + ":" + Config.getProperty("port") + "/wd/hub");
+			url =  new URL("http://" + Config.getProperty("hostname") + ":" + port + "/wd/hub");
 			driver = new AppiumDriver<MobileElement>(url,dc);
 			driver.manage().timeouts().implicitlyWait(Util.IMPLICIT_WAIT_TIMEOUT, TimeUnit.SECONDS);
 		

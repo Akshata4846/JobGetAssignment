@@ -44,9 +44,9 @@ public class LoginPageTest extends LoginTestBase {
 
 	@BeforeMethod
 	@Parameters({"deviceName","platFormVersion", "UDID"})
-	public void setUp(String deviceName, String platformVersion, String UDID) {
-		loginPage = new LoginPage(null, deviceName, platformVersion, UDID);
-		homePage = new HomePage(loginPage.getDriver(), deviceName, platformVersion, UDID);
+	public void setUp(String deviceName, String platformVersion, String UDID, String port) {
+		loginPage = new LoginPage(null, deviceName, platformVersion, UDID, port);
+		homePage = new HomePage(loginPage.getDriver(), deviceName, platformVersion, UDID, port);
 	}
 
 	@AfterMethod
