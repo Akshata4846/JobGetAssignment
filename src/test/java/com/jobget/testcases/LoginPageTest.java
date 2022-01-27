@@ -26,10 +26,7 @@ import org.testng.ITestResult;
 //@Listeners(com.jobget.util.Listener.class)
 
 
-/**
- * @author sanat
- *
- */
+
 public class LoginPageTest extends LoginTestBase {
 
 	HomePage homePage;
