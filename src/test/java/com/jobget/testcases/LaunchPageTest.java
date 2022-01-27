@@ -21,7 +21,7 @@ public class LaunchPageTest extends TestBase{
 	static LaunchPage launchPage;
 	
 	
-	@BeforeClass
+	@BeforeMethod
 	@Parameters({"deviceName","platFormVersion", "UDID", "port"})
 	public void setUp(String deviceName, String platFormVersion, String UDID, String port) {
 		launchPage = new LaunchPage(null, deviceName, platFormVersion, UDID, port);
