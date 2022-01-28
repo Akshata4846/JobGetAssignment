@@ -2,19 +2,41 @@ pipeline {
     agent any
 
     tools {
-        maven "MAVEN_HOME"
+        maven "Maven"
     }
 
     stages {
-        stage('Build') {
+        stage('Compile') {
             steps {
                 // Get code from a GitHub repository
                 git 'https://github.com/Akshata4846/JobGetAssignment.git'
 
 
-                // Run Maven
-                bat "mvn clean package"
+                // Compile
+                bat "mvn compile"
             }
+        
+        stage('Test') {
+            steps {
+                // Get code from a GitHub repository
+                git 'https://github.com/Akshata4846/JobGetAssignment.git'
+
+
+                // test
+                bat "mvn test"
+            }
+            
+        stage('Deploy') {
+            steps {
+                // Get code from a GitHub repository
+                git 'https://github.com/Akshata4846/JobGetAssignment.git'
+
+
+                // deploy
+                bat "mvn deploy"
+            }
+            
+            
 
             post {
                 success {
