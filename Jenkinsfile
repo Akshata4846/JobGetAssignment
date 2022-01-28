@@ -25,6 +25,17 @@ pipeline {
                 // test
                 bat "mvn test"
             }
+        }
+        
+        stage('Install') {
+//             steps {
+//                 // Get code from a GitHub repository
+//                 git 'https://github.com/Akshata4846/JobGetAssignment.git'
+
+
+                // test
+                bat "mvn install"
+            }
             
             post {
                 success {
