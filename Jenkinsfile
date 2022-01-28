@@ -14,6 +14,7 @@ pipeline {
                 // Compile
                 bat "mvn compile"
             }
+        }
         
         stage('Test') {
             steps {
@@ -24,6 +25,7 @@ pipeline {
                 // test
                 bat "mvn test"
             }
+        }
             
         stage('Deploy') {
             steps {
@@ -34,9 +36,7 @@ pipeline {
                 // deploy
                 bat "mvn deploy"
             }
-            
-            
-
+       
             post {
                 success {
                     junit '**/target/surefire-reports/TEST-*.xml'
