@@ -11,7 +11,6 @@ pipeline {
                 // Get code from a GitHub repository
                 git 'https://github.com/Akshata4846/JobGetAssignment.git'
 
-
                 // Compile
                 bat "mvn compile"
             }
